@@ -19,7 +19,7 @@ Manuaalisivujen sisältö oli sen verran hankala ymmärtää, että tarvitsin se
 
 Mitään ei tulostu, koska icmp-paketteja ei liiku.
 
-2. Käynnistetään toinen terminaali ja pingataan verkko-osoitetta (google.com).
+2. Käynnistetään toinen terminaali ja pingataan verkko-osoitetta (ping google.com).
 
 ![Screenshot from 2024-10-25 10-32-08](https://github.com/user-attachments/assets/0b757118-88ff-4c62-bd93-57a63d23f0c8)
 
