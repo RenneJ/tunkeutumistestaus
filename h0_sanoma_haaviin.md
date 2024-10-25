@@ -15,6 +15,7 @@ Manuaalisivujen sisältö oli sen verran hankala ymmärtää, että tarvitsin se
 
 1. Kokeillaan ohjelmaa. Ngrep vaatii sudo-oikeudet.
 
+![Screenshot from 2024-10-25 10-26-01](https://github.com/user-attachments/assets/b7029107-bb6b-473d-8377-dd8d00814eef)
 
 
 ## Lähteet
