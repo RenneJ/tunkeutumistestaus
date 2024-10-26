@@ -42,6 +42,18 @@ Intrusion kill-chain vapaasti käännettynä tunkeutumisen suoritusketju on jouk
 
 ### The Art of Hacking - 4.3 Surveying Essential Tools for Active Reconnaissance: Port Scanning and web Service Review (Santos et al. 2019)
 
+Työkaluja: nmap, masscan, udpprotoscanner, EyeWitness
+
+**nmap** on monipuolisin porttiskanneri.
+
+**masscan** on nopein. Erinomainen, jos kohteita on suuri määrä.
+
+**udp-proto-scanner** on hyvä, jos tarvitsee vain selvittää udp-porttien tila.
+
+**EyeWitness** on web-skanneri. Sitä voi käyttää hyökkäyskohteiden priorisoinnissa. Ottaa kuvan sivusta sekä muuta tietoa palvelimen vastauksesta (response headers).
+
+Eli esim: **nmapilla** selvitetään avoimet ip-osoitteet + portit ja EyeWitnessillä katsotaan miten ne vastaavat pyyntöön (löytyikö secret admin page?).
+
 ## Lähteet
 
 Hutchins, E.M., Cloppert, M.J., Amin R.M. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Lockheed Martin Corporation. Luettavissa: [https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf](https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf). Luettu: 2024-26-10
