@@ -54,7 +54,11 @@ Työkaluja: nmap, masscan, udpprotoscanner, EyeWitness
 
 Eli esim: **nmapilla** selvitetään avoimet ip-osoitteet + portit ja **EyeWitnessillä** katsotaan miten ne vastaavat pyyntöön (löytyikö secret admin page?).
 
-### KKO:2003:36
+### Tietomurto Vahingonkorvaus - Korvauksen sovittelu (KKO:2003:36)
+
+- A yrittänyt murtaa turvajärjestelyn tunkeutuakseen Osuuspankkikeskuksen (OPK) tietojärjestelmään
+- A:n on katsottu olevan atk-alan asiantuntija (tekohetkellä vuonna 1998 17-vuotias)
+- A:n tietokoneelta löytyi listoja, jotka sisälsivät porttiskannauksella kerättyä tietoa tai siihen käytettävää tietoa
 
 ## Lähteet
 
