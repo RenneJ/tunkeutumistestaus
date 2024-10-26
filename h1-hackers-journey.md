@@ -52,12 +52,16 @@ Työkaluja: nmap, masscan, udpprotoscanner, EyeWitness
 
 **EyeWitness** on web-skanneri. Sitä voi käyttää hyökkäyskohteiden priorisoinnissa. Ottaa kuvan sivusta sekä muuta tietoa palvelimen vastauksesta (response headers).
 
-Eli esim: **nmapilla** selvitetään avoimet ip-osoitteet + portit ja EyeWitnessillä katsotaan miten ne vastaavat pyyntöön (löytyikö secret admin page?).
+Eli esim: **nmapilla** selvitetään avoimet ip-osoitteet + portit ja **EyeWitnessillä** katsotaan miten ne vastaavat pyyntöön (löytyikö secret admin page?).
+
+### KKO:2003:36
 
 ## Lähteet
 
 Hutchins, E.M., Cloppert, M.J., Amin R.M. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Lockheed Martin Corporation. Luettavissa: [https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf](https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf). Luettu: 2024-26-10
 
 Hyppönen, M. & Tuominen, T. 2024-08-15. Tapaus Vastaamo, vieraana Marko Leponen. Herrasmieshakkerit. © 2019 F-Secure. Kuunneltavissa: [https://podcasts.apple.com/fi/podcast/tapaus-vastaamo-vieraana-marko-leponen-0x33/id1479000931?i=1000665442473](https://podcasts.apple.com/fi/podcast/tapaus-vastaamo-vieraana-marko-leponen-0x33/id1479000931?i=1000665442473). Kuunneltu: 2024-26-10.
+
+KKO:2003:36. Tietomurto Vahingonkorvaus - Korvauksen sovittelu. Korkeimman oikeuden ennakkopäätös. Lueattavissa: [https://finlex.fi/fi/oikeus/kko/kko/2003/20030036](https://finlex.fi/fi/oikeus/kko/kko/2003/20030036). Luettu: 2024-26-10
 
 Santos, O., Taylor, R., Sternstein, J., McCoy, C. 2019. The Art of Hacking (Video Collection). O'Reilly. Katsottavissa, vaatii kirjautumisen sekä maksun tai 10pv kokeilujakson hyväksymisen: [https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/](https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/). Katsottu: 2024-26-10
