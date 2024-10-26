@@ -98,7 +98,11 @@ Alkutilanne:
 ![image](https://github.com/user-attachments/assets/88be0462-b73d-402a-a935-6feccbe55e62)
 > Kuva 3. Pingaaminen Googlen nimipalvelimelle onnistuu.
 
-Päätin asentaa ufw:n ja kokeilla asettaa säännöt ettei vm kykene ottamaan mitään yhteyksiä (kuva 4). Portti 22 jätetään auki, koska sitä tarvitaan ssh-yhteyden ottamiseksi (ja nykyisen yhteyden ylläpitämiseksi).
+Päätin asentaa ufw:n ja kokeilla asettaa säännöt ettei vm kykene ottamaan mitään yhteyksiä (kuva 4). Portti 22 jätetään auki, koska sitä tarvitaan ssh-yhteyden ottamiseksi (ja nykyisen yhteyden ylläpitämiseksi). Ufw komentojen syntaksi: ``man ufw``.
+
+    $ sudo ufw deny out [porttinumero]
+    $ sudo ufw allow 22                # ssh
+    $ sudo ufw enable
 
 ![image](https://github.com/user-attachments/assets/f0d6bf9c-0237-49b3-89ae-52782615e4a3)
 > Kuva 4. Ufw:n säännöt.
