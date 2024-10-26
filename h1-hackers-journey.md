@@ -64,6 +64,19 @@ Eli esim: **nmapilla** selvitetään avoimet ip-osoitteet + portit ja **EyeWitne
 - A tuomittiin maksamaan osuuskunnalle 20 000 mk ja yhtiölle 55 00 mk korkoineen
 - Korkeimman oikeuden tuomiolauselma: "Hovioikeuden tuomion lopputulosta ei muuteta."
 
+## a) Asenna Kali virtuaalikoneeseen
+
+Vagrant on minulle aiemmalta opintojaksolta tuttu, joten käytän sitä. Aiemmin asensin debian bookwormin komennolla:
+
+  $ vagrant init debian/bookworm64
+
+  $ vagrant init kalilinux/rolling
+
+Komennon parametrin "kalilinux/rolling" löytyi selaamalla olemassa olevia vagrant boxeja HashiCorpin sivulta (kuva 1).
+
+[![image](https://github.com/user-attachments/assets/5c812167-9acb-4f08-9caa-a2e8620c870d)
+> Kuva 1. Hakutulos hakusanalla "kali" HashiCorpin Vagrant boxeista.
+
 ## Lähteet
 
 Hutchins, E.M., Cloppert, M.J., Amin R.M. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Lockheed Martin Corporation. Luettavissa: [https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf](https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf). Luettu: 2024-26-10
