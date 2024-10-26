@@ -60,7 +60,7 @@ Eli esim: **nmapilla** selvitetään avoimet ip-osoitteet + portit ja **EyeWitne
 - A:n on katsottu olevan atk-alan asiantuntija (tekohetkellä vuonna 1998 17-vuotias)
 - A:n tietokoneelta löytyi listoja, jotka sisälsivät porttiskannauksella kerättyä tietoa tai siihen käytettävää tietoa
 - Hovioikeudessa todettiin, että "Ei ollut uskottavaa, että A olisi tehnyt skannauksen muussa tarkoituksessa kuin että hän olisi myös tunkeutunut tietojärjestelmään, jos sellainen mahdollisuus olisi löytynyt."
- - tietomurron yritys
+  - tietomurron yritys
 - A tuomittiin maksamaan osuuskunnalle 20 000 mk ja yhtiölle 55 00 mk korkoineen
 - Korkeimman oikeuden tuomiolauselma: "Hovioikeuden tuomion lopputulosta ei muuteta."
 
