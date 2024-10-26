@@ -68,13 +68,15 @@ Eli esim: **nmapilla** selvitetään avoimet ip-osoitteet + portit ja **EyeWitne
 
 Vagrant on minulle aiemmalta opintojaksolta tuttu, joten käytän sitä. Aiemmin asensin debian bookwormin komennolla:
 
-  $ vagrant init debian/bookworm64
+    $ vagrant init debian/bookworm64
 
-  $ vagrant init kalilinux/rolling
+Joten kokeillaan:
+
+    $ vagrant init kalilinux/rolling
 
 Komennon parametrin "kalilinux/rolling" löytyi selaamalla olemassa olevia vagrant boxeja HashiCorpin sivulta (kuva 1).
 
-[![image](https://github.com/user-attachments/assets/5c812167-9acb-4f08-9caa-a2e8620c870d)
+![image](https://github.com/user-attachments/assets/5c812167-9acb-4f08-9caa-a2e8620c870d)
 > Kuva 1. Hakutulos hakusanalla "kali" HashiCorpin Vagrant boxeista.
 
 ## Lähteet
