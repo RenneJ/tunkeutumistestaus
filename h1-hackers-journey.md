@@ -1,8 +1,8 @@
 # H1 Hacker's Journey
 
-### x) Lue/katso/kuuntele ja tiivistä
+## x) Lue/katso/kuuntele ja tiivistä
 
-#### Herrasmieshakkerit - Tapaus Vastaamo, vieraana Marko Leponen (Hyppönen & Tuominen 2024-08-15)
+### Herrasmieshakkerit - Tapaus Vastaamo, vieraana Marko Leponen (Hyppönen & Tuominen 2024-08-15)
 
 - psykoterapiakeskus Vastaamo tuotti oman potilastietojärjestelmän, jonka tietoturva oli puutteellinen
 - Aleksanteri Kivimäki, nimimerkillä ransom_man, vei Vastaamon järjestelmistä potilastietokertomuksia
@@ -22,7 +22,7 @@
   - vahvistava apu tutkintapolkujen kanssa ja oleellisten foorumeiden osoittamisesta
   - olivat myös apuna uhreille, ettei heitä "lyötäisi toista kertaa"
 
-#### Intrusion kill-chain (Hutchins et al. 2011, 4-5)
+### Intrusion kill-chain (Hutchins et al. 2011, 4-5)
 
 Intrusion kill-chain vapaasti käännettynä tunkeutumisen suoritusketju on joukko toimintoja, jotka hyökkääjän on kaikki suoritettava tunkeutuakseen kohdejärjestelmään. Analogia ketjusta viittaa jokaisen toiminnan ts. ketjun linkin välttämättömyyteen ja suoritusjärjestykseen.
 
@@ -40,7 +40,7 @@ Intrusion kill-chain vapaasti käännettynä tunkeutumisen suoritusketju on jouk
 
 **Tavoitteiden toteutus** (actions on objectives). Usein datan siirrot, manipulaatiot ja/tai saatavuuden esto. Tavoitteena voi olla myös lateraali liikkuminen kohdeverkossa (toisten koneiden hyväksikäyttö).
 
-#### The Art of Hacking - 4.3 Surveying Essential Tools for Active Reconnaissance: Port Scanning and web Service Review (Santos et al. 2019)
+### The Art of Hacking - 4.3 Surveying Essential Tools for Active Reconnaissance: Port Scanning and web Service Review (Santos et al. 2019)
 
 ## Lähteet
 
