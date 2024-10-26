@@ -1,4 +1,4 @@
-# H1 Hacker's Journey
+# [H1 Hacker's Journey](https://terokarvinen.com/tunkeutumistestaus/#h1-hackers-journey) (Karvinen 2024)
 
 ## x) Lue/katso/kuuntele ja tiivistä
 
@@ -66,6 +66,10 @@ Eli esim: **nmapilla** selvitetään avoimet ip-osoitteet + portit ja **EyeWitne
 
 ## a) Asenna Kali virtuaalikoneeseen
 
+- Host: Ubuntu 22.04 (amd64)
+- Vagrant 2.4.1
+- VirtualBox 7.0
+
 Vagrant on minulle aiemmalta opintojaksolta tuttu, joten käytän sitä. Aiemmin asensin debian bookwormin komennolla:
 
     $ vagrant init debian/bookworm64
@@ -73,17 +77,59 @@ Vagrant on minulle aiemmalta opintojaksolta tuttu, joten käytän sitä. Aiemmin
 Joten kokeillaan:
 
     $ vagrant init kalilinux/rolling
+    $ vagrant up
 
-Komennon parametrin "kalilinux/rolling" löytyi selaamalla olemassa olevia vagrant boxeja HashiCorpin sivulta (kuva 1).
+Komennon parametrin "kalilinux/rolling" löytyi selaamalla olemassa olevia vagrant boxeja HashiCorpin [sivulta](https://portal.cloud.hashicorp.com/vagrant/discover?query=kali) (kuva 1). Virtuaalimasiinan alustamisessa kesti useampi minuutti. Varmaankin siksi, että levykuva on ISO.
 
 ![image](https://github.com/user-attachments/assets/5c812167-9acb-4f08-9caa-a2e8620c870d)
 > Kuva 1. Hakutulos hakusanalla "kali" HashiCorpin Vagrant boxeista.
+
+Debian käynnistyi avaamatta graafista käyttöliittymää VirtualBoxissa. Mutta Kali avautui VirtualBoxin liittymässä. Muistin oikein ja gui:tä käyttäen pääsee kirjautumaan tunnuksilla vagrant ja salasana myös vagrant. Otetaan kuitenkin yhteys terminaalissa ssh:lla.
+
+    $ vagrant ssh
+    
+![image](https://github.com/user-attachments/assets/d27b189f-6cd8-4286-8ec3-4e3cd656fa72)
+> Kuva 2. Kali asennettu ja käyttövalmis.
+
+## b) Irrota Kali-virtuaalikone verkosta
+
+Alkutilanne:
+
+![image](https://github.com/user-attachments/assets/88be0462-b73d-402a-a935-6feccbe55e62)
+> Kuva 3. Pingaaminen Googlen nimipalvelimelle onnistuu.
+
+Päätin asentaa ufw:n ja kokeilla asettaa säännöt ettei vm kykene ottamaan mitään yhteyksiä (kuva 4). Portti 22 jätetään auki, koska sitä tarvitaan ssh-yhteyden ottamiseksi (ja nykyisen yhteyden ylläpitämiseksi).
+
+![image](https://github.com/user-attachments/assets/f0d6bf9c-0237-49b3-89ae-52782615e4a3)
+> Kuva 4. Ufw:n säännöt.
+
+Tässä tilassa komento ``curl https://terokarvinen.com`` ei tulosta mitään terminaaliin mutta ei myöskään pääty virheilmoitukseen. Pingaaminen Googlen nimipalvelimille vielä toimii (kuva 5).
+
+![image](https://github.com/user-attachments/assets/6681429b-973e-4074-b3b7-01aead86e9c5)
+> Kuva 5. Kuvassa 4 näkyvät säännöt eivät estä icmp-liikennettä.
+
+Kokeilin myös graafisessa käyttöliittymässä ottaa "kaapelin" irti (Devices -> Network -> Network Setting -> Advanced -> Cable Connected). Tällöin ei taas ssh-yhteys pelaa...
+
+Googlailin ja päädyin [tähän](https://askubuntu.com/a/793123) käyttäjän Dan AskUbuntu-vastaukseen.
+
+    $ sudo ufw default deny outgoing
+    $ sudo ufw default deny incoming
+    $ sudo ufw status                 # tarkistus, ettei portti 22 ole kiinni
+
+Tämän jälkeen curlaaminen tai pingaaminen onnistu (kuva 6). Nyt curl tulostaa terminaaliin myös virheilmoituksen.
+
+![image](https://github.com/user-attachments/assets/df4056fa-4462-43c1-8211-1e419f811b2d)
+> Kuva 6. Ping 8.8.8.8 eikä curl https://terokarvinen.com kummatkaan toimi.
+
+Täten totean virtuaalimasiinan olevan tilassa, jossa se ei saa yhteyttä nettiin.
 
 ## Lähteet
 
 Hutchins, E.M., Cloppert, M.J., Amin R.M. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Lockheed Martin Corporation. Luettavissa: [https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf](https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf). Luettu: 2024-26-10
 
 Hyppönen, M. & Tuominen, T. 2024-08-15. Tapaus Vastaamo, vieraana Marko Leponen. Herrasmieshakkerit. © 2019 F-Secure. Kuunneltavissa: [https://podcasts.apple.com/fi/podcast/tapaus-vastaamo-vieraana-marko-leponen-0x33/id1479000931?i=1000665442473](https://podcasts.apple.com/fi/podcast/tapaus-vastaamo-vieraana-marko-leponen-0x33/id1479000931?i=1000665442473). Kuunneltu: 2024-26-10.
+
+Karvinen, T. 2024. Tunkeutumistestaus - H1 Hacker's Journey. Luettavissa: [https://terokarvinen.com/tunkeutumistestaus/#h1-hackers-journey](https://terokarvinen.com/tunkeutumistestaus/#h1-hackers-journey). Luettu: 2024-26-10
 
 KKO:2003:36. Tietomurto Vahingonkorvaus - Korvauksen sovittelu. Korkeimman oikeuden ennakkopäätös. Lueattavissa: [https://finlex.fi/fi/oikeus/kko/kko/2003/20030036](https://finlex.fi/fi/oikeus/kko/kko/2003/20030036). Luettu: 2024-26-10
 
