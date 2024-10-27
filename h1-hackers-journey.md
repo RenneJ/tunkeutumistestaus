@@ -138,7 +138,7 @@ Nyt tilanne oli toinen (kuva 7). Nyt on auki myös portti 111/tcp (rpcinfo).
 
 Tulosanalyysi:
 
-Portti 22/tcp on ssh-protokollalle (secure shell) varattu portti. Sen täytyy olla auki sillä koneella, johon otetaan yhteys (serveri). Ohjelma, joka käyttää sitä on tapauksessani OpenSSH. Minun ei tarvitse pitää tätä auki, joten daemonin voi pysäyttää.
+Portti 22/tcp on ssh-protokollalle (secure shell) varattu portti. Sen täytyy olla auki sillä koneella, johon halutaan ottaa ssh-yhteys. Ohjelma, joka käyttää sitä on tapauksessani OpenSSH. Minun ei tarvitse pitää tätä auki, joten daemonin voi pysäyttää.
 
     $ sudo systemctl stop ssh
     $ sudo systemctl disable ssh
@@ -149,12 +149,18 @@ Portti 111/tcp kuuntelee rpc-protokollaliikennettä (remote procedure call). Rpc
     $ sudo systemctl stop rpcbind.socket
     $ sudo systemctl disable rpcbind
 
-Tässä vaiheessa tarkistan, että käytöstä poistetut daemonit eivät käynnisty bootatessa ja ne eivät ala kuuntelemaan mitään porttia. Jostain kumman syystä ``sudo nmap -A localhost`` ei tunnistanut kohdekoneen käyttöjärjestelmää. Kokeilin komentoa ``sudo nmap -O localhost``, joka tunnisti oikein koneeni käyttiksen.
+Tässä vaiheessa tarkistan, että käytöstä poistetut daemonit eivät käynnisty bootatessa ja ne eivät ala kuuntelemaan mitään porttia. Jostain kumman syystä ``sudo nmap -A localhost`` ei tunnistanut kohdekoneen käyttöjärjestelmää (kuva 8). Kokeilin komentoa ``sudo nmap -O localhost`` (``man nmap``), joka tunnisti oikein koneeni käyttiksen oikein Linuxiksi. Tämän jälkeen ajoin uudestaan ``sudo nmap -A localhost`` ja tulosteessa on eritelty OS ja service (kuva 9).
 
 ![image](https://github.com/user-attachments/assets/824b6e10-9999-4061-88cf-98bedc53ff3a)
 > Kuva 8. Porttiskannaus koneen uudelleenkäynnistyksen jälkeen. Portit 22 ja 111 pysyvät kiinni.
 
-Portti 631/tcp
+![image](https://github.com/user-attachments/assets/430372e9-a1e0-4a61-8ed3-4ab35ae400e4)
+> Kuva 9. OS ja service onnistuneesti havaittu.
+
+Portti 631/tcp kuuntelee ipp-protokollaliikennettä (internet print protocol) ja CUPS on daemon, joka sen on avannut. CUPS on todennäköisesti tullut Ubuntun tai jonkin muun asentamani ohjelman mukana. Minun ei tarvitse pitää porttia auki, koska en aio käyttää tätä konetta tulostinpalvelimena tai tulostimena (Sweet & McDonald 2017).
+
+    $ sudo systemctl stop cups
+    $ sudo systemctl disable cups
 
 ## Lähteet
 
@@ -168,6 +174,8 @@ Hyppönen, M. & Tuominen, T. 2024-08-15. Tapaus Vastaamo, vieraana Marko Leponen
 
 Karvinen, T. 2024. Tunkeutumistestaus - H1 Hacker's Journey. Luettavissa: [https://terokarvinen.com/tunkeutumistestaus/#h1-hackers-journey](https://terokarvinen.com/tunkeutumistestaus/#h1-hackers-journey). Luettu: 2024-26-10
 
-KKO:2003:36. Tietomurto Vahingonkorvaus - Korvauksen sovittelu. Korkeimman oikeuden ennakkopäätös. Lueattavissa: [https://finlex.fi/fi/oikeus/kko/kko/2003/20030036](https://finlex.fi/fi/oikeus/kko/kko/2003/20030036). Luettu: 2024-26-10
+KKO:2003:36. Tietomurto Vahingonkorvaus - Korvauksen sovittelu. Korkeimman oikeuden ennakkopäätös. Luettavissa: [https://finlex.fi/fi/oikeus/kko/kko/2003/20030036](https://finlex.fi/fi/oikeus/kko/kko/2003/20030036). Luettu: 2024-26-10
 
 Santos, O., Taylor, R., Sternstein, J., McCoy, C. 2019. The Art of Hacking (Video Collection). O'Reilly. Katsottavissa (vaatii kirjautumisen sekä maksun tai 10pv kokeilujakson hyväksymisen): [https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/](https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/). Katsottu: 2024-26-10
+
+Sweet, M., McDonald, I. 2017. RFC 8010 Internet Printing Protocol/1.1: Encoding and Transport. IETF. Luettavissa: [https://www.rfc-editor.org/rfc/rfc8010.html]. Luettu: 2024-27-10
