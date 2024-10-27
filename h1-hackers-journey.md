@@ -203,30 +203,30 @@ Tämä vm box on tilassa, jossa se ei saa yhteyttä muuhun kuin ssh-yhteden host
 
 ## Lähteet
 
-aws, s.a. What’s the Difference Between RPC and REST?. 2024, Amazon Web Services Inc. Luettavissa: [https://aws.amazon.com/compare/the-difference-between-rpc-and-rest/]. Luettu: 2024-27-10
+aws, s.a. What’s the Difference Between RPC and REST?. 2024, Amazon Web Services Inc. Luettavissa: https://aws.amazon.com/compare/the-difference-between-rpc-and-rest/. Luettu: 2024-27-10
 
-HackTricks, 2024. 111/TCP/UDP - Pentesting Portmapper. Luettavissa: [https://book.hacktricks.xyz/network-services-pentesting/pentesting-rpcbind#basic-information]. Luettu: 2024-27-10
+HackTricks, 2024. 111/TCP/UDP - Pentesting Portmapper. Luettavissa: https://book.hacktricks.xyz/network-services-pentesting/pentesting-rpcbind#basic-information. Luettu: 2024-27-10
 
 Hutchins, E.M., Cloppert, M.J., Amin R.M. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Lockheed Martin Corporation. Luettavissa: [https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf](https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf). Luettu: 2024-26-10
 
 Hyppönen, M. & Tuominen, T. 2024-08-15. Tapaus Vastaamo, vieraana Marko Leponen. Herrasmieshakkerit. Kuunneltavissa: [https://podcasts.apple.com/fi/podcast/tapaus-vastaamo-vieraana-marko-leponen-0x33/id1479000931?i=1000665442473](https://podcasts.apple.com/fi/podcast/tapaus-vastaamo-vieraana-marko-leponen-0x33/id1479000931?i=1000665442473). Kuunneltu: 2024-26-10.
 
-Karvinen, T. 2024. Tunkeutumistestaus - H1 Hacker's Journey. Luettavissa: [https://terokarvinen.com/tunkeutumistestaus/#h1-hackers-journey](https://terokarvinen.com/tunkeutumistestaus/#h1-hackers-journey). Luettu: 2024-26-10
+Karvinen, T. 2024. Tunkeutumistestaus - H1 Hacker's Journey. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/#h1-hackers-journey. Luettu: 2024-26-10
 
-KKO:2003:36. Tietomurto Vahingonkorvaus - Korvauksen sovittelu. Korkeimman oikeuden ennakkopäätös. Luettavissa: [https://finlex.fi/fi/oikeus/kko/kko/2003/20030036](https://finlex.fi/fi/oikeus/kko/kko/2003/20030036). Luettu: 2024-26-10
+KKO:2003:36. Tietomurto Vahingonkorvaus - Korvauksen sovittelu. Korkeimman oikeuden ennakkopäätös. Luettavissa: https://finlex.fi/fi/oikeus/kko/kko/2003/20030036. Luettu: 2024-26-10
 
-nmap.org s.a. a. The Phases of an Nmap Scan. Luettavissa: [https://nmap.org/book/nmap-phases.html]. Luettu: 2024-27-10
+nmap.org s.a. a. The Phases of an Nmap Scan. Luettavissa: https://nmap.org/book/nmap-phases.html. Luettu: 2024-27-10
 
-nmap.org s.a. b. Script smtp-commands. Luettavissa: [https://nmap.org/nsedoc/scripts/smtp-commands.html]. Luettu: 2024-27-10
+nmap.org s.a. b. Script smtp-commands. Luettavissa: https://nmap.org/nsedoc/scripts/smtp-commands.html. Luettu: 2024-27-10
 
-nmap.org s.a. c. Script ssl-cert. Luettavissa: [https://nmap.org/nsedoc/scripts/ssl-cert.html]. Luettu: 2024-27-10
+nmap.org s.a. c. Script ssl-cert. Luettavissa: https://nmap.org/nsedoc/scripts/ssl-cert.html. Luettu: 2024-27-10
 
-nmap.org s.a. d. Script http-server-header. Luettavissa: [https://nmap.org/nsedoc/scripts/http-server-header.html]. Luettu: 2024-27-10
+nmap.org s.a. d. Script http-server-header. Luettavissa: https://nmap.org/nsedoc/scripts/http-server-header.html. Luettu: 2024-27-10
 
-nmap.org s.a. e. Script http-title. Luettavissa: [https://nmap.org/nsedoc/scripts/http-title.html]. Luettu: 2024-27-10
+nmap.org s.a. e. Script http-title. Luettavissa: https://nmap.org/nsedoc/scripts/http-title.html. Luettu: 2024-27-10
 
 Santos, O., Taylor, R., Sternstein, J., McCoy, C. 2019. The Art of Hacking (Video Collection). O'Reilly. Katsottavissa (vaatii kirjautumisen sekä maksun tai 10pv kokeilujakson hyväksymisen): [https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/](https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/). Katsottu: 2024-26-10
 
-Sweet, M., McDonald, I. 2017. RFC 8010 Internet Printing Protocol/1.1: Encoding and Transport. IETF. Luettavissa: [https://www.rfc-editor.org/rfc/rfc8010.html]. Luettu: 2024-27-10
+Sweet, M., McDonald, I. 2017. RFC 8010 Internet Printing Protocol/1.1: Encoding and Transport. IETF. Luettavissa: https://www.rfc-editor.org/rfc/rfc8010.html. Luettu: 2024-27-10
 
-Yung, Z. 2019. List of All SMTP Commands and Response Codes. Railsware Products Studio LLC. Luettavissa : [https://mailtrap.io/blog/smtp-commands-and-responses/]. Luettu: 2024-27-10
+Yung, Z. 2019. List of All SMTP Commands and Response Codes. Railsware Products Studio LLC. Luettavissa : https://mailtrap.io/blog/smtp-commands-and-responses/. Luettu: 2024-27-10
