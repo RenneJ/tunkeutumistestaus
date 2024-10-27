@@ -140,7 +140,11 @@ Tulosanalyysi:
 
 Portti 22/tcp on ssh-protokollalle (secure shell) varattu portti. Sen täytyy olla auki sillä koneella, johon otetaan yhteys (serveri). Ohjelma, joka käyttää sitä on tapauksessani OpenSSH. Minun ei tarvitse pitää tätä auki, joten daemonin voi pysäyttää ``sudo systemctl disable``. Ymmärtääkseni komennolla ``stop`` voi myös pysäyttää, mutta palvelu käynnistyy koneen uudelleenkäynnistyessä. Ssh:n saa takaisin päälle ``sudo systemctl enable ssh``.
 
+Portti 111/tcp kuuntelee rpc-protokollaliikennettä (remote procedure call). Rpc-protokollaa käyttäen voidaan kutsua asiakaskoneelta palvelimella olevia funktioita kuten ne olisivat paikallisia 
+
 ## Lähteet
+
+Amazon Web Services, s.a. What’s the Difference Between RPC and REST?. 2024, Amazon Web Services Inc. Luettavissa: [https://aws.amazon.com/compare/the-difference-between-rpc-and-rest/]. Luettu: 2024-27-10
 
 Hutchins, E.M., Cloppert, M.J., Amin R.M. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Lockheed Martin Corporation. Luettavissa: [https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf](https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf). Luettu: 2024-26-10
 
