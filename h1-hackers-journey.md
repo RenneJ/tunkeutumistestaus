@@ -221,6 +221,7 @@ Vedetään "kaapeli" irti. Eli poistetaan valinta "Cable Connected" kali-koneest
 Tarkistetaan koneiden ip-osoitteet esim. komennolla ``ifconfig``.
 
 Kalin ip-osoite: 192.168.56.102
+
 Metasploitable: 192.168.56.101
 
 ![image](https://github.com/user-attachments/assets/2a48c3c2-7174-4452-a7a3-909dc7fbd01e)
