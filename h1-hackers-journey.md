@@ -129,6 +129,10 @@ Täten totean virtuaalimasiinan olevan tilassa, jossa se ei saa yhteyttä "netti
 
 ### c) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi
 
+Komento: ``sudo nmap -A localhost``
+
+Optio ``-A`` tarkoittaa "Enable OS detection, version detection, script scanning, and traceroute" (``man nmap``).
+
 Tämä tehtävä tehtiin myös perjantain (2024-25-10) oppitunnilla. Muistan, että silloin tässä samassa koneessa oli auki portit 22/tcp (OpenSSH) sekä 631/tcp (CUPS).
 
 Nyt tilanne oli toinen (kuva 7). Nyt on auki myös portti 111/tcp (rpcinfo).
@@ -162,6 +166,21 @@ Portti 631/tcp kuuntelee ipp-protokollaliikennettä (internet print protocol) ja
     $ sudo systemctl stop cups
     $ sudo systemctl disable cups
 
+### d) Asenna kaksi vapaavalintaista demonia ja skannaa uudelleen
+
+Asennetaan Apache HTTP-palvelin ja Postfix SMTP-palvelin.
+
+    $ sudo systemctl install apache2
+    $ sudo systemctl install postfix    # konfiguroinnissa valitsin local only ja default nimen
+    $ sudo systemctl status apache2     # tarkistetaan, että daemonit ovat päällä
+    $ sudo systemctl status postfix
+
+![image](https://github.com/user-attachments/assets/6a1528cc-de8d-4172-a3d6-23e4f3bd2454)
+> Kuva 10. Porttiskannaus uusien daemonien asennuksen jälkeen.
+
+Postfix käynnistyy portissa 25/tcp
+
+
 ## Lähteet
 
 aws, s.a. What’s the Difference Between RPC and REST?. 2024, Amazon Web Services Inc. Luettavissa: [https://aws.amazon.com/compare/the-difference-between-rpc-and-rest/]. Luettu: 2024-27-10
@@ -170,7 +189,7 @@ HackTricks, 2024. 111/TCP/UDP - Pentesting Portmapper. Luettavissa: [https://boo
 
 Hutchins, E.M., Cloppert, M.J., Amin R.M. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Lockheed Martin Corporation. Luettavissa: [https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf](https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf). Luettu: 2024-26-10
 
-Hyppönen, M. & Tuominen, T. 2024-08-15. Tapaus Vastaamo, vieraana Marko Leponen. Herrasmieshakkerit. © 2019 F-Secure. Kuunneltavissa: [https://podcasts.apple.com/fi/podcast/tapaus-vastaamo-vieraana-marko-leponen-0x33/id1479000931?i=1000665442473](https://podcasts.apple.com/fi/podcast/tapaus-vastaamo-vieraana-marko-leponen-0x33/id1479000931?i=1000665442473). Kuunneltu: 2024-26-10.
+Hyppönen, M. & Tuominen, T. 2024-08-15. Tapaus Vastaamo, vieraana Marko Leponen. Herrasmieshakkerit. Kuunneltavissa: [https://podcasts.apple.com/fi/podcast/tapaus-vastaamo-vieraana-marko-leponen-0x33/id1479000931?i=1000665442473](https://podcasts.apple.com/fi/podcast/tapaus-vastaamo-vieraana-marko-leponen-0x33/id1479000931?i=1000665442473). Kuunneltu: 2024-26-10.
 
 Karvinen, T. 2024. Tunkeutumistestaus - H1 Hacker's Journey. Luettavissa: [https://terokarvinen.com/tunkeutumistestaus/#h1-hackers-journey](https://terokarvinen.com/tunkeutumistestaus/#h1-hackers-journey). Luettu: 2024-26-10
 
