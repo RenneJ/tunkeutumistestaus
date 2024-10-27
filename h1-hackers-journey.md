@@ -79,7 +79,7 @@ Joten kokeillaan:
     $ vagrant init kalilinux/rolling
     $ vagrant up
 
-Komennon parametrin "kalilinux/rolling" löytyi selaamalla olemassa olevia vagrant boxeja HashiCorpin [sivulta](https://portal.cloud.hashicorp.com/vagrant/discover?query=kali) (kuva 1). Virtuaalimasiinan alustamisessa kesti useampi minuutti. Varmaankin siksi, että levykuva on ISO.
+Komennon parametrin "kalilinux/rolling" löytyi selaamalla olemassa olevia vagrant boxeja HashiCorpin [sivulta](https://portal.cloud.hashicorp.com/vagrant/discover?query=kali) (kuva 1). Virtuaalimasiinan alustamisessa kesti useampi minuutti.
 
 ![image](https://github.com/user-attachments/assets/5c812167-9acb-4f08-9caa-a2e8620c870d)
 > Kuva 1. Hakutulos hakusanalla "kali" HashiCorpin Vagrant boxeista.
@@ -194,12 +194,40 @@ En tarvitse näiden palveluiden toimintoja, joten poistetaan ne.
 
 ### e) Asenna Metasploitable 2 virtuaalikoneeseen
 
-Aloitetaan siirtymällä hakemistoon, johon aiemmin tein Vagrantfilen (``vagrant init``) ja ajetaan komento ``vagrant up`` ja ``vagrant ssh``.
+Ladataan ensin metasploitable zippi (https://sourceforge.net/projects/metasploitable/) ja puretaan se. Seurasin metasploitablen asennusohjeita [tämän](https://www.youtube.com/watch?v=1rIvnMenA2g) videon mukaan.
 
-Tämä vm box on tilassa, jossa se ei saa yhteyttä muuhun kuin ssh-yhteden host-koneeseen. Otetaan palomuuri pois päältä ``sudo ufw disable`` ja kokeillaan, että yhteys ulkomaailmaan pelaa ``ping 8.8.8.8``.
+Uuden virtuaalimasiinan luomisen jälkeen yritin säätää sen network-asetuksia käyttämään Host-only adapteria. Tämä ei onnistunut koska host-only -verkkoa ei ole. Loin sen VirtualBoxin käyttöliittymässä File -> Tools -> Network manager -> Create. Uuden verkon luotuani pystyin asettamaan metasploitable-koneen host-only adapteriin. Laitoin aiemmin luodun kali-koneen myös kiinni samaan host-only adapteriin. Mutta kali-kone on sen lisäksi kiinni NATissa, jotta sillä voidaan ottaa yhteys ulkoiseen verkkoon.
 
+![image](https://github.com/user-attachments/assets/19dd7ae5-dd82-4d58-a2d6-a40b88719390)
+> Kuva 13. Metasploitable vm käynnistyy ja ei saa yhteyttä ulkoverkkoon.
 
+### f) Tee koneiden välille virtuaaliverkko.
 
+Tämä tulikin käytännössä tehdyksi jo edellisessä kohdassa. Todetaan, että asetukset on tehty tehtävänannon vaatimusten mukaisesti.
+
+    Kali saa yhteyden Internettiin, mutta sen voi laittaa pois päältä      # kuvat 14 ja 15
+    Kalin ja Metasploitablen välillä on host-only network, niin että porttiskannatessa ym. koneet on eristetty intenetistä, mutta ne saavat yhteyden toisiinsa     # kuvat 16 ja 17
+    Vaihtoehtoisesti voit tehdä molempien koneiden asennuksen ja virtuaaliverkon vagrantilla. Silloin molemmat koneet samaan Vagrantfile:n.
+    (Karvinen 2024)
+
+![image](https://github.com/user-attachments/assets/08c5b233-7fd4-4e37-b4e5-402f20baf366)
+> Kuva 14. Kali saa yhteyden Internetiin, curl ja ping ok!
+
+Vedetään "kaapeli" irti. Eli poistetaan valinta "Cable Connected" kali-koneesta siitä adapterista, joka on kiinni NATissa. Settings -> Network -> Adapter 1 -> Cable Connected. Testataan kuvassa 14 näkyvät komennot uudestaan.
+
+![image](https://github.com/user-attachments/assets/4a0a7773-5447-4457-8a9d-9f3c2ee8152c)
+> Kuva 15. "Kaapeli" on irti.
+
+Tarkistetaan koneiden ip-osoitteet esim. komennolla ``ifconfig``.
+
+Kalin ip-osoite: 192.168.56.102
+Metasploitable: 192.168.56.101
+
+![image](https://github.com/user-attachments/assets/2a48c3c2-7174-4452-a7a3-909dc7fbd01e)
+> Kuva 16. Pingaus kalista metasploitableen ok.
+
+![image](https://github.com/user-attachments/assets/e1a66e5b-fd7c-434a-8f3f-48c3db2f66ff)
+> Kuva 17. Pingaus metasploitablesta kaliin ok.
 
 ## Lähteet
 
