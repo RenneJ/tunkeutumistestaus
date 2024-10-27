@@ -125,7 +125,20 @@ Tämän jälkeen curlaaminen tai pingaaminen onnistu (kuva 6). Nyt curl tulostaa
 ![image](https://github.com/user-attachments/assets/df4056fa-4462-43c1-8211-1e419f811b2d)
 > Kuva 6. Ping 8.8.8.8 eikä curl https://terokarvinen.com kummatkaan toimi.
 
-Täten totean virtuaalimasiinan olevan tilassa, jossa se ei saa yhteyttä nettiin.
+Täten totean virtuaalimasiinan olevan tilassa, jossa se ei saa yhteyttä "nettiin".
+
+### c) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi
+
+Tämä tehtävä tehtiin myös perjantain (2024-25-10) oppitunnilla. Muistan, että silloin tässä samassa koneessa oli auki portit 22/tcp (OpenSSH) sekä 631/tcp (CUPS).
+
+Nyt tilanne oli toinen (kuva 7). Nyt on auki myös portti 111/tcp (rpcinfo).
+
+![image](https://github.com/user-attachments/assets/064a4578-b308-4f2f-bb4a-19308070df4b)
+> Kuva 7. Localhostin porttiskannaus.
+
+Tulosanalyysi:
+
+Portti 22/tcp on ssh-protokollalle (secure shell) varattu portti. Sen täytyy olla auki sillä koneella, johon otetaan yhteys (serveri). Ohjelma, joka käyttää sitä on tapauksessani OpenSSH. Minun ei tarvitse pitää tätä auki, joten daemonin voi pysäyttää ``sudo systemctl disable``. Ymmärtääkseni komennolla ``stop`` voi myös pysäyttää, mutta palvelu käynnistyy koneen uudelleenkäynnistyessä. Ssh:n saa takaisin päälle ``sudo systemctl enable ssh``.
 
 ## Lähteet
 
@@ -137,4 +150,4 @@ Karvinen, T. 2024. Tunkeutumistestaus - H1 Hacker's Journey. Luettavissa: [https
 
 KKO:2003:36. Tietomurto Vahingonkorvaus - Korvauksen sovittelu. Korkeimman oikeuden ennakkopäätös. Lueattavissa: [https://finlex.fi/fi/oikeus/kko/kko/2003/20030036](https://finlex.fi/fi/oikeus/kko/kko/2003/20030036). Luettu: 2024-26-10
 
-Santos, O., Taylor, R., Sternstein, J., McCoy, C. 2019. The Art of Hacking (Video Collection). O'Reilly. Katsottavissa, vaatii kirjautumisen sekä maksun tai 10pv kokeilujakson hyväksymisen: [https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/](https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/). Katsottu: 2024-26-10
+Santos, O., Taylor, R., Sternstein, J., McCoy, C. 2019. The Art of Hacking (Video Collection). O'Reilly. Katsottavissa (vaatii kirjautumisen sekä maksun tai 10pv kokeilujakson hyväksymisen): [https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/](https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/). Katsottu: 2024-26-10
