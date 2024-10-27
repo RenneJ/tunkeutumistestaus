@@ -138,13 +138,24 @@ Nyt tilanne oli toinen (kuva 7). Nyt on auki myös portti 111/tcp (rpcinfo).
 
 Tulosanalyysi:
 
-Portti 22/tcp on ssh-protokollalle (secure shell) varattu portti. Sen täytyy olla auki sillä koneella, johon otetaan yhteys (serveri). Ohjelma, joka käyttää sitä on tapauksessani OpenSSH. Minun ei tarvitse pitää tätä auki, joten daemonin voi pysäyttää ``sudo systemctl disable``. Ymmärtääkseni komennolla ``stop`` voi myös pysäyttää, mutta palvelu käynnistyy koneen uudelleenkäynnistyessä. Ssh:n saa takaisin päälle ``sudo systemctl enable ssh``.
+Portti 22/tcp on ssh-protokollalle (secure shell) varattu portti. Sen täytyy olla auki sillä koneella, johon otetaan yhteys (serveri). Ohjelma, joka käyttää sitä on tapauksessani OpenSSH. Minun ei tarvitse pitää tätä auki, joten daemonin voi pysäyttää.
 
-Portti 111/tcp kuuntelee rpc-protokollaliikennettä (remote procedure call). Rpc-protokollaa käyttäen voidaan kutsua asiakaskoneelta palvelimella olevia funktioita kuten ne olisivat paikallisia 
+    $ sudo systemctl stop ssh
+    $ sudo systemctl disable ssh
+
+Portti 111/tcp kuuntelee rpc-protokollaliikennettä (remote procedure call). Rpc-protokollaa käyttäen voidaan kutsua asiakaskoneelta palvelimella olevia funktioita kuten ne olisivat paikallisia (aws s.a.). Esim. NFS (network file sharing) käyttää rpc-protokollaa. En osaa varmuudella sanoa, minkä takia portti on nyt auki. Se saattaa liittyä siihen, kun partitioin kiintolevyn ja poistin tältä koneelta dual boot Windowsin. Tein sen gparted-ohjelmalla. Hakutulosten perusteella minun ei ole tarvetta pitää porttia auki ja se saattaa olla turvariski (HackTricks 2024).
+
+    $ sudo systemctl stop rpcbind    # Output: Warning: Stopping rpcbind.service, but it can still be activated by: rpcbind.socket
+    $ sudo systemctl stop rpcbind.socket
+    $ sudo systemctl disable rpcbind
+
+  Tässä vaiheessa tarkistan, että ssh ja rpcbind eivät käynnisty bootin aikana.
 
 ## Lähteet
 
-Amazon Web Services, s.a. What’s the Difference Between RPC and REST?. 2024, Amazon Web Services Inc. Luettavissa: [https://aws.amazon.com/compare/the-difference-between-rpc-and-rest/]. Luettu: 2024-27-10
+aws, s.a. What’s the Difference Between RPC and REST?. 2024, Amazon Web Services Inc. Luettavissa: [https://aws.amazon.com/compare/the-difference-between-rpc-and-rest/]. Luettu: 2024-27-10
+
+HackTricks, 2024. 111/TCP/UDP - Pentesting Portmapper. Luettavissa: [https://book.hacktricks.xyz/network-services-pentesting/pentesting-rpcbind#basic-information]. Luettu: 2024-27-10
 
 Hutchins, E.M., Cloppert, M.J., Amin R.M. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Lockheed Martin Corporation. Luettavissa: [https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf](https://lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf). Luettu: 2024-26-10
 
