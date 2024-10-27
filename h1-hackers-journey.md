@@ -147,7 +147,7 @@ Portti 22/tcp on ssh-protokollalle (secure shell) varattu portti. Sen täytyy ol
     $ sudo systemctl stop ssh
     $ sudo systemctl disable ssh
 
-Portti 111/tcp kuuntelee rpc-protokollaliikennettä (remote procedure call). Rpc-protokollaa käyttäen voidaan kutsua asiakaskoneelta palvelimella olevia funktioita kuten ne olisivat paikallisia (aws s.a.). Esim. NFS (network file sharing) käyttää rpc-protokollaa. En osaa varmuudella sanoa, minkä takia portti on nyt auki. Se saattaa liittyä siihen, kun partitioin kiintolevyn ja poistin tältä koneelta dual boot Windowsin. Tein sen gparted-ohjelmalla. Hakutulosten perusteella minun ei ole tarvetta pitää porttia auki ja se saattaa olla turvariski (HackTricks 2024).
+Portti 111/tcp kuuntelee rpc-protokollaliikennettä (remote procedure call). Rpc-protokollaa käyttäen voidaan kutsua asiakaskoneelta palvelimella olevia funktioita kuten ne olisivat paikallisia (aws s.a.). Esim. NFS (network file sharing) käyttää rpc-protokollaa. En osaa varmuudella sanoa, minkä takia portti on nyt auki. Se saattaa liittyä siihen, kun partitioin kiintolevyn ja poistin tältä koneelta dual boot Windowsin. Tein sen gparted-ohjelmalla. Hakutulosten perusteella minun ei ole tarvetta pitää porttia auki ja se saattaa olla turvariski (HackTricks 2024). Jos ymmärsin oikein option ``-A`` toiminnan (script scanning osa, toimii myös lipulla -sC) niin nmap tai tarkemmin NSE (nmap script engine) pystyy suorittamaan skriptin kohteessa (nmap.org s.a. a). Kuvassa 7 voi nähdä avoinna olevan portin 111/tcp alla olevassa tulosteessa "rpcinfo", josta näkee lisätietoa rpcbind-daemonista (mm. versionumerot).
 
     $ sudo systemctl stop rpcbind    # Output: Warning: Stopping rpcbind.service, but it can still be activated by: rpcbind.socket
     $ sudo systemctl stop rpcbind.socket
@@ -178,7 +178,27 @@ Asennetaan Apache HTTP-palvelin ja Postfix SMTP-palvelin.
 ![image](https://github.com/user-attachments/assets/6a1528cc-de8d-4172-a3d6-23e4f3bd2454)
 > Kuva 10. Porttiskannaus uusien daemonien asennuksen jälkeen.
 
-Postfix käynnistyy portissa 25/tcp
+Postfix käynnistyy portissa 25/tcp kuuntelemaan smtp-liikennettä. Nmap/nse on saanut ok-vastaukset skripteihin ``smtp-commands`` ja ``ssl-cert``. Smtp-komennot ovat protokollasession aikana tapahtuvia toimintoja (Yung 2019). ``smtp-commands`` yrittää selvittää smtp-palvelimen tukemat komennot (nmap.org s.a. b). ``ssl-cert`` selvittää tietoja palvelimen ssl-sertifikaatista (nmap.org s.a. c).
+
+Apache2 käynnistyy portissa 80/tcp kuuntelemaan http-liikennettä. Nmap/nse on saanut ok-vastaukset ``http-server-header`` (nmap.org s.a. d) ja ``http-title`` (nmap.org s.a. e). Samankaltaisen tiedon kuin ``http-title`` saa myös esimerkiksi ``curl`` komennolla.
+
+![image](https://github.com/user-attachments/assets/2332a1cd-ea09-4ffe-9fab-e00edeb9422b)
+> Kuva 11. Curl ja grep.
+
+En tarvitse näiden palveluiden toimintoja, joten poistetaan ne.
+
+    $ sudo apt remove postfix apache2
+
+![image](https://github.com/user-attachments/assets/ce1e411a-08db-45b4-9ebf-4bd091f427cc)
+> Kuva 12. Tilanne postfixin ja apachen poistamisen jälkeen.
+
+### e) Asenna Metasploitable 2 virtuaalikoneeseen
+
+Aloitetaan siirtymällä hakemistoon, johon aiemmin tein Vagrantfilen (``vagrant init``) ja ajetaan komento ``vagrant up`` ja ``vagrant ssh``.
+
+Tämä vm box on tilassa, jossa se ei saa yhteyttä muuhun kuin ssh-yhteden host-koneeseen. Otetaan palomuuri pois päältä ``sudo ufw disable`` ja kokeillaan, että yhteys ulkomaailmaan pelaa ``ping 8.8.8.8``.
+
+
 
 
 ## Lähteet
@@ -195,6 +215,18 @@ Karvinen, T. 2024. Tunkeutumistestaus - H1 Hacker's Journey. Luettavissa: [https
 
 KKO:2003:36. Tietomurto Vahingonkorvaus - Korvauksen sovittelu. Korkeimman oikeuden ennakkopäätös. Luettavissa: [https://finlex.fi/fi/oikeus/kko/kko/2003/20030036](https://finlex.fi/fi/oikeus/kko/kko/2003/20030036). Luettu: 2024-26-10
 
+nmap.org s.a. a. The Phases of an Nmap Scan. Luettavissa: [https://nmap.org/book/nmap-phases.html]. Luettu: 2024-27-10
+
+nmap.org s.a. b. Script smtp-commands. Luettavissa: [https://nmap.org/nsedoc/scripts/smtp-commands.html]. Luettu: 2024-27-10
+
+nmap.org s.a. c. Script ssl-cert. Luettavissa: [https://nmap.org/nsedoc/scripts/ssl-cert.html]. Luettu: 2024-27-10
+
+nmap.org s.a. d. Script http-server-header. Luettavissa: [https://nmap.org/nsedoc/scripts/http-server-header.html]. Luettu: 2024-27-10
+
+nmap.org s.a. e. Script http-title. Luettavissa: [https://nmap.org/nsedoc/scripts/http-title.html]. Luettu: 2024-27-10
+
 Santos, O., Taylor, R., Sternstein, J., McCoy, C. 2019. The Art of Hacking (Video Collection). O'Reilly. Katsottavissa (vaatii kirjautumisen sekä maksun tai 10pv kokeilujakson hyväksymisen): [https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/](https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/). Katsottu: 2024-26-10
 
 Sweet, M., McDonald, I. 2017. RFC 8010 Internet Printing Protocol/1.1: Encoding and Transport. IETF. Luettavissa: [https://www.rfc-editor.org/rfc/rfc8010.html]. Luettu: 2024-27-10
+
+Yung, Z. 2019. List of All SMTP Commands and Response Codes. Railsware Products Studio LLC. Luettavissa : [https://mailtrap.io/blog/smtp-commands-and-responses/]. Luettu: 2024-27-10
