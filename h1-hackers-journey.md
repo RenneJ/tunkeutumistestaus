@@ -149,7 +149,7 @@ Portti 111/tcp kuuntelee rpc-protokollaliikennettä (remote procedure call). Rpc
     $ sudo systemctl stop rpcbind.socket
     $ sudo systemctl disable rpcbind
 
-Tässä vaiheessa tarkistan, että käytöstä poistetut daemonit eivät käynnisty bootatessa ja ne eivät ala kuuntelemaan mitään porttia. Kuvassa 8
+Tässä vaiheessa tarkistan, että käytöstä poistetut daemonit eivät käynnisty bootatessa ja ne eivät ala kuuntelemaan mitään porttia. Jostain kumman syystä ``sudo nmap -A localhost`` ei tunnistanut kohdekoneen käyttöjärjestelmää. Kokeilin komentoa ``sudo nmap -O localhost``, joka tunnisti oikein koneeni käyttiksen.
 
 ![image](https://github.com/user-attachments/assets/824b6e10-9999-4061-88cf-98bedc53ff3a)
 > Kuva 8. Porttiskannaus koneen uudelleenkäynnistyksen jälkeen. Portit 22 ja 111 pysyvät kiinni.
