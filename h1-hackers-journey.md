@@ -234,7 +234,7 @@ Metasploitable: 192.168.56.101
 
 ## g) Etsi Metasploitable porttiskannaamalla (nmap -sn). Tarkista selaimella, että löysit oikean IP:n - Metasploitablen weppipalvelimen etusivulla lukee Metasploitable.
 
-Komento lippu ``-sn`` on manuaalisivujen mukaan: ``Ping Scan - disable port scan``. Hieman ylempänä manuaalisivuilla oli ohjeet kohteen spesifioimiselle. Komento ja tulokset näkyvät kuvassa 18.
+Komennon lippu ``-sn`` on manuaalisivujen mukaan: ``Ping Scan - disable port scan``. Hieman ylempänä manuaalisivuilla oli ohjeet kohteen spesifioimiselle. Komento ja tulokset näkyvät kuvassa 18.
 
 ![image](https://github.com/user-attachments/assets/40786ae7-bf6e-44e3-85ce-f09b35a419e7)
 > Kuva 18. Komennon ajon tulokset.
