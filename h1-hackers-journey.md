@@ -239,7 +239,22 @@ Komento lippu ``-sn`` on manuaalisivujen mukaan: ``Ping Scan - disable port scan
 ![image](https://github.com/user-attachments/assets/40786ae7-bf6e-44e3-85ce-f09b35a419e7)
 > Kuva 18. Komennon ajon tulokset.
 
-Mikä sitten on metasploitable/kohdekone (ajatellen, jos ip-osoite ei olisi tiedossa)? Tuloksista voidaan poistaa oma ip (192.168.56.102) ja default gateway eli reitittimen osoite (192.168.56.1). Jolloin jäljelle jää 192.168.56.100-101. Näistä kahdesta toiselta (101-päätteinen) löytyy NIC eli verkkokortti. Tästä 
+Mikä sitten on metasploitable/kohdekone (ajatellen, jos ip-osoite ei olisi tiedossa)? Tuloksista voidaan poistaa oma ip (192.168.56.102) ja default gateway eli reitittimen osoite (192.168.56.1). Jolloin jäljelle jää 192.168.56.100-101. Tehtävänannossa kehotetaan kysymään kohteen weppipalvelimelta, joten:
+
+    $ curl 192.168.56.100    # palauttaa curl: (7) failed to connect
+    $ curl 192.168.56.101    # palauttaa metasploitable default-sivun
+
+Minua jäi häiritsemään, että mikä tuo 100-päätteinen ip-osoite on. Se on varmaankin dhcp-palvelin. Mutta en kyennyt sitä todentamaan kali-koneelta käsin. Kokeilin seuraavia komentoja.
+
+    $ grep dhcp-server-identifier /var/lib/dhcp/dhclient.eth0.leases  # output: 10.0.2.2
+    $ ip r    # output: 192.168.56.0/24 dev eth1
+
+Tarkistin VirtualBoxin käyttöliittymästä, että dhcp-palvelimen ip-osoite todellakin on 192.168.56.100 (File -> Tools -> Network manager -> DHCP Server).
+
+Ensimmäinen yllä olevista komennoista pitäisi yksiselitteisesti osoittaa, että mistä ip-osoitteesta kone on saanut oman ip-osoitteen. Tiedoston nimessä on ``eth0``. Se on väärä interface. Host only adapter on ``eth1``. Kokeilin poistaa NATin (``eth0``) pois käytöstä kokonaan, ei siis vain "Cable Connected" pois vaan "Enable Network Adapter" pois. Tämän jälkeen mysteeri selvisi (kuva 19).
+
+![image](https://github.com/user-attachments/assets/4eace628-66b3-46b4-8925-f4020f3be281)
+> Kuva 19. Kuvakaappaus dhcp-leasesta. Alempi on uudempi ja voimassa oleva, dhcp-palvelin antoi uuden osoitteen (103).
 
 ## Lähteet
 
