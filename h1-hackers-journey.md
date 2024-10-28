@@ -274,7 +274,7 @@ Näyttää siltä, että Metasploitable toimii nfs-palvelimena (network file sys
 ![image](https://github.com/user-attachments/assets/2d5ccc8f-f748-42dc-8035-3e8727f7e08c)
 >Kuva 21. Skannauksen tulos portista 111/tcp.
 
-**3. 3306/tcp (mysql).** Hyökkääjänä minua kiinnostaa kohteessa oleva data. Portti, joka kuuntelee yhteyksiä tietokantaa, vaikuttaa mielenkiintoiselta kohteelta. Applikaation ja version tietämällä pystyy alkaa hyvin selvittämään tietoturvapuutteita. Erityisen mielenkiintoinen tässä tuloksessa on kohta ``Salt: T{0y31<zrNmYV'Yn?-`~``
+**3. 3306/tcp (mysql).** Hyökkääjänä minua kiinnostaa kohteessa oleva data. Portti, joka kuuntelee yhteyksiä tietokantaa, vaikuttaa mielenkiintoiselta kohteelta. Applikaation ja version tietämällä pystyy alkaa hyvin selvittämään tietoturvapuutteita. Erityisen mielenkiintoinen tässä tuloksessa on kohta ``Salt: T{0y31<zrNmYV'Yn?-`~``. Onko tämä jotain puppua, joka on lisätty tietueisiin? Jos on niin se varmaankin helpottaa data dekryptaamista.
 
 ![image](https://github.com/user-attachments/assets/9a6a7d9d-e973-4e63-9090-3d8da287ff8f)
 > Kuva 22. Skannauksen tulos portista 3306/tcp.
