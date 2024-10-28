@@ -127,7 +127,7 @@ Tämän jälkeen curlaaminen tai pingaaminen onnistu (kuva 6). Nyt curl tulostaa
 
 Täten totean virtuaalimasiinan olevan tilassa, jossa se ei saa yhteyttä "nettiin".
 
-### c) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi (nmap -A localhost). Analysoi tulokset.
+## c) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi (nmap -A localhost). Analysoi tulokset.
 
 Komento: ``sudo nmap -A localhost``
 
@@ -166,7 +166,7 @@ Portti 631/tcp kuuntelee ipp-protokollaliikennettä (internet print protocol) ja
     $ sudo systemctl stop cups
     $ sudo systemctl disable cups
 
-### d) Asenna kaksi vapaavalintaista demonia ja skannaa uudelleen. Analysoi ja selitä erot.
+## d) Asenna kaksi vapaavalintaista demonia ja skannaa uudelleen. Analysoi ja selitä erot.
 
 Asennetaan Apache HTTP-palvelin ja Postfix SMTP-palvelin.
 
@@ -192,7 +192,7 @@ En tarvitse näiden palveluiden toimintoja, joten poistetaan ne.
 ![image](https://github.com/user-attachments/assets/ce1e411a-08db-45b4-9ebf-4bd091f427cc)
 > Kuva 12. Tilanne postfixin ja apachen poistamisen jälkeen.
 
-### e) Asenna Metasploitable 2 virtuaalikoneeseen
+## e) Asenna Metasploitable 2 virtuaalikoneeseen
 
 Ladataan ensin metasploitable zippi (https://sourceforge.net/projects/metasploitable/) ja puretaan se. Seurasin metasploitablen asennusohjeita [tämän](https://www.youtube.com/watch?v=1rIvnMenA2g) videon mukaan.
 
@@ -203,7 +203,7 @@ Kirjautumistiedot Metasploitableen näkyvät kuvassa 13 ``msfadmin/msfadmin``.
 ![image](https://github.com/user-attachments/assets/19dd7ae5-dd82-4d58-a2d6-a40b88719390)
 > Kuva 13. Metasploitable vm käynnistyy ja ei saa yhteyttä ulkoverkkoon. 
 
-### f) Tee koneiden välille virtuaaliverkko.
+## f) Tee koneiden välille virtuaaliverkko.
 
 Tämä tulikin käytännössä tehdyksi jo edellisessä kohdassa. Todetaan, että asetukset on tehty tehtävänannon vaatimusten mukaisesti.
 
@@ -232,7 +232,7 @@ Metasploitable: 192.168.56.101
 ![image](https://github.com/user-attachments/assets/e1a66e5b-fd7c-434a-8f3f-48c3db2f66ff)
 > Kuva 17. Pingaus metasploitablesta kaliin ok.
 
-### g) Etsi Metasploitable porttiskannaamalla (nmap -sn). Tarkista selaimella, että löysit oikean IP:n - Metasploitablen weppipalvelimen etusivulla lukee Metasploitable.
+## g) Etsi Metasploitable porttiskannaamalla (nmap -sn). Tarkista selaimella, että löysit oikean IP:n - Metasploitablen weppipalvelimen etusivulla lukee Metasploitable.
 
 Komento lippu ``-sn`` on manuaalisivujen mukaan: ``Ping Scan - disable port scan``. Hieman ylempänä manuaalisivuilla oli ohjeet kohteen spesifioimiselle. Komento ja tulokset näkyvät kuvassa 18.
 
@@ -258,7 +258,7 @@ Ensimmäinen yllä olevista komennoista pitäisi yksiselitteisesti osoittaa, ett
 
 Kuvassa alempi on uudempi lease ja voimassa oleva. Dhcp-palvelin antoi uuden osoitteen (192.168.56.103) ja on nyt liitännässä ``eth0`` ainoana kytkentänä.
 
-### h) Porttiskannaa Metasploitable huolellisesti ja kaikki portit (nmap -A -p-). Poimi 2-3 hyökkääjälle kiinnostavinta porttia. Analysoi ja selitä tulokset näiden porttien osalta.
+## h) Porttiskannaa Metasploitable huolellisesti ja kaikki portit (nmap -A -p-). Poimi 2-3 hyökkääjälle kiinnostavinta porttia. Analysoi ja selitä tulokset näiden porttien osalta.
 
 **1. 21/tcp (ftp).** Ftp on tiedostojen siirtoon käytetty protokolla.
 
