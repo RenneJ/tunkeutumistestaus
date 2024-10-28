@@ -91,7 +91,7 @@ Debian käynnistyi avaamatta graafista käyttöliittymää VirtualBoxissa. Mutta
 ![image](https://github.com/user-attachments/assets/d27b189f-6cd8-4286-8ec3-4e3cd656fa72)
 > Kuva 2. Kali asennettu ja käyttövalmis.
 
-## b) Irrota Kali-virtuaalikone verkosta
+## b) Irrota Kali-virtuaalikone verkosta. Todista testein, että kone ei saa yhteyttä Internetiin (esim. 'ping 8.8.8.8')
 
 Alkutilanne:
 
@@ -127,7 +127,7 @@ Tämän jälkeen curlaaminen tai pingaaminen onnistu (kuva 6). Nyt curl tulostaa
 
 Täten totean virtuaalimasiinan olevan tilassa, jossa se ei saa yhteyttä "nettiin".
 
-### c) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi
+### c) Porttiskannaa 1000 tavallisinta tcp-porttia omasta koneestasi (nmap -A localhost). Analysoi tulokset.
 
 Komento: ``sudo nmap -A localhost``
 
@@ -166,7 +166,7 @@ Portti 631/tcp kuuntelee ipp-protokollaliikennettä (internet print protocol) ja
     $ sudo systemctl stop cups
     $ sudo systemctl disable cups
 
-### d) Asenna kaksi vapaavalintaista demonia ja skannaa uudelleen
+### d) Asenna kaksi vapaavalintaista demonia ja skannaa uudelleen. Analysoi ja selitä erot.
 
 Asennetaan Apache HTTP-palvelin ja Postfix SMTP-palvelin.
 
@@ -232,7 +232,7 @@ Metasploitable: 192.168.56.101
 ![image](https://github.com/user-attachments/assets/e1a66e5b-fd7c-434a-8f3f-48c3db2f66ff)
 > Kuva 17. Pingaus metasploitablesta kaliin ok.
 
-### g) Etsi Metasploitable porttiskannaamalla (nmap -sn)
+### g) Etsi Metasploitable porttiskannaamalla (nmap -sn). Tarkista selaimella, että löysit oikean IP:n - Metasploitablen weppipalvelimen etusivulla lukee Metasploitable.
 
 Komento lippu ``-sn`` on manuaalisivujen mukaan: ``Ping Scan - disable port scan``. Hieman ylempänä manuaalisivuilla oli ohjeet kohteen spesifioimiselle. Komento ja tulokset näkyvät kuvassa 18.
 
@@ -251,10 +251,33 @@ Minua jäi häiritsemään, että mikä tuo 100-päätteinen ip-osoite on. Se on
 
 Tarkistin VirtualBoxin käyttöliittymästä, että dhcp-palvelimen ip-osoite todellakin on 192.168.56.100 (File -> Tools -> Network manager -> DHCP Server).
 
-Ensimmäinen yllä olevista komennoista pitäisi yksiselitteisesti osoittaa, että mistä ip-osoitteesta kone on saanut oman ip-osoitteen. Tiedoston nimessä on ``eth0``. Se on väärä interface. Host only adapter on ``eth1``. Kokeilin poistaa NATin (``eth0``) pois käytöstä kokonaan, ei siis vain "Cable Connected" pois vaan "Enable Network Adapter" pois. Tämän jälkeen mysteeri selvisi (kuva 19).
+Ensimmäinen yllä olevista komennoista pitäisi yksiselitteisesti osoittaa, että mistä ip-osoitteesta kone on saanut oman ip-osoitteen. Tiedoston nimessä on ``eth0``. Se on väärä liitäntä, host-only adapteri on ``eth1``. Kokeilin poistaa NATin (``eth0``) pois käytöstä kokonaan, ei siis vain "Cable Connected" pois vaan "Enable Network Adapter" pois. Tämän jälkeen mysteeri selvisi (kuva 19).
 
 ![image](https://github.com/user-attachments/assets/4eace628-66b3-46b4-8925-f4020f3be281)
-> Kuva 19. Kuvakaappaus dhcp-leasesta. Alempi on uudempi ja voimassa oleva, dhcp-palvelin antoi uuden osoitteen (103).
+> Kuva 19. Kuvakaappaus dhcp-leasesta.
+
+Kuvassa alempi on uudempi lease ja voimassa oleva. Dhcp-palvelin antoi uuden osoitteen (192.168.56.103) ja on nyt liitännässä ``eth0`` ainoana kytkentänä.
+
+### h) Porttiskannaa Metasploitable huolellisesti ja kaikki portit (nmap -A -p-). Poimi 2-3 hyökkääjälle kiinnostavinta porttia. Analysoi ja selitä tulokset näiden porttien osalta.
+
+**1. 21/tcp (ftp).** Ftp on tiedostojen siirtoon käytetty protokolla.
+
+Huomion herätti kohta ``Anynomous login allowed``. Kykenisinkö hyökkääjänä anastamaan tiedostoja tätä hyväksikäyttäen? Tai tuomaan omia haittaohjelmia tästä portista? Applikaatio, joka tätä käyttää, on vsftpd v2.3.4. Nopean googlailun tuloksena löytyi tunnettu keino avata shell kohteessa (https://www.cve.org/CVERecord?id=CVE-2011-2523).
+
+![image](https://github.com/user-attachments/assets/a4786d7f-2455-4208-812e-d229b43158d9)
+> Kuva 20. Täyden porttiskannauksen tulos portista 21/tcp.
+
+**2. 111/tcp (rpcbind).** Tämä oli omalla koneellanikin auki, mutta suljin sen kun en keksinyt sille käyttöä ja siihen saattoi liittyä tietoturvariskejä. En selvittänyt olivatko ne kohdallani realistisia, mutta katsoin parhaaksi sulkea portin ja palvelun.
+
+Näyttää siltä, että Metasploitable toimii nfs-palvelimena (network file system). Nfs:n avulla voidaan jakaa ja käyttää tiedostoja kuten ne olisivt paikallisesti saatavilla. [Täältä](https://book.hacktricks.xyz/network-services-pentesting/nfs-service-pentesting) löytyy potentiaalisia hyväksikäyttötapoja.
+
+![image](https://github.com/user-attachments/assets/2d5ccc8f-f748-42dc-8035-3e8727f7e08c)
+>Kuva 21. Skannauksen tulos portista 111/tcp.
+
+**3. 3306/tcp (mysql).** Hyökkääjänä minua kiinnostaa kohteessa oleva data. Portti, joka kuuntelee yhteyksiä tietokantaa, vaikuttaa mielenkiintoiselta kohteelta. Applikaation ja version tietämällä pystyy alkaa hyvin selvittämään tietoturvapuutteita. Erityisen mielenkiintoinen tässä tuloksessa on kohta ``Salt: T{0y31<zrNmYV'Yn?-`~``
+
+![image](https://github.com/user-attachments/assets/9a6a7d9d-e973-4e63-9090-3d8da287ff8f)
+> Kuva 22. Skannauksen tulos portista 3306/tcp.
 
 ## Lähteet
 
