@@ -198,6 +198,8 @@ Ladataan ensin metasploitable zippi (https://sourceforge.net/projects/metasploit
 
 Uuden virtuaalimasiinan luomisen jälkeen yritin säätää sen network-asetuksia käyttämään Host-only adapteria. Tämä ei onnistunut koska host-only -verkkoa ei ole. Loin sen VirtualBoxin käyttöliittymässä File -> Tools -> Network manager -> Create. Uuden verkon luotuani pystyin asettamaan metasploitable-koneen host-only adapteriin VirtualBoxissa koneen asetuksista Settings -> Network. Laitoin aiemmin luodun kali-koneen myös kiinni samaan host-only adapteriin. Mutta kali-kone on sen lisäksi kiinni NATissa, jotta sillä voidaan tarvittaessa ottaa yhteys ulkoiseen verkkoon.
 
+Kirjautumistiedot Metasploitableen näkyvät kuvassa 13 ``msfadmin/msfadmin``.
+
 ![image](https://github.com/user-attachments/assets/19dd7ae5-dd82-4d58-a2d6-a40b88719390)
 > Kuva 13. Metasploitable vm käynnistyy ja ei saa yhteyttä ulkoverkkoon. 
 
@@ -229,6 +231,15 @@ Metasploitable: 192.168.56.101
 
 ![image](https://github.com/user-attachments/assets/e1a66e5b-fd7c-434a-8f3f-48c3db2f66ff)
 > Kuva 17. Pingaus metasploitablesta kaliin ok.
+
+### g) Etsi Metasploitable porttiskannaamalla (nmap -sn)
+
+Komento lippu ``-sn`` on manuaalisivujen mukaan: ``Ping Scan - disable port scan``. Hieman ylempänä manuaalisivuilla oli ohjeet kohteen spesifioimiselle. Komento ja tulokset näkyvät kuvassa 18.
+
+![image](https://github.com/user-attachments/assets/40786ae7-bf6e-44e3-85ce-f09b35a419e7)
+> Kuva 18. Komennon ajon tulokset.
+
+Mikä sitten on metasploitable/kohdekone (ajatellen, jos ip-osoite ei olisi tiedossa)? Tuloksista voidaan poistaa oma ip (192.168.56.102) ja default gateway eli reitittimen osoite (192.168.56.1). Jolloin jäljelle jää 192.168.56.100-101. Näistä kahdesta toiselta (101-päätteinen) löytyy NIC eli verkkokortti. Tästä 
 
 ## Lähteet
 
