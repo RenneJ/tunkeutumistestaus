@@ -251,7 +251,7 @@ Minua jäi häiritsemään, että mikä tuo 100-päätteinen ip-osoite on. Se on
 
 Tarkistin VirtualBoxin käyttöliittymästä, että dhcp-palvelimen ip-osoite todellakin on 192.168.56.100 (File -> Tools -> Network manager -> DHCP Server).
 
-Ensimmäinen yllä olevista komennoista pitäisi yksiselitteisesti osoittaa, että mistä ip-osoitteesta kone on saanut oman ip-osoitteen. Tiedoston nimessä on ``eth0``. Se on väärä liitäntä, host-only adapteri on ``eth1``. Kokeilin poistaa NATin (``eth0``) pois käytöstä kokonaan, ei siis vain "Cable Connected" pois vaan "Enable Network Adapter" pois. Tämän jälkeen mysteeri selvisi (kuva 19).
+Ensimmäinen yllä olevista komennoista pitäisi yksiselitteisesti osoittaa, että mistä ip-osoitteesta kone on saanut oman ip-osoitteen. Tiedoston nimessä on ``eth0``. Se on väärä liitäntä, host-only adapteri on ``eth1``. Kokeilin poistaa NATin (``eth0``) pois käytöstä kokonaan, ei siis vain "Cable Connected" pois vaan "Enable Network Adapter" pois.
 
 ![image](https://github.com/user-attachments/assets/4eace628-66b3-46b4-8925-f4020f3be281)
 > Kuva 19. Kuvakaappaus dhcp-leasesta.
