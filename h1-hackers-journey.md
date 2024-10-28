@@ -196,10 +196,10 @@ En tarvitse näiden palveluiden toimintoja, joten poistetaan ne.
 
 Ladataan ensin metasploitable zippi (https://sourceforge.net/projects/metasploitable/) ja puretaan se. Seurasin metasploitablen asennusohjeita [tämän](https://www.youtube.com/watch?v=1rIvnMenA2g) videon mukaan.
 
-Uuden virtuaalimasiinan luomisen jälkeen yritin säätää sen network-asetuksia käyttämään Host-only adapteria. Tämä ei onnistunut koska host-only -verkkoa ei ole. Loin sen VirtualBoxin käyttöliittymässä File -> Tools -> Network manager -> Create. Uuden verkon luotuani pystyin asettamaan metasploitable-koneen host-only adapteriin. Laitoin aiemmin luodun kali-koneen myös kiinni samaan host-only adapteriin. Mutta kali-kone on sen lisäksi kiinni NATissa, jotta sillä voidaan ottaa yhteys ulkoiseen verkkoon.
+Uuden virtuaalimasiinan luomisen jälkeen yritin säätää sen network-asetuksia käyttämään Host-only adapteria. Tämä ei onnistunut koska host-only -verkkoa ei ole. Loin sen VirtualBoxin käyttöliittymässä File -> Tools -> Network manager -> Create. Uuden verkon luotuani pystyin asettamaan metasploitable-koneen host-only adapteriin VirtualBoxissa koneen asetuksista Settings -> Network. Laitoin aiemmin luodun kali-koneen myös kiinni samaan host-only adapteriin. Mutta kali-kone on sen lisäksi kiinni NATissa, jotta sillä voidaan tarvittaessa ottaa yhteys ulkoiseen verkkoon.
 
 ![image](https://github.com/user-attachments/assets/19dd7ae5-dd82-4d58-a2d6-a40b88719390)
-> Kuva 13. Metasploitable vm käynnistyy ja ei saa yhteyttä ulkoverkkoon.
+> Kuva 13. Metasploitable vm käynnistyy ja ei saa yhteyttä ulkoverkkoon. 
 
 ### f) Tee koneiden välille virtuaaliverkko.
 
