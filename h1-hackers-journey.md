@@ -274,7 +274,7 @@ Näyttää siltä, että Metasploitable toimii nfs-palvelimena (network file sys
 ![image](https://github.com/user-attachments/assets/2d5ccc8f-f748-42dc-8035-3e8727f7e08c)
 >Kuva 21. Skannauksen tulos portista 111/tcp.
 
-**3. 3306/tcp (mysql).** Hyökkääjänä minua kiinnostaa kohteessa oleva data. Portti, joka kuuntelee yhteyksiä tietokantaan, vaikuttaa mielenkiintoiselta kohteelta. Applikaation ja version tietämällä pystyy alkaa hyvin selvittämään tietoturvapuutteita. Erityisen mielenkiintoinen tässä tuloksessa on kohta ``Salt: T{0y31<zrNmYV'Yn?-`~``. Onko tämä jotain puppua, joka on lisätty tietueisiin? Jos on niin se varmaankin helpottaa data dekryptaamista.
+**3. 3306/tcp (mysql).** Hyökkääjänä minua kiinnostaa kohteessa oleva data. Portti, joka kuuntelee yhteyksiä tietokantaan, vaikuttaa mielenkiintoiselta kohteelta. Applikaation ja version tietämällä pystyy alkaa hyvin selvittämään tietoturvapuutteita. Erityisen mielenkiintoinen tässä tuloksessa on kohta ``Salt: T{0y31<zrNmYV'Yn?-`~``. Salt on puppua, joka on lisätty tietokannassa säilytettäviin salasanoihin (nmap.or s.a. f). Kiva tieto hyökkääjän kannalta.
 
 ![image](https://github.com/user-attachments/assets/9a6a7d9d-e973-4e63-9090-3d8da287ff8f)
 > Kuva 22. Skannauksen tulos portista 3306/tcp.
@@ -302,6 +302,8 @@ nmap.org s.a. c. Script ssl-cert. Luettavissa: https://nmap.org/nsedoc/scripts/s
 nmap.org s.a. d. Script http-server-header. Luettavissa: https://nmap.org/nsedoc/scripts/http-server-header.html. Luettu: 2024-27-10
 
 nmap.org s.a. e. Script http-title. Luettavissa: https://nmap.org/nsedoc/scripts/http-title.html. Luettu: 2024-27-10
+
+nmap.org s.a. f. Script mysql-info. Luettavissa: https://nmap.org/nsedoc/scripts/mysql-info.html. Luettu: 2024-28-10
 
 Santos, O., Taylor, R., Sternstein, J., McCoy, C. 2019. The Art of Hacking (Video Collection). O'Reilly. Katsottavissa (vaatii kirjautumisen sekä maksun tai 10pv kokeilujakson hyväksymisen): [https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/](https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_03/). Katsottu: 2024-26-10
 
