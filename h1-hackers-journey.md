@@ -135,7 +135,7 @@ Optio ``-A`` tarkoittaa "Enable OS detection, version detection, script scanning
 
 Tämä tehtävä tehtiin myös perjantain (2024-25-10) oppitunnilla. Muistan, että silloin tässä samassa koneessa oli auki portit 22/tcp (OpenSSH) sekä 631/tcp (CUPS).
 
-Nyt tilanne oli toinen (kuva 7). Nyt on auki myös portti 111/tcp (rpcinfo).
+Nyt tilanne oli toinen (kuva 7). Nyt on auki myös portti 111/tcp (rpcbind).
 
 ![image](https://github.com/user-attachments/assets/064a4578-b308-4f2f-bb4a-19308070df4b)
 > Kuva 7. Localhostin porttiskannaus.
