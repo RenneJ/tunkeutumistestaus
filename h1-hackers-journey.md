@@ -170,8 +170,8 @@ Portti 631/tcp kuuntelee ipp-protokollaliikennettä (internet print protocol) ja
 
 Asennetaan Apache HTTP-palvelin ja Postfix SMTP-palvelin.
 
-    $ sudo systemctl install apache2
-    $ sudo systemctl install postfix    # konfiguroinnissa valitsin local only ja default nimen
+    $ sudo apt install apache2
+    $ sudo apt install postfix          # konfiguroinnissa valitsin local only ja default nimen
     $ sudo systemctl status apache2     # tarkistetaan, että daemonit ovat päällä
     $ sudo systemctl status postfix
 
