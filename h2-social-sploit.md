@@ -55,7 +55,12 @@ Metasploitin hyödyt verrattuna manuaalisiin tekniikoihin:
 ![image](https://github.com/user-attachments/assets/68f43f25-9c11-4e3b-8483-adf743219ea8)![image](https://github.com/user-attachments/assets/44804a7f-27e6-46df-a9be-98de9f696e14)
 > Kuvat 3 & 4. Koneet saavat yhteyden toisiinsa.
 
+## b) Ota Metasploit msfconsole käyttöön
 
+![image](https://github.com/user-attachments/assets/a93668fc-77ae-4a1d-b79f-79f6028a1f05)
+> Kuva 5. Komento ``msfconsole`` avaa msfconsole
+
+Metasploit Framework on tullut Kali-linuxin asennuksen yhteydessä. ``msfconsole`` on komento, joka avaa Metasploitin komentoriviliittymän.
 
 ## Lähteet
 
