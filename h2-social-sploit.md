@@ -80,7 +80,7 @@ Hakutulos myös paljasti default-polun tietokannalle, kun käyttää komentoa ``
 
 Jos ``db_connect path/to/database.yml`` epäonnistuu, koska yhteys siihen on jo muodostettu, tarkoittaa tämä sitä, että postgresql.servicen käynnistäminen korjasi vian. Seuraavaksi kokeillaan uudestaan tehtävänannon komentoa. Lisätään siihen koko aliverkko parametriksi.
 
-    db_nmap -sn 192.168.56.0/24    # käy läpi kaikki osoitteet verkkoavaruudessa 192.168.56.0 - 192.168.56.255
+    db_nmap -sn 192.168.56.0/24    # käy läpi kaikki osoitteet verkko-osoiteavaruudessa 192.168.56.0 - 192.168.56.255
 
 ![image](https://github.com/user-attachments/assets/f2e57028-21a8-4200-93b5-c4dd33af9770)
 
