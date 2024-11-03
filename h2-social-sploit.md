@@ -96,6 +96,8 @@ Tulokset ovat edellisen viikon tehtävien mukaiset ([h1 Hacker's journey](https:
     msf6 > db_nmap -A 192.168.56.101    # msfconsolessa laaja (-A) skannaus, tulokset tietokantaan
     user@kali > nmap -oA h2_ms2 -A 192.168.56.101  # kalin terminaalissa, tulokset tiedostoihin (-oA)
 
+Ajot tehty eri terminaaleissa, jotta ne voidaan ajaa samaan aikaan. Komento ``nmap`` toimii yhtä hyvin msfconsolessa.
+
 Itse tallensin tiedostot virtuaalikoneeni kotihakemiston juureen. Jos tiedostoja kertyy paljon, kannatan toimintamallia, jossa lokitiedostot tallennetaan ``/var/log/`` tiedostopolkuun omaan hakemistoon esim. ``nmap.log.d``.
 
 ![image](https://github.com/user-attachments/assets/ea902af7-ef8b-4dac-861b-c7d8bd40ee1e)
@@ -106,8 +108,38 @@ Skannaustuloksiin pääsee käsiksi mm. komennolla ``services`` msfconsolessa (k
 ![image](https://github.com/user-attachments/assets/fa93efcd-fcdd-4041-a2b1-937f1a5f3671)
 > Kuva 11. Auki olevat portit Metasploitable 2 -koneessa.
 
+## e) Tarkastele Metasploitin tietokantoihin tallennettuja tietoja komennoilla "hosts" ja "services". Kokeile suodattaa näitä listoja tai hakea niistä.
+
+Aloitetaan siitä, että selvitetään mitä optioita on saatavilla komentoon ``services``. Lippu ``-h`` tai ``--help`` yleensä auttaa, niin tälläkin kertaa.
+
+![image](https://github.com/user-attachments/assets/c2a0ff4e-5ec8-4830-ba7a-5c6ee1d32729)
+> Kuva 12. Optiot ja porttisuodatus.
+
+Vaikka help-ohjeissa ei mainittu porttivälien määrityksestä, päätin kokeilla määrittää portit yhdestä tuhanteen ``-p 1-1000``. Sehän onnistui (kuva 12).
+
+## f) Vertaile nmap:n omaa tiedostoon tallennusta ja db_nmap:n tallennusta tietokantoihin. Mitkä ovat eri tiedostomuotojen ja Metasploitin tietokannan hyvät puolet?
+
+Tiedostomuodot:
+
+- xml
+  - nätin näköinen raportti
+  - "A key advantage of XML is that you do not need to write your own parser as you do for specialized Nmap output types such as grepable and interactive output. Any general XML parser should do." (nmap.org s.a.)
+
+Jotta nmap xml-tiedoston saa auki selaimessa pitää ensin avata koneelle http-palvelin. Ainakaan oma versioni Mozilla Firefoxista (115.15.0esr) ei suostunut avaamaan xml-tiedostoa nätisti. Ongelmana on "CORS request not HTTP". Selain ei suostu tietoturvasyistä lataamaan "ulkopuolisesta" lähteestä tyylitiedostoa. Jotta sain sen toimimaan, tein seuraavasti.
+
+    cp /usr/share/nmap/nmap.xsl ~    # kopioidaan tyylitiedosto hakemistoon, jossa h2_ms2.xml tiedosto sijaitsee
+    python3 -m http.server           # avataan testausserveri, python3 asennettu käyttiksen mukana
+    nano h2_ms2.xml                  # file://path/to/xsl korvataan http://localhost:8000/nmap.xsl
+
+Tämän jälkeen selaimessa: ``http://localhost:8000/h2_ms2.xml``.
+
+![image](https://github.com/user-attachments/assets/a70d8dd3-8563-4f9f-a440-74e622f10e92)
+> Kuva 13. XML-tiedosto tulostuu nätisti selaimessa.
+
 ## Lähteet
 
 Jaswal, N. 2020. Mastering Metasploit. Packt Publishing. Luettavissa: https://learning.oreilly.com/library/view/mastering-metasploit/9781838980078/B15076_01_Final_ASB_ePub.xhtml#_idTextAnchor017 Luettu: 2024-11-02
 
 Karvinen, T. 2024. Tunkeutumistestaus. H2 Social sploit. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/#h2-social-sploit Luettu: 2024-11-02
+
+nmap.org s.a. XML Output (-oX). Luettavissa: https://nmap.org/book/output-formats-xml-output.html Luettu: 2024-11-03
