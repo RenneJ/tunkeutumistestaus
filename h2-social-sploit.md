@@ -45,7 +45,7 @@ Metasploitin hyödyt verrattuna manuaalisiin tekniikoihin:
   - Siirtämällä hyökkäysprosessi powershellistä johonkin vähemmän epäilyttävään parannetaan hyökkäyksen piilossa pysymistä
   - Hyökkääjä tekaisee itsenä adminiksi päästäkseen domain controlleriin
   - Active Directorysta saadaa kaikkien käyttäjien salasanatiivisteet (``smart_hashdump``)
-  - mimikatzilla saa selkotekstinä käyttäjätunnuksia
+  - mimikatzilla saa mahdollisesti selkotekstinä käyttäjätunnuksia
 
 ## a) Harjoittelemme omassa virtuaaliverkossa, jossa on Kali ja Metaspoitable. Osoita testein, että 1) koneet eivät saa yhteyttä Internetiin 2) Koneet saavat yhteyden toisiinsa.
 
