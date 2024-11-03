@@ -58,9 +58,27 @@ Metasploitin hyödyt verrattuna manuaalisiin tekniikoihin:
 ## b) Ota Metasploit msfconsole käyttöön
 
 ![image](https://github.com/user-attachments/assets/a93668fc-77ae-4a1d-b79f-79f6028a1f05)
-> Kuva 5. Komento ``msfconsole`` avaa msfconsole
+> Kuva 5. Msfconsolen alkunäkymä.
 
 Metasploit Framework on tullut Kali-linuxin asennuksen yhteydessä. ``msfconsole`` on komento, joka avaa Metasploitin komentoriviliittymän.
+
+## c) Etsi Metasploitable porttiskannaamalla (db_nmap -sn). Tarkista selaimella, että löysit oikean IP:n - Metasploitablen weppipalvelimen etusivulla lukee Metasploitable.
+
+![image](https://github.com/user-attachments/assets/2d2eabc7-5e3d-4a71-92c9-db4a2a604701)
+> Kuva 6. Error. Ei yhteyttä tietokantaan.
+
+Komennon ``db_nmap -sn`` tuottaa virheviestin msfconsoleen; yhteyttä tietokantaan ei ole. Muistini mukaan alustin edellisellä oppitunnilla ensimmäisen tietokantani Metasploitia varten. Komento ``help`` neuvoo käyttämään komentoa ``db_connect`` muodostaakseen yhteyden. Mutta en ollut laittanut muistiin tietokannan tiedostopolkua tai muuta tarvittavaa tietoa (komentoparametrejä). Googlasin "how to start metasploit database" ja ensimmäinen ohje oli, että laita postgresql.service (daemon) päälle.
+
+    sudo systemctl status postgresql.service    # inactive, disabled
+    sudo systemctl enable postgresql.service    # inactive, enabled
+    sudo systemctl start postgresql.service     # active, enabled
+
+Hakutulos myös paljasti default-polun tietokannalle, kun käyttää komentoa ``msfdb init``. Näiden toimenpiteiden jälkeen kokeilin muodostaa msfconsolessa yhteyden (kuva 7).
+
+![image](https://github.com/user-attachments/assets/277b9b0a-bbcd-41b2-bfbd-f85bba48add1)
+> Kuva 7. Yhteys muodostettu eikä toista yhteyttä voida luoda.
+
+
 
 ## Lähteet
 
