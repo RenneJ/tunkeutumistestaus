@@ -78,7 +78,33 @@ Hakutulos myös paljasti default-polun tietokannalle, kun käyttää komentoa ``
 ![image](https://github.com/user-attachments/assets/277b9b0a-bbcd-41b2-bfbd-f85bba48add1)
 > Kuva 7. Yhteys muodostettu eikä toista yhteyttä voida luoda.
 
+Jos ``db_connect path/to/database.yml`` epäonnistuu, koska yhteys siihen on jo muodostettu, tarkoittaa tämä sitä, että postgresql.servicen käynnistäminen korjasi vian. Seuraavaksi kokeillaan uudestaan tehtävänannon komentoa. Lisätään siihen koko aliverkko parametriksi.
 
+    db_nmap -sn 192.168.56.0/24    # käy läpi kaikki osoitteet verkkoavaruudessa 192.168.56.0 - 192.168.56.255
+
+![image](https://github.com/user-attachments/assets/f2e57028-21a8-4200-93b5-c4dd33af9770)
+
+> Kuva 8. Porttiskannauksen tulokset.
+
+Tulokset ovat edellisen viikon tehtävien mukaiset ([h1 Hacker's journey](https://github.com/RenneJ/tunkeutumistestaus/blob/main/h1-hackers-journey.md#g-etsi-metasploitable-porttiskannaamalla-nmap--sn-tarkista-selaimella-ett%C3%A4-l%C3%B6ysit-oikean-ipn---metasploitablen-weppipalvelimen-etusivulla-lukee-metasploitable)). Tällä kertaa tulokset on tallennettu tietokantaan ja ovat Metasploit Frameworkin käytössä jatko-operaatioille.
+
+![image](https://github.com/user-attachments/assets/5968064d-556a-4214-9831-918fbe599df9)
+> Kuva 9. Oikeaa ip-osoitetta kutsuttu komennolla ``curl``.
+
+## d) Porttiskannaa Metasploitable perusteellisesti. Tallenna tulokset Metasploitin tietokantoihin (db_nmap) ja tiedostoihin (nmap -oA foo).
+
+    msf6 > db_nmap -A 192.168.56.101    # msfconsolessa laaja (-A) skannaus, tulokset tietokantaan
+    user@kali > nmap -oA h2_ms2 -A 192.168.56.101  # kalin terminaalissa, tulokset tiedostoihin (-oA)
+
+Itse tallensin tiedostot virtuaalikoneeni kotihakemiston juureen. Jos tiedostoja kertyy paljon, kannatan toimintamallia, jossa lokitiedostot tallennetaan ``/var/log/`` tiedostopolkuun omaan hakemistoon esim. ``nmap.log.d``.
+
+![image](https://github.com/user-attachments/assets/ea902af7-ef8b-4dac-861b-c7d8bd40ee1e)
+> Kuva 10. Lokitiedostot tallessa.
+
+Skannaustuloksiin pääsee käsiksi mm. komennolla ``services`` msfconsolessa (kuva 11). Komento tarkistettu ``help`` tulosteesta.
+
+![image](https://github.com/user-attachments/assets/fa93efcd-fcdd-4041-a2b1-937f1a5f3671)
+> Kuva 11. Auki olevat portit Metasploitable 2 -koneessa.
 
 ## Lähteet
 
