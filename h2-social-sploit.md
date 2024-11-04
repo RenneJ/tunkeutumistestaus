@@ -211,6 +211,23 @@ Minulla ei ollut odotuksia, siitä mitä tämä hyökkäys tekee. Yllätykseksen
 
 Kuvan 18 optioista voi nähdä, että PASSWORD ja USERNAME ovat molemmat postgres. Nämä ovat oletuskirjautumistiedot postgres-tietokantaan.
 
+## k) Demonstroi Meterpretrin ominaisuuksia.
+
+Käytetään edellisessä osatehtävässä käyttöönotettua meterpreteriä. Root-oikeuksia ei ole ja leikitään, ettei niitä tiedetä nyt. Meterpreterillä pystyy listaamaan prosessit, oman käyttäjän ja ottamaan shellin käyttöön (ks. kuvat 20 & 21).
+
+Tietokannan pääkäyttäjänä voidaan suorittaa täysin valtuuksin psotgres-tietokantaan koskevia toimia. Ladataan kaikki tiedostot tietokantaan liittyen (transaktiot, relaatiot ym.).
+
+![image](https://github.com/user-attachments/assets/0992db65-1209-4e01-8fa6-b483ad2b9fee)
+> Kuva 22. Lataaminen meterpreterillä.
+
+## l) Tallenna shell-sessio tekstitiedostoon script-työkalulla (script -fa log001.txt)
+
+Script-komento ei ole msfconsoleen tai meterpretriin liittyvä komenta (tarkistettu komennolla ``help``). Kalin terminaalissa syötin komennon ``script -fa log.postgres_payload.txt``. Toistin kohdassa j) ja tiedostojen lataamisen metertpretillä kohdassa k) dokumentoidut toimet.
+
+Tuloksena näistä on kotihakemistossani tekstitiedosto, jossa on tallennettuna tulosteet terminaalista (kuva 23).
+
+![image](https://github.com/user-attachments/assets/dc94394b-0814-48ae-bef6-22b3d257a2cd)
+> Kuva 23. Lokitiedoston katenointi.
 
 ## Lähteet
 
