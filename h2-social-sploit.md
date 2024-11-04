@@ -177,6 +177,16 @@ Tämä löytyikin myös Teron vinkeistä.
 
 ## i) Kerää levittäytymisessä (lateral movement) tarvittavaa tietoa metasploitablesta. Analysoi tiedot. Selitä, miten niitä voisi hyödyntää.
 
+Tästä oli tietoa tiivistelmän aiheessa (Jaswal 2020). Jaswal listaa meterpreter-komentoja; minua kiinnostaa tässä vaiheessa prosessien id:t. Mikä prosessi kohteessa on minulla käytössä ja mihin prosessiin voisin piiloutua (ts. siirtää nykyisen).
+
+    msf6 > sessions -i 2    # sessio 2 on meterpreter sessio, -i mahdollistaa meterpreter-spesifit komennot
+    meterpreter > getpid    # kertoo prosessi-id:n, joka on hyökkäyksessä käytössä
+    meterpreter > ps        # listaa kaikki prosessit
+    
+Tietoja kohteen prosesseista voi siis hyödyntää kätketäkseen oman läsnäolon hyökkäjänä puolustajilta.
+
+##j) Murtaudu Metasploitableen jollain toisella tavalla.
+
 Kokeilin samankaltaisia askelia kuin jo testatussa tekniikassa: etsi haavoittuvuuksia ``search <service_name_as_keyword>``, ota käyttöön ``use <id>``, tutki optiot ``show options``, aseta vaaditut kentät ``set <required>`` ja aja ``exploit``. Tällä tavalla pääsin tilanteeseen, jota en osannut selvittää tai ymmärtää...
 
 Käytin usean tunnin sunnuntai-illastani yrittäessä murtautua Metasploitable 2 ProFTPD 1.3.1 -palvelun kautta. Löysin ``search``-toiminnolla hyökkäyksen, joka hyödynsi tunnettua, tahallisesti asennettua takaporttia. En saanut sitä onnistumaan, edes [näiden](https://hackernoon.com/exploiting-the-proftpd-linux-server) ohjeiden avulla. 22h myöhemmin tajusin maanantaina, että versiot eivät täsmää :smiling_face_with_tear:... Oppimiskokemus ei ollut nautinnollinen, mutta kantapäiden kautta kovinkin tehokas. Ystävällisesti kehotan kanssaopiskelijoita varmistamaan versiot kohteesta ja hyökkäyksestä tarkasti.
