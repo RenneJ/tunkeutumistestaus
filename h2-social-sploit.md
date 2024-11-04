@@ -203,6 +203,10 @@ Minulla ei ollut odotuksia, siitä mitä tämä hyökkäys tekee. Yllätykseksen
 ![image](https://github.com/user-attachments/assets/cd8cb77c-e187-43a4-961b-2aa1f297f8fd)
 > Kuva 19. Tunkeutuminen onnistui.
 
+![image](https://github.com/user-attachments/assets/8fc35c8a-de65-42e4-a0f8-e04ba57ccf71)
+> Kuva 20. Shell käytössä käyttäjänä postgres.
+
+Kuvan 18 optioista voi nähdä, että PASSWORD ja USERNAME ovat molemmat postgres. Nämä ovat oletuskirjautumistiedot postgres-tietokantaan.
 
 
 ## Lähteet
