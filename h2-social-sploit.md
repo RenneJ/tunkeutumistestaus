@@ -185,7 +185,7 @@ Tästä oli tietoa tiivistelmän aiheessa (Jaswal 2020). Jaswal listaa meterpret
     
 Tietoja kohteen prosesseista voi siis hyödyntää kätketäkseen oman läsnäolon hyökkäjänä puolustajilta.
 
-##j) Murtaudu Metasploitableen jollain toisella tavalla.
+## j) Murtaudu Metasploitableen jollain toisella tavalla.
 
 Kokeilin samankaltaisia askelia kuin jo testatussa tekniikassa: etsi haavoittuvuuksia ``search <service_name_as_keyword>``, ota käyttöön ``use <id>``, tutki optiot ``show options``, aseta vaaditut kentät ``set <required>`` ja aja ``exploit``. Tällä tavalla pääsin tilanteeseen, jota en osannut selvittää tai ymmärtää...
 
