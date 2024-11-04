@@ -206,6 +206,9 @@ Minulla ei ollut odotuksia, siitä mitä tämä hyökkäys tekee. Yllätykseksen
 ![image](https://github.com/user-attachments/assets/8fc35c8a-de65-42e4-a0f8-e04ba57ccf71)
 > Kuva 20. Shell käytössä käyttäjänä postgres.
 
+![image](https://github.com/user-attachments/assets/5b613761-8834-4f9f-8a60-8a5f4ee5b074)
+> Kuva 21. Tietokannan hallinta.
+
 Kuvan 18 optioista voi nähdä, että PASSWORD ja USERNAME ovat molemmat postgres. Nämä ovat oletuskirjautumistiedot postgres-tietokantaan.
 
 
