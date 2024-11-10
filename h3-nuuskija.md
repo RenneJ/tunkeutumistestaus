@@ -55,7 +55,11 @@ Laitoin session taustalle (CTRL + Z) ja päivitin session meterpreter-sessioksi 
 ## b) Sorsa. Selitä ja arvioi valitsemasi hyökkäyksen toimintaa lähdekoodista.
 
 ![image](https://github.com/user-attachments/assets/44a724b2-57e3-48e6-9c58-bcfb737d3aed)
-Kuva 4. Hyötykuorman lähdekoodin etsiminen.
+> Kuva 4. Hyötykuorman lähdekoodin etsiminen.
+
+Hyötykuormamoduulin nimi tulostuu ``use <exploit>`` komennon yhteydessä, jos sitä ei ole sitä ennen asetettu.
+
+Exploitin lähdekoodi löytyy ``/usr/share
 
 ## Lähteet
 
