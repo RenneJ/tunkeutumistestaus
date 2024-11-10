@@ -4,7 +4,7 @@
 
 ### Wireshark tricks (HackTricks 2024)
 
-(En pystynyt todentamaan Teron mainitsemaa tietolähteen kirjoittajaa (Popov) linkatusta verkkosivusta.)
+*(En pystynyt todentamaan Teron mainitsemaa tietolähteen kirjoittajaa (Popov) linkatusta verkkosivusta.)*
 
 - Tiedon analysointiin paljon toimintoja, mm.:
   - Resolved Addresses, valmistaja MAC-osoitteesta
