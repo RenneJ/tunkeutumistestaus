@@ -25,7 +25,37 @@
 
 ## a) Valitse valmis hyökkäys. Ota sellainen hyökkäys, jonka saat toimimaan omaan paikalliseen harjoitusmaaliin, kuten Metasploitableen. Demonstroi hyökkäyksen toiminta.
 
+**Ensiksi:**
 
+Käynnistin Kalin (hyökkäyskone) ja Metasploitable 2:n (kohdekone) VirtualBoxissa. Testasin yhteyden Kalista kohteeseen ``ping 192.168.56.101`` ja ettei Kali saa ulkoverkkoon yhteyttä ``ping 8.8.8.8``. Sain yhteyden ulkoverkkoon, joten "vedin" kaapelin irti VirtualBox Kali Settings -> Network -> NAT Adapter "Cable Connected" -valinta pois. Uusi pingaus Googlen nimipalvelimille ja voi taas jatkaa.
+
+    sudo msfconsole
+
+Yritin etsiä sopivia exploitteja msfconsolessa ja toistaa edellisen viikon vsftpd-haavoittuvuuden hyväksikäyttökaavaa: search, use, info/show options, set, exploit. En ole vielä ainakaan niin harjaantunut Metasploitin käyttäjä, että kykenisin löytämään sopivia hyökkäyksiä kohteeseen ainoastaan lukemalla kuvaukset. Myöskään sokkona hyökkäyksen testaaminen tuntuu järjenvastaiselta. Jos sokkotestauksen automatisoisi, voisi se mahdollisesti olla hyvä tapa.
+
+![image](https://github.com/user-attachments/assets/c21509ac-19f6-4d77-98b2-817a004f5aa4)
+> Kuva 1. Ote Kalin ``history``-tulosteesta tutkittuani muutamia mahdollisia hyökkäysvaihtoehtoja.
+
+Päädyin googlaamaan.
+
+Valitsin services-listauksesta Samban. Muistelin, että siitä oli joko tunnilla esitelty esimerkki tai se tuli vastaan ristiinarvioinnin yhteydessä. Silmäilin [tämän](https://medium.com/@niman.ransindu/exploiting-metasploitable-2-using-samba-9262335fd09d) artikkelin. Artikkelin ohjeet mukailivat tuttua "search, use, set, exploit" -kaavaa. Otin exploitin "multi/samba/usermap_script" käyttöön, katsoin infon ja asetin RHOSTS-muuttujaan kohdekoneen ip:n.
+
+![image](https://github.com/user-attachments/assets/6ca0fffd-5ce8-4307-a038-a289dd488d5a)
+> Kuva 2. Epäonnistunut explpoitin ajo ja käytetyt optiot.
+
+LHOSTS oli automaattisesti asetettu NAT-adapterin kytkentään, jonka otin pois käytöstä. Eli ``set LHOSTS <host-only adapter ip>`` ja ``exploit``.
+
+Muutosten jälkeen hyökkäys onnistui ja reverse shell on auki.
+
+Laitoin session taustalle (CTRL + Z) ja päivitin session meterpreter-sessioksi ``sessions -u 1``.
+
+![image](https://github.com/user-attachments/assets/1c0fd514-e057-45a2-bdf1-931b93e052e4)
+> Kuva 3. Onnistunut hyökkäys ja session päivitys käyttämään meterpreteriä.
+
+## b) Sorsa. Selitä ja arvioi valitsemasi hyökkäyksen toimintaa lähdekoodista.
+
+![image](https://github.com/user-attachments/assets/44a724b2-57e3-48e6-9c58-bcfb737d3aed)
+Kuva 4. Hyötykuorman lähdekoodin etsiminen.
 
 ## Lähteet
 
