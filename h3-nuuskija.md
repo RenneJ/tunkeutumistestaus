@@ -61,6 +61,8 @@ Hyötykuormamoduulin nimi tulostuu ``use <exploit>`` komennon yhteydessä, jos s
 
 Exploitin lähdekoodi löytyy polusta ``/usr/share/metasploit-framework/modules/exploits/multi/samba/usermap_script.rb``.
 
+Ko. moduuli sisältää ``initialize`` ja ``exploit`` metodit. 
+
 ## Lähteet
 
 HackTricks, 2024. Wireshark Tricks. Luettavissa: https://book.hacktricks.xyz/generic-methodologies-and-resources/basic-forensic-methodology/pcap-inspection/wireshark-tricks Luettu: 2024-11-10
