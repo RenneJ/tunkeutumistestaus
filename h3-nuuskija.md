@@ -63,7 +63,7 @@ Exploitin lähdekoodi löytyy polusta ``/usr/share/metasploit-framework/modules/
 
 Ko. moduuli sisältää ``initialize`` ja ``exploit`` metodit. Metodi ``initialize`` näyttää sisältävän tiedon, joka tulostuu msfconsolessa komennolla ``info``.
 
-![image](https://github.com/user-attachments/assets/dec1bba0-c574-4919-836a-010cf277a805)
+![image](https://github.com/user-attachments/assets/0e0e86f2-7ab7-44d1-8957-c6974abc7b8c)
 > Kuva 5. ``exploit``.
 
 ## Lähteet
