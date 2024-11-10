@@ -61,7 +61,10 @@ Hyötykuormamoduulin nimi tulostuu ``use <exploit>`` komennon yhteydessä, jos s
 
 Exploitin lähdekoodi löytyy polusta ``/usr/share/metasploit-framework/modules/exploits/multi/samba/usermap_script.rb``.
 
-Ko. moduuli sisältää ``initialize`` ja ``exploit`` metodit. 
+Ko. moduuli sisältää ``initialize`` ja ``exploit`` metodit. Metodi ``initialize`` näyttää sisältävän tiedon, joka tulostuu msfconsolessa komennolla ``info``.
+
+![image](https://github.com/user-attachments/assets/dec1bba0-c574-4919-836a-010cf277a805)
+> Kuva 5. ``exploit``.
 
 ## Lähteet
 
