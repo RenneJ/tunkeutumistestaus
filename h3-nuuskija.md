@@ -84,6 +84,22 @@ Haineväkuvake käyttöliittymän vasemmassa yläkulmassa käynnistää verkkopa
 ![image](https://github.com/user-attachments/assets/6885c954-faed-4b0d-aad2-c53d95371205)
 > Kuva 7. Wireshark käynnissä.
 
+Seuraavaksi suoritetaan kohdassa a) dokumentoidut hyökkäystoimenpiteet.
+
+![image](https://github.com/user-attachments/assets/c4aa7dc8-1205-432c-b4a2-7b68592e5044)
+> Kuva 8. Hyötykuorman lähetys.
+
+Kuvasta 8 voi nähdä, että ensimmäinen hyötykuorman lähetys (reverse shellin avaaminen) epäonnistui. Minulla oli LHOST-konfiguraatio väärin asetettuna loopback-osoitteeksi (127.0.0.1). Eli kohdekone yritti ottaa yhteyttä väärään socketiin (vrt. kohdat 27 ja 41).
+
+Hyökkäyksessäni avasin shellin komennolla ``shell`` ja tulostin käytössä olevan kaapatun käyttäjän komennolla ``whoami``. Kokeillaan löytää ne liikennevirrasta.
+
+Wiresharkin tulosteessa toistuu pakettien koot (length). Length-arvoissa toistuu 66 ja 67 tavua. Näistä en löytänyt mielenkiintoista analysoitavaa. Joten näin pienestä datamäärästä pystyn klikkailemaan tallenteet, jotka ovat jotain muuta kuin 66 tai 67 tavua pituudeltaan. Komennon ``whoami`` liikenne ao. kuvassa. Komentoa ``shell`` ei löydy dumpista selkotekstinä. En osaa sanoa miksi näin on.
+
+![image](https://github.com/user-attachments/assets/9d175ee0-a327-4481-aa94-9d469b737501)
+> Kuva. 9 Ketä mä oon?
+
+Tämänkaltainen hyökkäys on (suhteellisen) helposti havaittavissa. Hälytyskellojen olisi hyvä soida siinä vaiheessa, kun oma (tai organisaation) kone yrittää ottaa yhteyttä epäilyttävään ts. ei well-known porttiin. Toinen asia mikä olisi hyvä havaita on shell-komennot paketin kuormassa.
+
 ## Lähteet
 
 HackTricks, 2024. Wireshark Tricks. Luettavissa: https://book.hacktricks.xyz/generic-methodologies-and-resources/basic-forensic-methodology/pcap-inspection/wireshark-tricks Luettu: 2024-11-10
