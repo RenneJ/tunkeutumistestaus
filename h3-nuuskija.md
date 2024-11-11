@@ -71,6 +71,19 @@ Ko. moduuli sisältää ``initialize`` ja ``exploit`` metodit. Metodi ``initiali
 
 Kuvassa 5 on kuvailtu selkokielellä hyökkäyksen kulku. Haavoittuvuus on Samban bugissa, jossa kirjautuvaa käyttäjänimeä ei käsitellä puhtaasti merkkijonona. Shell metamerkkien ` (backquotes) väliin kirjoitettu teksti tulkitaan shell komentona. Kuvassa 6 tämä tapahtuu lähdekoodin rivillä 74, mitä seuraa begin-rescue koodilohkot (try-catch), jossa hyötykuorma koitetaan lähettää kohteeseen. Onnistunut lähetys suorittaa silloin metasploit-frameworkin ``modules/payloads/singles/cmd/unix/reverse_netcat.rb`` koodin.
 
+## c) Snif snif. Selitä ja arvioi valitsemasi hyökkäyksen toimintaa verkkosnifferillä. Pohdi myös, miten näkyvä tämä hyökkäys tai kontrollikanava on verkossa.
+
+Napataan verkkoliikennettä Wiresharkilla. Asennuksen jälkeen poistetaan virtuaalikone Kali ulkoverkosta. Napataan vain Kalin ja Metasploitablen (ja DHCP-palvelimen) välistä verkkoliikennettä.
+
+    sudo apt update
+    sudo apt install wireshark
+    wireshark
+
+Haineväkuvake käyttöliittymän vasemmassa yläkulmassa käynnistää verkkopakettien nappaamisen.
+
+![image](https://github.com/user-attachments/assets/6885c954-faed-4b0d-aad2-c53d95371205)
+> Kuva 7. Wireshark käynnissä.
+
 ## Lähteet
 
 HackTricks, 2024. Wireshark Tricks. Luettavissa: https://book.hacktricks.xyz/generic-methodologies-and-resources/basic-forensic-methodology/pcap-inspection/wireshark-tricks Luettu: 2024-11-10
