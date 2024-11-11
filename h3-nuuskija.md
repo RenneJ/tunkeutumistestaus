@@ -69,7 +69,7 @@ Ko. moduuli sisältää ``initialize`` ja ``exploit`` metodit. Metodi ``initiali
 ![image](https://github.com/user-attachments/assets/0e0e86f2-7ab7-44d1-8957-c6974abc7b8c)
 > Kuva 6. # lol?.
 
-Kuvassa 5 on kuvailtu selkokielellä hyökkäyksen kulku. Haavoittuvuus on Samban bugissa, jossa kirjautuvaa käyttäjänimeä ei käsitellä puhtaasti merkkijonona. Shell metamerkki ``\```
+Kuvassa 5 on kuvailtu selkokielellä hyökkäyksen kulku. Haavoittuvuus on Samban bugissa, jossa kirjautuvaa käyttäjänimeä ei käsitellä puhtaasti merkkijonona. Shell metamerkkien ` (backquotes) väliin kirjoitettu teksti tulkitaan shell komentona. Kuvassa 6 tämä tapahtuu lähdekoodin rivillä 74, mitä seuraa begin-rescue koodilohkot (try-catch), jossa hyötykuorma koitetaan lähettää kohteeseen. Onnistunut lähetys suorittaa silloin metasploit-frameworkin ``modules/payloads/singles/cmd/unix/reverse_netcat.rb`` koodin.
 
 ## Lähteet
 
