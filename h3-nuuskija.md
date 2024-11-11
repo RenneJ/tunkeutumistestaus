@@ -63,8 +63,13 @@ Exploitin lähdekoodi löytyy polusta ``/usr/share/metasploit-framework/modules/
 
 Ko. moduuli sisältää ``initialize`` ja ``exploit`` metodit. Metodi ``initialize`` näyttää sisältävän tiedon, joka tulostuu msfconsolessa komennolla ``info``.
 
+![image](https://github.com/user-attachments/assets/f50b415a-befb-4df9-bba9-df9cd746212d)
+> Kuva 5. Hyökkäyksen kuvaus lähdekoodista.
+
 ![image](https://github.com/user-attachments/assets/0e0e86f2-7ab7-44d1-8957-c6974abc7b8c)
-> Kuva 5. # lol?.
+> Kuva 6. # lol?.
+
+Kuvassa 5 on kuvailtu selkokielellä hyökkäyksen kulku. Haavoittuvuus on Samban bugissa, jossa kirjautuvaa käyttäjänimeä ei käsitellä puhtaasti merkkijonona. Shell metamerkki `````
 
 ## Lähteet
 
