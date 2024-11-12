@@ -126,6 +126,11 @@ Asennetaan kohde ja sanalista artikkelin (Karvinen 2023) ohjein sekä käynniste
 ![image](https://github.com/user-attachments/assets/19a54dc6-dc0b-4179-a5d2-29fc6c25798a)
 > Kuva 14. Admin-sivu löytyi endpointista /admin.
 
+## d) HTB. Ratkaise 1-2 konetta HackTheBoxisssa. Voit valita omaan taitotasoon sopivat koneet.
+
+MUISTISSA
+https://forum.hackthebox.com/t/tls-handshake-failure-during-vpn-connection/3369/11
+
 ## Lähteet
 
 HackTricks, 2024. Wireshark Tricks. Luettavissa: https://book.hacktricks.xyz/generic-methodologies-and-resources/basic-forensic-methodology/pcap-inspection/wireshark-tricks Luettu: 2024-11-10
