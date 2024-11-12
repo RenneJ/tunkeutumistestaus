@@ -149,6 +149,11 @@ Nyt kun ympäristö toimii voidaan jatkaa.
 ![image](https://github.com/user-attachments/assets/f03ed023-e694-4db6-91a7-a398f0a4d86d)
 > Kuva 17. Miau.
 
+Säännöt sallisivat StartingPoint-tehtävien julkaisun. Mutta opettelen hyville HackTheBoxin tavoille jo nyt. StartingPoint-tehtävissä on linkki läpikävelyohjeisiin.
+
+![image](https://github.com/user-attachments/assets/5ceba995-2fed-4df5-a9eb-3f75a8f37cb9)
+> Kuva 18. Vasasta ei ollut 
+
 ## Lähteet
 
 HackTricks, 2024. Wireshark Tricks. Luettavissa: https://book.hacktricks.xyz/generic-methodologies-and-resources/basic-forensic-methodology/pcap-inspection/wireshark-tricks Luettu: 2024-11-10
