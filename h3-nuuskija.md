@@ -128,12 +128,19 @@ Asennetaan kohde ja sanalista artikkelin (Karvinen 2023) ohjein sekä käynniste
 
 ## d) HTB. Ratkaise 1-2 konetta HackTheBoxisssa. Voit valita omaan taitotasoon sopivat koneet.
 
-Ladattuani ``starting_point_username.ovpn`` (eurooppalaisilla vaihtoehdoilla) tiedoston HackTheBoxin sivulta käynnistin sen komennolla ``sudo openvpn Downloads/starting_point_username.ovpn``.
+Ladattuani ``starting_point_username.ovpn`` tiedoston (eurooppalaisilla vaihtoehdoilla) HackTheBoxin sivulta käynnistin sen komennolla ``sudo openvpn Downloads/starting_point_username.ovpn``.
 
 En saanut kuitenkaan muodostettua yhteyttä HackTheBoxin vpn:ään. Sain ilmoitukset terminaalin tulosteeseen ``TLS Error: TLS handshake failed``. Kokeilin ottaa vm:ssäni ainoastaan yhden verkkokytkennän käyttöön (pelkkä NAT), kokeilin .ovpn tiedostolatausta USA-serverille ja asensin uudestaan Kalin tällä kertaa kali.org -sivulta. Eivät toimineet. Muokkaamalla .ovpn tiedostoa [tällä](https://forum.hackthebox.com/t/tls-handshake-failure-during-vpn-connection/3369/11) tavalla sain yhteyden pelaamaan.
 
 ![image](https://github.com/user-attachments/assets/e989afe6-90d8-4cca-9382-0575d0a2cd02)
 > Kuva 15. Yhteys muodostettu HackTheBoxin StartingPoint vpn:ään.
+
+Nyt kun ympäristö toimii voidaan jatkaa.
+
+**Spawn Machine**
+
+![2024-11-12-spawnmachine](https://github.com/user-attachments/assets/a1bc87dd-fb8f-42de-821a-e924fd179c64)
+> Kuva 16. Kohdekone luotu.
 
 ## Lähteet
 
