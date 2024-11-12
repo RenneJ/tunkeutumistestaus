@@ -79,7 +79,7 @@ Napataan verkkoliikennettä Wiresharkilla. Asennuksen jälkeen poistetaan virtua
     sudo apt install wireshark
     wireshark
 
-Haineväkuvake käyttöliittymän vasemmassa yläkulmassa käynnistää verkkopakettien nappaamisen.
+Haineväkuvake käyttöliittymän vasemmassa yläkulmassa File-valikon alla käynnistää verkkopakettien nappaamisen.
 
 ![image](https://github.com/user-attachments/assets/6885c954-faed-4b0d-aad2-c53d95371205)
 > Kuva 7. Wireshark käynnissä.
@@ -89,7 +89,7 @@ Seuraavaksi suoritetaan kohdassa a) dokumentoidut hyökkäystoimenpiteet.
 ![image](https://github.com/user-attachments/assets/c4aa7dc8-1205-432c-b4a2-7b68592e5044)
 > Kuva 8. Hyötykuorman lähetys.
 
-Kuvasta 8 voi nähdä, että ensimmäinen hyötykuorman lähetys (reverse shellin avaaminen) epäonnistui. Minulla oli LHOST-konfiguraatio väärin asetettuna loopback-osoitteeksi (127.0.0.1). Eli kohdekone yritti ottaa yhteyttä väärään socketiin (vrt. kohdat 27 ja 41).
+Kuvasta 8 voi nähdä, että ensimmäinen hyötykuorman lähetys (reverse shellin avaaminen) epäonnistui. Minulla oli LHOST-konfiguraatio väärin asetettuna loopback-osoitteeksi (127.0.0.1). Eli kohdekone yritti ottaa yhteyttä väärään socketiin (vrt. kohdat 27 ja 41). Asetin Kalissa msfconsolessa hyökkäyskoneeni kuuntelemaan ``set LHOST 192.168.56.102``.
 
 Hyökkäyksessäni avasin shellin komennolla ``shell`` ja tulostin käytössä olevan kaapatun käyttäjän komennolla ``whoami``. Kokeillaan löytää ne liikennevirrasta.
 
