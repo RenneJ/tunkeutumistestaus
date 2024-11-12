@@ -142,9 +142,9 @@ Nyt kun ympäristö toimii voidaan jatkaa.
 ![2024-11-12-spawnmachine](https://github.com/user-attachments/assets/a1bc87dd-fb8f-42de-821a-e924fd179c64)
 > Kuva 16. Kohdekone luotu.
 
-**Vastaa kysymyksiin**
+**Vastaa kysymyksiin.**
 
-**Korkkaa kone**, onnistui mukavasti kysymyksistä päättelemällä, että miten otetaan yhteys. Komento ``ls`` ja ``cat flag.txt`` johtivat lipun luokse.
+**Korkkaa kone**. Onnistui mukavasti kysymyksistä päättelemällä, että miten otetaan yhteys. Komento ``ls`` ja ``cat flag.txt`` johtivat lipun luokse.
 
 ![image](https://github.com/user-attachments/assets/f03ed023-e694-4db6-91a7-a398f0a4d86d)
 > Kuva 17. Miau.
