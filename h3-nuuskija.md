@@ -110,11 +110,27 @@ Ffuf on tullut Kali-käyttiksen mukana.
 ![image](https://github.com/user-attachments/assets/b05ddb1a-649f-43c5-82e9-99c77bb59364)
 > Kuva 11. Ffuf asennettu.
 
+Asennetaan kohde ja sanalista artikkelin (Karvinen 2023) ohjein sekä käynnistetään paikallinen kohdepalvelin:
 
+    wget https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/dirfuzt-0
+    chmod u+x dirfuzt-0
+    wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt
+    ./dirfuzt-0
+
+![image](https://github.com/user-attachments/assets/0c32b80a-2f5e-4941-ab6d-33eb2f861a02)
+> Kuva 12. Kohde ja sanalista asennettu.
+
+![image](https://github.com/user-attachments/assets/0d8ee370-8ffe-4c2d-b150-1bfe993adf27)
+> Kuva 13. Toinen ajo. Eka oli ilman -fs (filter size).
+
+![image](https://github.com/user-attachments/assets/19a54dc6-dc0b-4179-a5d2-29fc6c25798a)
+> Kuva 14. Admin-sivu löytyi endpointista /admin.
 
 ## Lähteet
 
 HackTricks, 2024. Wireshark Tricks. Luettavissa: https://book.hacktricks.xyz/generic-methodologies-and-resources/basic-forensic-methodology/pcap-inspection/wireshark-tricks Luettu: 2024-11-10
+
+Karvinen, T. 2023. Find Hidden Web Directories - Fuzz URLs with ffuf. Luettavissa: https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/ Luettu: 2024-11-12
 
 Karvinen, T. 2024. Find Hidden Web Directories - Fuzz URLs with ffuf. Luettavissa: https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/ Luettu: 2024-11-10
 
