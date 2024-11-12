@@ -152,7 +152,7 @@ Nyt kun ympäristö toimii voidaan jatkaa.
 Säännöt sallisivat StartingPoint-tehtävien julkaisun. Mutta opettelen hyville HackTheBoxin tavoille jo nyt. StartingPoint-tehtävissä on linkki läpikävelyohjeisiin.
 
 ![image](https://github.com/user-attachments/assets/5ceba995-2fed-4df5-a9eb-3f75a8f37cb9)
-> Kuva 18. Vasasta ei ollut 
+> Kuva 18. Vasasta ei ollut vastusta.
 
 ## Lähteet
 
