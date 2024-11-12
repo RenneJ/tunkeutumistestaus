@@ -96,9 +96,21 @@ Hyökkäyksessäni avasin shellin komennolla ``shell`` ja tulostin käytössä o
 Wiresharkin tulosteessa toistuu pakettien koot (length). Length-arvoissa toistuu 66 ja 67 tavua. Näistä en löytänyt mielenkiintoista analysoitavaa. Joten näin pienestä datamäärästä pystyn klikkailemaan tallenteet, jotka ovat jotain muuta kuin 66 tai 67 tavua pituudeltaan. Komennon ``whoami`` liikenne ao. kuvassa. Komentoa ``shell`` ei löydy dumpista selkotekstinä. En osaa sanoa miksi näin on.
 
 ![image](https://github.com/user-attachments/assets/9d175ee0-a327-4481-aa94-9d469b737501)
-> Kuva. 9 Ketä mä oon?
+> Kuva 9. Ketä mä oon?
 
-Tämänkaltainen hyökkäys on (suhteellisen) helposti havaittavissa. Hälytyskellojen olisi hyvä soida siinä vaiheessa, kun oma (tai organisaation) kone yrittää ottaa yhteyttä epäilyttävään ts. ei well-known porttiin. Toinen asia mikä olisi hyvä havaita on shell-komennot paketin kuormassa.
+Tämänkaltainen hyökkäys on (suhteellisen) helposti havaittavissa. Hälytyskellojen olisi hyvä soida siinä vaiheessa, kun oma tai organisaation kone yrittää ottaa yhteyttä epäilyttävään ts. ei well-known porttiin. Mutta, miten määritellään "epäilyttävä". Toinen asia mikä olisi hyvä havaita on shell-komennot paketin kuormassa (whoami, echo jne.). Tekemäni hyökkäys jätti selvän jäljen tekijästä, ip-osoite ja mac.
+
+![image](https://github.com/user-attachments/assets/35768fb8-68c2-4778-8647-f32b0aece911)
+> Kuva 10. Paketin sisältö. Ks. "Ethernet II" -rivi kohta "Dst".
+
+## d) Fuzzzz. Ratkaise dirfuz-1 artikkelista Karvinen 2023: [Find Hidden Web Directories - Fuzz URLs with ffuf](https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/).
+
+Ffuf on tullut Kali-käyttiksen mukana.
+
+![image](https://github.com/user-attachments/assets/b05ddb1a-649f-43c5-82e9-99c77bb59364)
+> Kuva 11. Ffuf asennettu.
+
+
 
 ## Lähteet
 
