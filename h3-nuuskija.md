@@ -126,7 +126,7 @@ Asennetaan kohde ja sanalista artikkelin (Karvinen 2023) ohjein sekä käynniste
 ![image](https://github.com/user-attachments/assets/19a54dc6-dc0b-4179-a5d2-29fc6c25798a)
 > Kuva 14. Admin-sivu löytyi endpointista /admin.
 
-## d) HTB. Ratkaise 1-2 konetta HackTheBoxisssa. Voit valita omaan taitotasoon sopivat koneet.
+## e) HTB. Ratkaise 1-2 konetta HackTheBoxisssa. Voit valita omaan taitotasoon sopivat koneet.
 
 Ladattuani ``starting_point_username.ovpn`` tiedoston (eurooppalaisilla vaihtoehdoilla) HackTheBoxin sivulta käynnistin sen komennolla ``sudo openvpn Downloads/starting_point_username.ovpn``.
 
