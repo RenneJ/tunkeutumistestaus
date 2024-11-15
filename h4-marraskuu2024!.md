@@ -9,7 +9,7 @@
 - hashcatia asennettaessa kannattaa myös asentaa hashid
   - hashid auttaa selvittämään tiivisteen algoritmi
 - hashcatin tavanomainen käyttö
-  - hashcat -m [algoritmin hashcat id] '[tiiviste]' [sanalista] -o [tiedostonimi outputille]
+  - `hashcat -m [algoritmin hashcat id] '[tiiviste]' [sanalista] -o [tiedostonimi outputille]`
   - 
 
 
