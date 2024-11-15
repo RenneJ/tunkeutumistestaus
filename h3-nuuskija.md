@@ -136,11 +136,25 @@ Eli asennetaan oikea kohde
     chmod u+x dirfuzt-1
     ./dirfuzt-1
 
+Tarkoituksena tässä haasteessa on löytää admin-sivu ja versiohallintaan liittyvä sivu.
+
 ![image](https://github.com/user-attachments/assets/5249c408-bfcd-4e43-bafe-1b1c914f07c0)
 > Kuva 15. Eka ajo. Weppifuzzaus tehtävänannon määrittelemään kohteeseen.
 
-Kuvasta 15 näkee myös paremman tavan dokumentoida ohjelman ajon tuloksia. Kuvassa on hyvä näkyä komento ja tulokset. Jos tuloksia on liikaa näytettäväksi, kannattaa ainakin näyttää osa. Nyt on helpompi nähdä miksi valita filtteriargumentin arvoksi 
+Kuvasta 15 näkee myös paremman tavan dokumentoida ohjelman ajon tuloksia. Kuvassa on hyvä näkyä komento ja tulokset. Jos tuloksia on liikaa näytettäväksi, kannattaa ainakin näyttää osa.
 
+Yllä olevasta kuvasta voi nähdä kahta eri kokoa sekä kahta eri sana- ja rivimäärää. Riveistä, joissa on sanamäärä 6 ja rivejä 11, on fuzzattu polku ollut .git/... . Ehkäpä nämä liittyvät versionhallintaan. Kurkataan mitä näkyy endpointista ``/.git/logs/``.
+
+![image](https://github.com/user-attachments/assets/4cf5a5a0-4c05-4b75-8ee9-fef0bcd15a31)
+> Kuva 16. Löytyi versiohallintasalaisuus!
+
+Vielä admin-sivun metsästys. Kokeillaan taas filteröidä koon mukaan. 154 tavua vaikuttaa olevan yleisin vastauskoko, joten filteröidään se pois tuloksista ensin.
+
+![image](https://github.com/user-attachments/assets/469d1dbc-3198-4c11-99c1-9d8272214298)
+> Kuva 17. Suodatettu ajo.
+
+![image](https://github.com/user-attachments/assets/301acfb6-a9f8-439e-8535-64fd9672d01a)
+> Kuva 18. Admin-sivu löytyi.
 
 ## e) HTB. Ratkaise 1-2 konetta HackTheBoxisssa. Voit valita omaan taitotasoon sopivat koneet.
 
