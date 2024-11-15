@@ -126,8 +126,20 @@ Asennetaan kohde ja sanalista artikkelin (Karvinen 2023) ohjein sekä käynniste
 ![image](https://github.com/user-attachments/assets/19a54dc6-dc0b-4179-a5d2-29fc6c25798a)
 > Kuva 14. Admin-sivu löytyi endpointista /admin.
 
-#### [EDIT]
+#### [EDIT 2024-11-15]
 
+Hups, korkkasin väärän salaisen hakemiston koneesta ``dirfuzt-0`` enkä tehtävänannossa mainittua ``dirfuzt-1``.
+
+Eli asennetaan oikea kohde
+
+    wget https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/dirfuzt-1
+    chmod u+x dirfuzt-1
+    ./dirfuzt-1
+
+![image](https://github.com/user-attachments/assets/5249c408-bfcd-4e43-bafe-1b1c914f07c0)
+> Kuva 15. Eka ajo. Weppifuzzaus tehtävänannon määrittelemään kohteeseen.
+
+Kuvasta 15 näkee myös paremman tavan dokumentoida ohjelman ajon tuloksia. Kuvassa on hyvä näkyä komento ja tulokset. Jos tuloksia on liikaa näytettäväksi, kannattaa ainakin näyttää osa. Nyt on helpompi nähdä miksi valita filtteriargumentin arvoksi 
 
 
 ## e) HTB. Ratkaise 1-2 konetta HackTheBoxisssa. Voit valita omaan taitotasoon sopivat koneet.
