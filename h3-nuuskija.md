@@ -126,7 +126,7 @@ Asennetaan kohde ja sanalista artikkelin (Karvinen 2023) ohjein sekä käynniste
 ![image](https://github.com/user-attachments/assets/19a54dc6-dc0b-4179-a5d2-29fc6c25798a)
 > Kuva 14. Admin-sivu löytyi endpointista /admin.
 
-#### [EDIT 2024-11-15]
+**[EDIT 2024-11-15]**
 
 Hups, korkkasin väärän salaisen hakemiston koneesta ``dirfuzt-0`` enkä tehtävänannossa mainittua ``dirfuzt-1``.
 
@@ -156,33 +156,43 @@ Vielä admin-sivun metsästys. Kokeillaan taas filteröidä koon mukaan. 154 tav
 ![image](https://github.com/user-attachments/assets/301acfb6-a9f8-439e-8535-64fd9672d01a)
 > Kuva 18. Admin-sivu löytyi.
 
+**[END EDIT]**
+
 ## e) HTB. Ratkaise 1-2 konetta HackTheBoxisssa. Voit valita omaan taitotasoon sopivat koneet.
 
 Ladattuani ``starting_point_username.ovpn`` tiedoston (eurooppalaisilla vaihtoehdoilla) HackTheBoxin sivulta käynnistin sen komennolla ``sudo openvpn Downloads/starting_point_username.ovpn``.
 
 En saanut kuitenkaan muodostettua yhteyttä HackTheBoxin vpn:ään. Sain ilmoitukset terminaalin tulosteeseen ``TLS Error: TLS handshake failed``. Kokeilin ottaa vm:ssäni ainoastaan yhden verkkokytkennän käyttöön (pelkkä NAT), kokeilin .ovpn tiedostolatausta USA-serverille ja asensin uudestaan Kalin tällä kertaa kali.org -sivulta. Eivät toimineet. Muokkaamalla .ovpn tiedostoa [tällä](https://forum.hackthebox.com/t/tls-handshake-failure-during-vpn-connection/3369/11) tavalla sain yhteyden pelaamaan.
 
+**[EDIT 2024-11-15]**
+
+Kurssikaverini Valtteri oli korjannut saman ongelman valitsemalla .ovpn-tiedoston latausvalinnassa "TCP 443". Oletuksena on päällä "UDP 1337"...
+
+Tämä yksinkertaisempi tekniikka myös toimi kohdallani. Testattu samalla koneella, jolla aiemmin sain vpn-yhteyden toimimaan muokkaamalla ladattua tiedostoa.
+
+**[END EDIT]**
+
 ![image](https://github.com/user-attachments/assets/e989afe6-90d8-4cca-9382-0575d0a2cd02)
-> Kuva 15. Yhteys muodostettu HackTheBoxin StartingPoint vpn:ään.
+> Kuva 19. Yhteys muodostettu HackTheBoxin StartingPoint vpn:ään.
 
 Nyt kun ympäristö toimii voidaan jatkaa.
 
 **Spawn Machine**
 
 ![2024-11-12-spawnmachine](https://github.com/user-attachments/assets/a1bc87dd-fb8f-42de-821a-e924fd179c64)
-> Kuva 16. Kohdekone luotu.
+> Kuva 20. Kohdekone luotu.
 
 **Vastaa kysymyksiin.**
 
 **Korkkaa kone**. Onnistui mukavasti kysymyksistä päättelemällä, että miten otetaan yhteys. Komento ``ls`` ja ``cat flag.txt`` johtivat lipun luokse.
 
 ![image](https://github.com/user-attachments/assets/f03ed023-e694-4db6-91a7-a398f0a4d86d)
-> Kuva 17. Miau.
+> Kuva 21. Miau.
 
 Säännöt sallisivat StartingPoint-tehtävien julkaisun. Mutta opettelen hyville HackTheBoxin tavoille jo nyt. StartingPoint-tehtävissä on linkki läpikävelyohjeisiin.
 
 ![image](https://github.com/user-attachments/assets/5ceba995-2fed-4df5-a9eb-3f75a8f37cb9)
-> Kuva 18. Vasasta ei ollut vastusta.
+> Kuva 22. Vasasta ei ollut vastusta.
 
 ## Lähteet
 
