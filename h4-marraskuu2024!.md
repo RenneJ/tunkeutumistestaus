@@ -46,7 +46,7 @@ Kali virtuaalikoneella:
     sudo apt update
     sudo apt install hashcat hashid   # tullut Kalin mukana, mutta todentaa ohjelmien olevan uusimmat versiot
 
-Hashcatia varten ladataan vielä sanalista. Käytetään `rockyou.txt`. Ko. tiedostoa hostaa useampikin googlasin "rockyou" ja valitsin ensimmäisen osuman. Käytin `wget` komentoa terminaalissa.
+Hashcatia varten ladataan vielä sanalista. Käytetään `rockyou.txt`. Googlasin "rockyou" ja valitsin ensimmäisen osuman. Käytin `wget` komentoa terminaalissa.
 
 ![image](https://github.com/user-attachments/assets/b4e7cbc1-0c74-4c22-8c84-5f6c01344336)
 > Kuva 1. Sanalistan lataaminen.
@@ -58,6 +58,27 @@ Luodaan esimerkkitiiviste (tarkastin komennon [täältä](https://askubuntu.com/
 
 ![image](https://github.com/user-attachments/assets/f9f16d9b-d0ff-4b19-b74f-5e92bdec9b30)
 > Kuva 3. Md5 löytyy top 3:sta.
+
+Ajoin kuvan 3 komennon toistamiseen lipulla `-m`, joka näyttää algoritmin hashcat moden numeron (`man hashid`).
+
+`MD5 [Hashcat Mode: 0]`
+
+![image](https://github.com/user-attachments/assets/df968a07-7ae5-4565-a233-670104e00a1b)
+> Kuva 6. Murtaminen alkaa.
+
+![image](https://github.com/user-attachments/assets/831f5c02-5d2e-4c0b-9b87-2ec9ad758622)
+> Kuva 5. Muisti loppuu kesken.
+
+Sammutetaan kone ja lisätään boxiin lisää muistia (2048 MB -> 4096 MB).
+
+![image](https://github.com/user-attachments/assets/0b9cc91a-be05-403a-9415-65e2150adc99)
+> Kuva 6. Valitun koneen muistin lisääminen. Oikea valikko aukeaa painamalla 'Settings' painiketta ja navigoimalla 'System' näkymään.
+
+![image](https://github.com/user-attachments/assets/82f5132c-f931-4344-9e5a-7831d5a5a55b)
+> Kuva 7. Cracked!
+
+![image](https://github.com/user-attachments/assets/4f45ab65-90b0-4950-a6e6-0281c9c007de)
+> Kuva 8. Data tallessa tiedostossa.
 
 
 
