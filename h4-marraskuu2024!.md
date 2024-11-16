@@ -16,9 +16,11 @@
 - John the Ripperillä voidaan murtaa tiedostojen salauksia
 - binääri täytyy itse kääntää lähdekoodista
 - kloonaa git repo, tarkista ympäristö ja tee Makefile(./configure), käännä lähdekoodi (make, ks. Makefilestä oikeat komennot ja parametrit)
-- johnin tavanomainen käyttö
+- johnin tavanomainen käyttö tiedoston salauksen purkamiseen
   - tiedostosta tiivste irti
+    - `polku/john/run/zip2john [tiedosto] >[tiedosto].hash`
   - aja john
+    - `polku/john/run/john [tiedosto].hash`
 
 ### Security Penetration Testing - The Art of Hacking Series LiveLessons: Lesson 6: Hacking User Credentials (Santos et al. 2017)
 
