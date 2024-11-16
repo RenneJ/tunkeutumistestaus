@@ -44,11 +44,26 @@
 Kali virtuaalikoneella:
 
     sudo apt update
-    sudo apt install hashcat    # tullut Kalin mukana, mutta todentaa myös hashcatin olevan uusin versio
+    sudo apt install hashcat hashid   # tullut Kalin mukana, mutta todentaa ohjelmien olevan uusimmat versiot
+
+Hashcatia varten ladataan vielä sanalista. Käytetään `rockyou.txt`. Ko. tiedostoa hostaa useampikin googlasin "rockyou" ja valitsin ensimmäisen osuman. Käytin `wget` komentoa terminaalissa.
+
+![image](https://github.com/user-attachments/assets/b4e7cbc1-0c74-4c22-8c84-5f6c01344336)
+> Kuva 1. Sanalistan lataaminen.
+
+Luodaan esimerkkitiiviste (tarkastin komennon [täältä](https://askubuntu.com/a/53852) (guntbert 2015)) ja identifioidaan käytettyä tiivistealgoritmi.
+
+![image](https://github.com/user-attachments/assets/68065b15-1e4c-41eb-a77a-66845c8e9db7)
+> Kuva 2. Testasin ettei lainausmerkit vaikuta tulosteeseen.
+
+![image](https://github.com/user-attachments/assets/f9f16d9b-d0ff-4b19-b74f-5e92bdec9b30)
+> Kuva 3. Md5 löytyy top 3:sta.
 
 
 
 ## Lähteet
+
+guntbert, 2015. How to get the MD5 hash of a string directly in the terminal? Answers. Luettavissa: https://askubuntu.com/questions/53846/how-to-get-the-md5-hash-of-a-string-directly-in-the-terminal Luettu: 2024-11-16
 
 HackTricks, 2024. MSFVenom - CheatSheet. Luettavissa: https://book.hacktricks.xyz/generic-methodologies-and-resources/reverse-shells/msfvenom Luettu: 2024-11-15
 
