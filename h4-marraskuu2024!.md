@@ -74,6 +74,8 @@ Sammutetaan kone ja lisätään boxiin lisää muistia (2048 MB -> 4096 MB).
 ![image](https://github.com/user-attachments/assets/0b9cc91a-be05-403a-9415-65e2150adc99)
 > Kuva 6. Valitun koneen muistin lisääminen. Oikea valikko aukeaa painamalla 'Settings' painiketta ja navigoimalla 'System' näkymään.
 
+Käynnistetään kone uudelleen ja kokeillaan kuvassa 6 näkyvää komentoa uudestaan. Uuden terminaalin avaamisen (Left Ctrl + Alt + T) voi painaa pari kertaa nuolinäppäintä ylös, jotta saadaan täsmälleen sama käytetty komento uudelleen.
+
 ![image](https://github.com/user-attachments/assets/82f5132c-f931-4344-9e5a-7831d5a5a55b)
 > Kuva 7. Cracked!
 
