@@ -138,7 +138,7 @@ Nyt on kotihakemistoon luotu loot.zip. Kokeillaan purkaa se ja katsotaan mitä t
 Näyttää siltä, että hakemiston jokainen tiedosto on suojattu salasanalla. Kokeillaan murtaa se Johnilla.
 
     cd ~/john/run
-    zip2john ~/loot.zip > ~/loot.zip.hash
+    zip2john ~/loot.zip > ~/loot.zip.hash    # tarkistettu artikkelista (Karvinen 2023)
     john ~/loot.zip.hash
 
 Tiivisteen erottamisessa john osaa oikein päätellä/olettaa, että salasana on sama joka tiedostossa.
