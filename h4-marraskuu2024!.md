@@ -217,7 +217,7 @@ Tämä kohta herätti hieman kysymyksiä. Tauon asettamisen ymmärrän. Mutta mi
 ### Subdomains - Virtual Host Enumeration
 
 ![image](https://github.com/user-attachments/assets/558bacc3-b1fd-4d43-b8eb-2b7bd91bcca8)
-> Kuva 28.
+> Kuva 28. Subdomain löydetty.
 
 ![image](https://github.com/user-attachments/assets/bf5d9df6-9b28-478b-b7ec-2cd571f06ab3)
 > Kuva 29. Mitähän ne subdomainit olikaan? Lähde: https://en.wikipedia.org/wiki/Subdomain
