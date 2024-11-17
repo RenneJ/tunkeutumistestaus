@@ -149,6 +149,33 @@ Tiivisteen erottamisessa john osaa oikein päätellä/olettaa, että salasana on
 ![image](https://github.com/user-attachments/assets/a18aa86b-6282-4ad9-b442-9398f71e4ab4)
 > Kuva 18. Salasanan syöttäminen purkaa zip-tiedoston.
 
+## c) Fuffme. Asenna Ffufme harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
+
+#### Asennukset
+
+Seurataan Teron ohjeita harjoitusmaalin ja muiden vaatimusten asentamiseksi (Karvinen 2023b).
+
+    sudo apt-get install docker.io
+    git clone https://github.com/adamtlangley/ffufme
+    cd ffufme/
+    sudo docker build -t ffufme .
+    sudo docker run -d -p 80:80 ffufme
+
+![image](https://github.com/user-attachments/assets/3e140e1d-4375-41bf-841b-157b9347e741)
+> Kuva 19. Target acquired.
+
+Asennetaan vielä lisää sanalistoja. Ohjeissa mainittu `common.txt` löytyy jo.
+
+![image](https://github.com/user-attachments/assets/1840710e-a294-4bea-8014-a7b765450ea9)
+> Kuva 20. Sanalistat haettu.
+
+Otetaan kone irti internetistä varmuuden vuoksi.
+
+![image](https://github.com/user-attachments/assets/d6d79779-7dfe-4c80-a116-7cb25da0b7f2)
+> Kuva 21. NATattu liitin pois päältä. Kohde vielä pystyssä.
+
+#### Basic Content Discovery
+
 ## Lähteet
 
 guntbert, 2015. How to get the MD5 hash of a string directly in the terminal? Answers. Luettavissa: https://askubuntu.com/questions/53846/how-to-get-the-md5-hash-of-a-string-directly-in-the-terminal Luettu: 2024-11-16
@@ -157,7 +184,9 @@ HackTricks, 2024. MSFVenom - CheatSheet. Luettavissa: https://book.hacktricks.xy
 
 Karvinen, T. 2022. Cracking Passwords with Hashcat. Luettavissa: https://terokarvinen.com/2022/cracking-passwords-with-hashcat/ Luettu: 2024-11-15
 
-Karvinen, T. 2023. Crack File Password With John. Luettavissa: https://terokarvinen.com/2023/crack-file-password-with-john/ Luettu: 2024-11-15
+Karvinen, T. 2023a. Crack File Password With John. Luettavissa: https://terokarvinen.com/2023/crack-file-password-with-john/ Luettu: 2024-11-15
+
+Karvinen, T. 2023b. Fuffme - Install Web Fuzzing Target on Debian. Luettavissa: https://terokarvinen.com/2023/fuffme-web-fuzzing-target-debian/ Luettu: 2024-11-17
 
 Karvinen, T. 2024. Tunkeutumistestaus. H4 Marraskuu!. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/#h4-marraskuu2024 Luettu: 2024-11-15
 
