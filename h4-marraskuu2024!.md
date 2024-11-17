@@ -82,7 +82,29 @@ Käynnistetään kone uudelleen ja kokeillaan kuvassa 6 näkyvää komentoa uude
 ![image](https://github.com/user-attachments/assets/4f45ab65-90b0-4950-a6e6-0281c9c007de)
 > Kuva 8. Data tallessa tiedostossa.
 
+## b) Asenna John the Ripper ja testaa sen toiminta murtamalla jonkin esimerkkitiedoston salasana.
 
+Tarkistin komennot samasta Teron artikkelista, josta kohdassa x) tehtiin lyhyt tiivistelmä (Karvinen 2023).
+
+    git clone --depth=1 https://github.com/openwall/john.git
+    cd john/src/	
+    ./configure
+
+![image](https://github.com/user-attachments/assets/b0581dc6-1c7e-4568-b477-d976f4c4b01b)
+> Kuva 9. Eka `./configure`.
+
+Ensimmäinen konfigurointi (eli ympäristön/kirjastojen tarkistus) päättyi virheilmoitukseen openssl:n puuttumisesta. En ymmärtänyt oikean paketin nimen olevan `libssl-dev`. Löysin apua [täältä](https://stackoverflow.com/a/34818789) (Kilzer 2018).
+
+    sudo apt-get update
+    sudo apt-get install libssl-dev
+    ./configure
+
+Toisella `./configure` ajolla koodi kääntyi. Mutta kaikkia Johnin toimintoja ei ole käytössä puuttuvien kirjastojen takia (ks. kuva alla).
+
+![image](https://github.com/user-attachments/assets/4715e42e-49d2-4f29-ad6f-17b4a2b20823)
+> Kuva 10. Toka `./configure`.
+
+Kuvan 10 tuloste kehottaa seuraavaksi ajamaan make 
 
 ## Lähteet
 
