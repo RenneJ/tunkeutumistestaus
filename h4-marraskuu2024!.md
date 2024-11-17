@@ -99,12 +99,52 @@ Ensimmäinen konfigurointi (eli ympäristön/kirjastojen tarkistus) päättyi vi
     sudo apt-get install libssl-dev
     ./configure
 
-Toisella `./configure` ajolla koodi kääntyi. Mutta kaikkia Johnin toimintoja ei ole käytössä puuttuvien kirjastojen takia (ks. kuva alla).
+Toisella `./configure` ajolla koodin todetaan olevan ok käännettäväksi. Mutta kaikkia Johnin toimintoja ei ole käytössä puuttuvien kirjastojen takia (ks. kuva alla).
 
 ![image](https://github.com/user-attachments/assets/4715e42e-49d2-4f29-ad6f-17b4a2b20823)
 > Kuva 10. Toka `./configure`.
 
-Kuvan 10 tuloste kehottaa seuraavaksi ajamaan make 
+Kuvan 10 tuloste kehottaa seuraavaksi ajamaan `make` komennon kahdesti eri argumentein. Käytän Teron ohjeen (Karvinen 2023) mukaan `-sj2` tilalla `-sj4`.
+
+    make -s clean && make -sj4
+
+![image](https://github.com/user-attachments/assets/4b46f92b-b176-44c2-80a4-e7ec3beb4951)
+> Kuva 11. Käännetty.
+
+Kokeillaan onko John the Ripper asennettu.
+
+    cd ../run
+    john
+
+![image](https://github.com/user-attachments/assets/ac2acbdd-b88d-44c1-97e2-8ab3d6eded01)
+> Kuva 12. John juoksee.
+
+Seuraavaksi itse asiaan, tiedoston salasanan murtamiseen. Luodaan ensiksi salasanasuojattu zip-tiedosto.
+
+![image](https://github.com/user-attachments/assets/cfd6f406-6b5c-45ad-a9b7-6bb5fc2ddd88)
+> Kuva 13. `zip -h2 | less` Less lukuohjelmassa syöte "/password".
+
+![image](https://github.com/user-attachments/assets/96cc432a-1dd6-40b4-8e95-947e30f57134)
+> Kuva 14. Zipping.
+
+![image](https://github.com/user-attachments/assets/8364a908-01b1-4ce6-b8cb-4075cae8e9b0)
+> Kuva 15. Ote historiasta. Manuaalia tutkimalla oikea komento ei ihan heti löytynyt.
+
+Nyt on kotihakemistoon luotu loot.zip. Kokeillaan purkaa se ja katsotaan mitä tapahtuu väärällä salasanalla tai kysytäänkö sitä ollenkaan.
+
+![image](https://github.com/user-attachments/assets/485b62a9-8f13-4180-a114-302ad80b3821)
+> Kuva 16. Salasanaa kysytään ja annetaan se väärin.
+
+Näyttää siltä, että hakemiston jokainen tiedosto on suojattu salasanalla. Kokeillaan murtaa se Johnilla.
+
+    cd ~/john/run
+    zip2john ~/loot.zip > ~/loot.zip.hash
+    john ~/loot.zip.hash
+
+Tiivisteen erottamisessa john osaa oikein päätellä/olettaa, että salasana on sama joka tiedostossa.
+
+![image](https://github.com/user-attachments/assets/6c0260a7-adee-491c-b22e-5495a0f30684)
+> Kuva 17. Murrettu! Salasana: data.
 
 ## Lähteet
 
