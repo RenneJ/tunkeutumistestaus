@@ -174,7 +174,16 @@ Otetaan kone irti internetistä varmuuden vuoksi.
 ![image](https://github.com/user-attachments/assets/d6d79779-7dfe-4c80-a116-7cb25da0b7f2)
 > Kuva 21. NATattu liitin pois päältä. Kohde vielä pystyssä.
 
-#### Basic Content Discovery
+### Basic Content Discovery
+
+Kalin Z shell ystävällisesti näytti edellisen käytetyn `ffuf` komennon, josta oli helppo muuttaa url-argumentti. Eka ajo meni kuitenkin pieleen, kun en spesifioinut käytettävää protokollaa (http://).
+
+![image](https://github.com/user-attachments/assets/4190fee7-fe73-4005-aabc-82ace3ae7ff8)
+> Kuva 22. Basic Content Discovery suoritettu.
+
+### Content Discovery With Recursion
+
+Lippu `-recursion` fuzzaa löydetyn hakemiston.
 
 ## Lähteet
 
