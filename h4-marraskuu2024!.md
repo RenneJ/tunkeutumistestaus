@@ -161,4 +161,6 @@ Karvinen, T. 2023. Crack File Password With John. Luettavissa: https://terokarvi
 
 Karvinen, T. 2024. Tunkeutumistestaus. H4 Marraskuu!. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/#h4-marraskuu2024 Luettu: 2024-11-15
 
+Kilzer, A. 2018. OpenSSL headers missing when building OpenSSH. Answers. Luettavissa: https://stackoverflow.com/questions/30330835/openssl-headers-missing-when-building-openssh/34818789#34818789 Luettu: 2024-11-17
+
 Santos, O., Sternstein, J., Taylor, R., McCoy, C. 2017. Security Penetration Testing The Art of Hacking Series LiveLessons. Katsottavissa (vaatii kirjautumisen): https://learning.oreilly.com/course/security-penetration-testing/9780134833989/ Katsottu: 2024-11-16
