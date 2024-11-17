@@ -224,7 +224,34 @@ Tämä kohta herätti hieman kysymyksiä. Tauon asettamisen ymmärrän. Mutta mi
 
 ## d) Tiedosto. Tee itse tai etsi verkosta jokin salakirjoitettu tiedosto, jonka saat auki. Murra sen salaus. (Jokin muu formaatti kuin aiemmissa alakohdissa kokeilemasi).
 
+Aloitin listaamalla `~/john/run/` sisällön selvittääkseni formaatin, jonka voisin murtaa. Valitsin pdf:n (pdf2john). Minun piti selvittää, miten pdf salataan. [Tästä](https://security.stackexchange.com/a/183560) vastauksesta (Arminius 2018) sain selville ohjelman `qpdf` ja parametrit kryptaamiseen.
+
+    sudo apt-get install qpdf
+
+Luodaan uusi pdf.
+
+    qpdf -empty -- crack.pdf  # man qpdf
+
+Aiemmin linkkaamastani ohjeesta (Arminius 2018) komento kryptattavan pdf:n tekemiseen.
+
+    qpdf --encrypt 123456 123456 256 crack.pdf crack_crypted.pdf
+
+![image](https://github.com/user-attachments/assets/efb57b17-7dc0-4079-aa35-7256f0ff5ed5)
+> Kuva 30. Salasanasuojattu pdf.
+
+Tämän jälkeen otetaan tiiviste talteen kuten kohdassa b) mutta tällä kertaa eri johnin moduulilla.
+
+![image](https://github.com/user-attachments/assets/51ded7ab-4885-4e99-8531-e10367f73847)
+> Kuva 31. Tiivisteen talteenotto.
+
+![image](https://github.com/user-attachments/assets/6f00a0bb-ebd6-4fe8-8d63-6b6ce59fd21f)
+> Kuva 32. Tiiviste vuotaa.
+
+John onnistui. Hyvä John!
+
 ## Lähteet
+
+Arminius, 2018. Why won't pdf2john extract the password hash of this encrypted pdf? Getting blank results. Answers. Luettavissa: https://security.stackexchange.com/a/183560 Luettu: 2024-11-17
 
 guntbert, 2015. How to get the MD5 hash of a string directly in the terminal? Answers. Luettavissa: https://askubuntu.com/questions/53846/how-to-get-the-md5-hash-of-a-string-directly-in-the-terminal Luettu: 2024-11-16
 
