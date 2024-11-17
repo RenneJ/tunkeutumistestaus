@@ -151,7 +151,7 @@ Tiivisteen erottamisessa john osaa oikein päätellä/olettaa, että salasana on
 
 ## c) Fuffme. Asenna Ffufme harjoitusmaali paikallisesti omalle koneellesi. Ratkaise tehtävät (kaikki paitsi ei "Content Discovery - Pipes")
 
-#### Asennukset
+### Asennukset
 
 Seurataan Teron ohjeita harjoitusmaalin ja muiden vaatimusten asentamiseksi (Karvinen 2023b).
 
@@ -184,6 +184,45 @@ Kalin Z shell ystävällisesti näytti edellisen käytetyn `ffuf` komennon, jost
 ### Content Discovery With Recursion
 
 Lippu `-recursion` fuzzaa löydetyn hakemiston.
+
+![image](https://github.com/user-attachments/assets/4a39cb26-09c2-43ff-9c48-beea41cead28)
+> Kuva 23. Rekursiivisesti.
+
+### Content Discovery With File Extensions
+
+![image](https://github.com/user-attachments/assets/55c62520-5946-466a-b952-626c1c4656ef)
+> Kuva 24. Tiedostopäätteen kera.
+
+### No 404 Status
+
+Tämähän oli jo tuttu. Filteröidään koon mukaan tulokset.
+
+![image](https://github.com/user-attachments/assets/dfdc38a9-e3fe-4f8e-ba01-4281e99e17b6)
+> Kuva 25. Salaisuus löytyi.
+
+### Param Mining
+
+Sijoitetaan avainsana url-parametrin tilalle.
+
+![image](https://github.com/user-attachments/assets/7e45dc19-8eeb-45f4-acf2-e9ad2ac4d960)
+> Kuva 26. Paramteri löydetty.
+
+### Rate Limited
+
+![image](https://github.com/user-attachments/assets/12e389d3-7422-48c1-8d84-7bba8fcbb05b)
+> Kuva 27. Pieni paussi pyynnöissä.
+
+Tämä kohta herätti hieman kysymyksiä. Tauon asettamisen ymmärrän. Mutta mitä tekee `-t`, joka manuaalisivujen mukaan avaa useamman threadin eli mitä ovat threadit?
+
+### Subdomains - Virtual Host Enumeration
+
+![image](https://github.com/user-attachments/assets/558bacc3-b1fd-4d43-b8eb-2b7bd91bcca8)
+> Kuva 28.
+
+![image](https://github.com/user-attachments/assets/bf5d9df6-9b28-478b-b7ec-2cd571f06ab3)
+> Kuva 29. Mitähän ne subdomainit olikaan? Lähde: https://en.wikipedia.org/wiki/Subdomain
+
+## d) Tiedosto. Tee itse tai etsi verkosta jokin salakirjoitettu tiedosto, jonka saat auki. Murra sen salaus. (Jokin muu formaatti kuin aiemmissa alakohdissa kokeilemasi).
 
 ## Lähteet
 
