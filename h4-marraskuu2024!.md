@@ -146,6 +146,9 @@ Tiivisteen erottamisessa john osaa oikein päätellä/olettaa, että salasana on
 ![image](https://github.com/user-attachments/assets/6c0260a7-adee-491c-b22e-5495a0f30684)
 > Kuva 17. Murrettu! Salasana: data.
 
+![image](https://github.com/user-attachments/assets/a18aa86b-6282-4ad9-b442-9398f71e4ab4)
+> Kuva 18. Salasanan syöttäminen purkaa zip-tiedoston.
+
 ## Lähteet
 
 guntbert, 2015. How to get the MD5 hash of a string directly in the terminal? Answers. Luettavissa: https://askubuntu.com/questions/53846/how-to-get-the-md5-hash-of-a-string-directly-in-the-terminal Luettu: 2024-11-16
