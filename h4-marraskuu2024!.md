@@ -251,7 +251,7 @@ John onnistui. Hyvä John!
 
 ## e) Tiiviste. Tee itse tai etsi verkosta salasanan tiiviste, jonka saat auki. Murra sen salaus. (Jokin muu formaatti kuin aiemmissa alakohdissa kokeilemasi. Voit esim. tehdä käyttäjän Linuxiin ja murtaa sen salasanan.)
 
-Kokeillaan avata salasanasuojattu yksityinen ssh-avain. Harjoitan näiden salausavainten kanssa erityistä varovaisuutta. Kannattaa huomioida, ettei ylikirjoita olemassa olevia avaimia. Sijoitan uuden avainparin erilleen olemassa olevista avaimista ja lopuksi tulen vielä poistamaan avainparin.
+Kokeillaan avata salasanasuojattu yksityinen ssh-avain. Kannattaa huomioida, ettei ylikirjoita olemassa olevia avaimia. Sijoitan uuden avainparin erilleen olemassa olevista avaimista ja lopuksi tulen vielä poistamaan avainparin.
 
 ![image](https://github.com/user-attachments/assets/b6ae2acb-c344-445a-a735-838e2f13d595)
 > Kuva 33. Avainparin luominen.
