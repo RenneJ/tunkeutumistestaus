@@ -309,7 +309,7 @@ Käynnistetään multi handler msfconsolessa (Cyber Offense 2022).
 ![image](https://github.com/user-attachments/assets/6739f190-08a0-48a0-a53a-b5d81903e6a8)
 > Kuva 41. Multi handler päälle ja payloadin valinta.
 
-Tämän jälkeen määritetään haittaohjelmaan kirjoitetut parametrit eli ne tiedot, ip ja portti, joihin haittaohjelma yrittää muodostaa yhteden ja avata reverse shellin.
+Tämän jälkeen määritetään haittaohjelmaan kirjoitetut parametrit eli ne tiedot, ip ja portti, joihin haittaohjelma yrittää muodostaa yhteyden ja avata reverse shellin.
 
     set LHOST [haittaohjelmaan kirjoitettu ip]
     set LPORT [haittaohjelmaan kirjoitettu portti]
