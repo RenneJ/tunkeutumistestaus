@@ -263,7 +263,29 @@ Let's get cracking!
 
 Pysäytin ensimmäisen ajon n. 30min käynnistyksestä. Kuvasssa 34 ajon aikainen status näyttää, että john yrittää murtaa salasanaa tunnistamansa kontekstin perusteella; käyttäjänimen, tiedostopolun yms. muokkauksella. Tässä kohtaa, jotta saan salasanan murrettua ja tehtävän mielekkääseen tilaan palautusta varten, tutustun johnin manuaalisivuista oppimaani incremental modeen (salasanan lisääminen sanalistaan ei tunnu kivalta vaihtoehdolta).
 
-John the Ripperin [dokumentaatiosta](https://www.openwall.com/john/doc/MODES.shtml) (Openwall s.a.): *"As of version 1.8.0, pre-defined incremental modes are --"LowerNum" (lowercase letters plus digits, for 36 total)"*.
+John the Ripperin [dokumentaatiosta](https://www.openwall.com/john/doc/MODES.shtml) (Openwall a): *"As of version 1.8.0, pre-defined incremental modes are --"LowerNum" (lowercase letters plus digits, for 36 total)"*.
+
+![image](https://github.com/user-attachments/assets/229a9dba-ab86-4963-a40b-b755b1858d1f)
+> Kuva 35. ETA: 2030.
+
+Vaikka määritin max ja min length arvot salasanan pituudeksi (`sudo micro /etc/jonh/john.config` + `CTRL + F -> LowerNum`) on kombinaatioiden määrä 36:lla merkillä niin suuri, etten pysty tällä tavoin murtamaan salasanaa. Manuaalisivuilla sanotaan, että `-rules` parametriä täytyy käyttää `-wordlist` parametrin yhteydessä. Muutetaan salasanaa ja kokeillaan muuttaa a -> 4, s -> 5, i -> 1 jne. ja käytetään rockyou.txt sanalistana.
+
+    rm ~/mock.ssh/*  # poistetaan avaimet
+    ssh-keygen       #  uudet avaimet ja uusi salasana
+
+Sääntöjen kirjoituksen ohjeet (Openwall b ja Singer 2021).
+
+    sudo micro /etc/john/john.conf
+
+![image](https://github.com/user-attachments/assets/91c3c262-1088-4794-9b55-331b7ba6e7c4)
+> Kuva 36. Säännön kirjoitus conf-tiedoston loppuun.
+
+![image](https://github.com/user-attachments/assets/08caea8c-0339-4eb8-8439-24584828384c)
+> Kuva 37. Johnin ajo sanalistan ja oman säännön kanssa.
+
+Hyvä John!
+
+Poistetaan vielä avaimet, ettei niitä vahingossa käytetä.
 
 ## Lähteet
 
@@ -283,6 +305,10 @@ Karvinen, T. 2024. Tunkeutumistestaus. H4 Marraskuu!. Luettavissa: https://terok
 
 Kilzer, A. 2018. OpenSSL headers missing when building OpenSSH. Answers. Luettavissa: https://stackoverflow.com/questions/30330835/openssl-headers-missing-when-building-openssh/34818789#34818789 Luettu: 2024-11-17
 
-Openwall, s.a. "Incremental" mode. Luettavissa: https://www.openwall.com/john/doc/MODES.shtml Luettu: 2024-11-19
+Openwall, a. "Incremental" mode. Luettavissa: https://www.openwall.com/john/doc/MODES.shtml Luettu: 2024-11-19
+
+Openwall, b. Wordlist Rules Syntax. Character class commands. Luettavissa: https://www.openwall.com/john/doc/RULES.shtml Luettu: 2024-11-19
 
 Santos, O., Sternstein, J., Taylor, R., McCoy, C. 2017. Security Penetration Testing The Art of Hacking Series LiveLessons. Katsottavissa (vaatii kirjautumisen): https://learning.oreilly.com/course/security-penetration-testing/9780134833989/ Katsottu: 2024-11-16
+
+Singer, N. 2021. John-The-Ripper Password Cracking: Rule Creation. Katsottavissa: https://www.youtube.com/watch?v=Jz22sRSZZOc Katsottu: 2024-11-19
