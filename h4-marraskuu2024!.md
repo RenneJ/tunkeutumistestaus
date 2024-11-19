@@ -256,6 +256,15 @@ Kokeillaan avata salasanasuojattu yksityinen ssh-avain. Harjoitan näiden salaus
 ![image](https://github.com/user-attachments/assets/b6ae2acb-c344-445a-a735-838e2f13d595)
 > Kuva 33. Avainparin luominen.
 
+Let's get cracking!
+
+![image](https://github.com/user-attachments/assets/cc18040e-4b5d-4ce0-aa4a-aa8b1a4d5586)
+> Kuva 34. John käy.
+
+Pysäytin ensimmäisen ajon n. 30min käynnistyksestä. Kuvasssa 34 ajon aikainen status näyttää, että john yrittää murtaa salasanaa tunnistamansa kontekstin perusteella; käyttäjänimen, tiedostopolun yms. muokkauksella. Tässä kohtaa, jotta saan salasanan murrettua ja tehtävän mielekkääseen tilaan palautusta varten, tutustun johnin manuaalisivuista oppimaani incremental modeen (salasanan lisääminen sanalistaan ei tunnu kivalta vaihtoehdolta).
+
+John the Ripperin [dokumentaatiosta](https://www.openwall.com/john/doc/MODES.shtml) (Openwall s.a.): *"As of version 1.8.0, pre-defined incremental modes are --"LowerNum" (lowercase letters plus digits, for 36 total)"*.
+
 ## Lähteet
 
 Arminius, 2018. Why won't pdf2john extract the password hash of this encrypted pdf? Getting blank results. Answers. Luettavissa: https://security.stackexchange.com/a/183560 Luettu: 2024-11-17
@@ -273,5 +282,7 @@ Karvinen, T. 2023b. Fuffme - Install Web Fuzzing Target on Debian. Luettavissa: 
 Karvinen, T. 2024. Tunkeutumistestaus. H4 Marraskuu!. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/#h4-marraskuu2024 Luettu: 2024-11-15
 
 Kilzer, A. 2018. OpenSSL headers missing when building OpenSSH. Answers. Luettavissa: https://stackoverflow.com/questions/30330835/openssl-headers-missing-when-building-openssh/34818789#34818789 Luettu: 2024-11-17
+
+Openwall, s.a. "Incremental" mode. Luettavissa: https://www.openwall.com/john/doc/MODES.shtml Luettu: 2024-11-19
 
 Santos, O., Sternstein, J., Taylor, R., McCoy, C. 2017. Security Penetration Testing The Art of Hacking Series LiveLessons. Katsottavissa (vaatii kirjautumisen): https://learning.oreilly.com/course/security-penetration-testing/9780134833989/ Katsottu: 2024-11-16
