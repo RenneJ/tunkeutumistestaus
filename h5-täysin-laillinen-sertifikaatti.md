@@ -57,8 +57,8 @@ Hieman back end ohjelmointia tehneenä voin sanoa, ettei käyttöoikeuksien mä�
   - whitelist: "ainoastaan nämä ok"
 
 Miksi [esimerkissä](https://portswigger.net/web-security/ssrf) on POST pyyntö? Esimerkissä puhutaan ainoastaan tiedon noutamisesta.
-[
-**Cross-site scripting**](https://portswigger.net/web-security/cross-site-scripting)
+
+[**Cross-site scripting**](https://portswigger.net/web-security/cross-site-scripting)
 
 - haavoittuvuus, jossa hyökkääjä voi syöttää haitallisen skriptin web-ohjelmaan
 - jos `alert()` toimii, on kohde haavoittuvainen (`print()` chromella)
