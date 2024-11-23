@@ -42,12 +42,34 @@ Hieman back end ohjelmointia tehneenä voin sanoa, ettei käyttöoikeuksien mä�
 
 - käyttäjän syöte käsitellään palvelimella, mikä vaikuttaa template-prosessoijaan ja sitä kautta näytettävään html-tiedostoon
 - jos template-kielien yleisesti käytetyt merkit `${{<%[%'"}}%\` nostavat virheilmoituksen käyttäjän syötteestä saattaa kohde olla haavoittuvainen
-- jos laskutoimitus (esim. `{ 7 * 7 }`) evaluoidaan oikein palautettavaan html-tiedostoon, on kohde melko varmasti haavoittuvainen tälle hyökkäykselle
+- jos laskutoimitus (esim. `{ 7 * 7 }`) evaluoidaan oikein palautettavaan html-tiedostoon, on kohde melko varmasti altis tälle haavoittuvuudelle
 - paras puolustuskeino on estää käyttäjää antamasta syötettä, joka muokkaa tai lisää uuden templaten
 
 [**Server-side request forgery (SSRF)**](https://portswigger.net/web-security/ssrf)
 
+- hyökkääjä manipuloi palvelinta ottamaan yhteyden epätarkoituksenmukaiseen kohteeseen
+  - sisäverkon palvelu tai ulkopuolinen
+- hyökkääjä voi muokata http-pyynnön näyttämään admin-sivun
+  - jos pyyntö tulee palvelimelle luotetusta lähteestä kuten `localhost`, hyökkääjä on onnistunut kiertämään mahdolliset muut suojamekanismit
+  - pyyntöä voi muokata myös reitittymättömään osoitteeseen
+- puolustus:
+  - blacklist: "blokkaa nämä"
+  - whitelist: "ainoastaan nämä ok"
 
+Miksi [esimerkissä](https://portswigger.net/web-security/ssrf) on POST pyyntö? Esimerkissä puhutaan ainoastaan tiedon noutamisesta.
+[
+**Cross-site scripting**](https://portswigger.net/web-security/cross-site-scripting)
+
+- haavoittuvuus, jossa hyökkääjä voi syöttää haitallisen skriptin web-ohjelmaan
+- jos `alert()` toimii, on kohde haavoittuvainen (`print()` chromella)
+- XSS tyypit:
+  - reflected: skripti http-pyynnössä
+  - stored: skripti sovelluksen tietokannasta
+  - DOM-based: skripti asiakaspään koodissa
+- puolustus:
+  - putsaa käyttäjän syöte
+
+Yhteenvetona kaikille yllä oleville tiivistelmille: **ÄLÄ LUOTA KÄYTTÄJÄÄN!**
 
 ## Lähteet
 
