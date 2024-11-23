@@ -23,7 +23,7 @@ Hieman back end ohjelmointia tehneenä voin sanoa, ettei käyttöoikeuksien mä�
   - deny by default, sallitut kohteet eksplisiittisesti listattu
   - ei "raakaa" vastausta takaisin asiakkaalle
 
-### PortSwigger Academy
+### PortSwigger Academy (PortSwigger 2024)
 
 [**Insecure Direct Object References (IDOR)**](https://portswigger.net/web-security/access-control/idor)
 
