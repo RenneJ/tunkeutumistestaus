@@ -27,7 +27,16 @@ Hieman back end ohjelmointia tehneenä voin sanoa, ettei käyttöoikeuksien mä�
 
 [**Insecure Direct Object References (IDOR)**](https://portswigger.net/web-security/access-control/idor)
 
+- suora pääsy tietokannan tietueisiin tai tiedostojärjestelmään url-parametriä muokkaamalla
+- osa "access controlia"
 
+[**Path Traversal**](https://portswigger.net/web-security/file-path-traversal)
+
+- kulkemista hakemistojen välillä palvelimella, joka pyörittää verkkosovellusta
+- esim. `url.com/getfile?filename=../../../etc/passwd`
+  - suorittaa `getfile` endpointtia vastaavan metodin
+  - metodin parametri `filename` saa arvokseen tiedostopolun
+  - `../../../etc/passwd` on suhteellinen polku, joka nousee tiedostohakemistossa kolme kohtaa ylöspäin juureen ja yhden alaspäin `etc` hakemistoon ja noutaa tiedoston `passwd`
 
 ## Lähteet
 
