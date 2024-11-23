@@ -6,6 +6,11 @@
 
 **A01:2021 – Broken Access Control** (OWASP 2021a)
 
+- nostettu ykkösisjalle viidenneltä
+- lyhyesti: huonosti määritellyt käyttöoikeudet
+  - "deny by default", "least privilege" ei käytössä
+  - http-pyynnön muokkaaminen kiertää määritykset (esim. `url.com/admin` ei pääsyä, mutta `url.com/admin/controls` ok)
+  - 
 
 
 **A10:2021 – Server-Side Request Forgery (SSRF)** (OWASP 2021b)
