@@ -2,9 +2,9 @@
 
 ## x) Lue/katso ja tiivistä.
 
-### OWASP Top 10:2021
+### OWASP Top 10:2021 (OWASP 2021)
 
-**A01:2021 – Broken Access Control** (OWASP 2021a)
+[**A01:2021 – Broken Access Control**](https://owasp.org/Top10/A01_2021-Broken_Access_Control/)
 
 - nostettu ykkösisjalle viidenneltä
 - lyhyesti: huonosti määritellyt käyttöoikeudet
@@ -13,7 +13,7 @@
 
 Hieman back end ohjelmointia tehneenä voin sanoa, ettei käyttöoikeuksien määritteleminen oikein ole hankalaa. Mutta, jos se täytyy tehdä tarkasti 999 kertaa, onnistuuko se 1000:nnella kerralla?
 
-**A10:2021 – Server-Side Request Forgery (SSRF)** (OWASP 2021b)
+[**A10:2021 – Server-Side Request Forgery (SSRF)**](https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/)
 
 - tapahtuu, kun web-ohjelma hakee dataa käyttäjän syöttämästä url:ista validoimatta sitä ensin
   - palvelin hakee väärästä (vaarallisesta) osoitteesta resurssin
@@ -25,10 +25,14 @@ Hieman back end ohjelmointia tehneenä voin sanoa, ettei käyttöoikeuksien mä�
 
 ### PortSwigger Academy
 
+[**Insecure Direct Object References (IDOR)**](https://portswigger.net/web-security/access-control/idor)
+
+
+
 ## Lähteet
 
 Karvinen, T. 2024. Tunkeutumistestaus. H5 Täysin Laillinen Sertifikaatti. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/#h5-taysin-laillinen-sertifikaatti Luettu: 2024-11-23
 
-OWASP 2021a. A01:2021 – Broken Access Control. Luettavissa: https://owasp.org/Top10/A01_2021-Broken_Access_Control/ Luettu: 2024-11-23
+OWASP 2021. OWASP Top 10:2021 . Luettavissa: https://owasp.org/Top10/ Luettu: 2024-11-23
 
-OWASP 2021b. A10:2021 – Server-Side Request Forgery (SSRF). Luettavissa: https://owasp.org/Top10/A10_2021-Server-Side_Request_Forgery_%28SSRF%29/ Luettu: 2024-11-23
+PortSwigger 2024. Luettavissa: https://portswigger.net/web-security/all-topics Luettu: 2024-11-23
