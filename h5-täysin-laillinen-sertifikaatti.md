@@ -25,18 +25,24 @@ Hieman back end ohjelmointia tehneenä voin sanoa, ettei käyttöoikeuksien mä�
 
 ### PortSwigger Academy (PortSwigger 2024)
 
-[**Insecure Direct Object References (IDOR)**](https://portswigger.net/web-security/access-control/idor)
+[**Insecure direct object references (IDOR)**](https://portswigger.net/web-security/access-control/idor)
 
 - suora pääsy tietokannan tietueisiin tai tiedostojärjestelmään url-parametriä muokkaamalla
 - osa "access controlia"
 
-[**Path Traversal**](https://portswigger.net/web-security/file-path-traversal)
+[**Path traversal**](https://portswigger.net/web-security/file-path-traversal)
 
 - kulkemista hakemistojen välillä palvelimella, joka pyörittää verkkosovellusta
 - esim. `url.com/getfile?filename=../../../etc/passwd`
   - suorittaa `getfile` endpointtia vastaavan metodin
   - metodin parametri `filename` saa arvokseen tiedostopolun
   - `../../../etc/passwd` on suhteellinen polku, joka nousee tiedostohakemistossa kolme kohtaa ylöspäin juureen ja yhden alaspäin `etc` hakemistoon ja noutaa tiedoston `passwd`
+[
+**Server-side template injection**](https://portswigger.net/web-security/server-side-template-injection)
+
+- käyttäjän syöte käsitellään palvelimella, mikä vaikuttaa template-prosessoijaan ja sitä kautta näytettävään html-tiedostoon
+- jos template-kielien yleisesti käytetyt merkit `${{<%[%'"}}%\` nostavat virheilmoituksen käyttäjän syötteestä saattaa kohde olla haavoittuvainen
+- jos laskutoimitus (esim. `{ 7 * 7 }`) evaluoidaan oikein palautettavaan html-tiedostoon, on kohde melko varmasti haavoittuvainen tälle hyökkäykselle
 
 ## Lähteet
 
