@@ -43,6 +43,11 @@ Hieman back end ohjelmointia tehneenä voin sanoa, ettei käyttöoikeuksien mä�
 - käyttäjän syöte käsitellään palvelimella, mikä vaikuttaa template-prosessoijaan ja sitä kautta näytettävään html-tiedostoon
 - jos template-kielien yleisesti käytetyt merkit `${{<%[%'"}}%\` nostavat virheilmoituksen käyttäjän syötteestä saattaa kohde olla haavoittuvainen
 - jos laskutoimitus (esim. `{ 7 * 7 }`) evaluoidaan oikein palautettavaan html-tiedostoon, on kohde melko varmasti haavoittuvainen tälle hyökkäykselle
+- paras puolustuskeino on estää käyttäjää antamasta syötettä, joka muokkaa tai lisää uuden templaten
+
+[**Server-side request forgery (SSRF)**](https://portswigger.net/web-security/ssrf)
+
+
 
 ## Lähteet
 
