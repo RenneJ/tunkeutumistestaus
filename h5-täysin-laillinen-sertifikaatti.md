@@ -11,7 +11,7 @@
   - "deny by default", "least privilege" ei käytössä
   - http-pyynnön muokkaaminen kiertää määritykset (esim. `url.com/admin` ei pääsyä, mutta `url.com/admin/controls` ok)
 
-Hieman back end ohjelmointia tehneenä voin sanoa, ettei käyttöoikeuksien määritteleminen oikein ole hankalaa. Mutta, jos se täytyy tehdä tarkasti 99 kertaa, onnistuuko se 100:nnella kerralla? Tai 1000:nnella?
+Hieman back end ohjelmointia tehneenä voin sanoa, ettei käyttöoikeuksien määritteleminen oikein ole hankalaa. Mutta, jos se täytyy tehdä tarkasti 999 kertaa, onnistuuko se 1000:nnella kerralla?
 
 **A10:2021 – Server-Side Request Forgery (SSRF)** (OWASP 2021b)
 
