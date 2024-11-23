@@ -151,13 +151,17 @@ Syötetään FoxyProxyn käyttöliittymässä sääntö, joka ohjaa proxyyn aino
 
 Painamalla Save lisätään sääntö.
 
-**HUOM!** Sääntöperusteinen proxyttaminen otetaan käyttöön klikkaamalla FoxyProxy -kuvaketta ja valitsemalla "Proxy by Patterns".
+**HUOM!** Sääntöperusteinen proxyttaminen otetaan käyttöön klikkaamalla FoxyProxy -kuvaketta ja valitsemalla "Proxy by Patterns". 
 
 ![image](https://github.com/user-attachments/assets/c84747f1-36ce-482d-890c-2f99fd68c035)
 > Kuva 10. Sääntö- tai malliperusteinen proxy käytössä.
 
 ![image](https://github.com/user-attachments/assets/0154dd87-89ef-42cf-9d16-b6cbaeada2f1)
 > Kuva 11. Pyyntöä githubille ei kierrätetty ZAPin kautta.
+
+## PortSwigger Labs. Ratkaise tehtävät. Selitä ratkaisusi: mitä palvelimella tapahtuu, mitä eri osat tekevät, miten hyökkäys löytyi, mistä vika johtuu. Kannattaa käyttää ZAPia, vaikka malliratkaisut käyttävät harjoitusten tekijän maksullista ohjelmaa. Malliratkaisun kopioiminen ZAP:n tai selaimeen ei ole vastaus tehtävään, vaan ratkaisu ja haavoittuvuuden etsiminen on selitettävä ja perusteltava.
+
+## c) Insecure Direct Object Reference (IDOR)
 
 ## Lähteet
 
