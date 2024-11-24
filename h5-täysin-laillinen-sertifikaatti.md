@@ -328,7 +328,7 @@ Skripti on tällä kertaa tallennettu palvelimelle, se noudetaan ja suoritetaan 
 
 ## k) Asenna pencode ja muunna sillä jokin merkkijono
 
-Asentaminen käy komennolla: `go install github.com/ffuf/pencode/cmd/pencode@latest`. Mutta koneessani ei ole Go:ta asennettu.
+Asentaminen käy komennolla: `go install github.com/ffuf/pencode/cmd/pencode@latest` (joohoi 2024). Mutta koneessani ei ole Go:ta asennettu.
 
 ![image](https://github.com/user-attachments/assets/219bca23-2e93-48c4-80e7-0511c38ced14)
 > Kuva 33. No Go.
@@ -353,6 +353,8 @@ Ohjeissa sanotaan, että pencode lukee stdin oletuksena. Joten kokeillaan echott
 ## Lähteet
 
 Javatpoint 2024. What is JRE? Luettavissa: https://www.javatpoint.com/java-jre Luettu: 2024-11-23
+
+joohoi 2024. README.md. Pencode. Luettavissa: https://github.com/ffuf/pencode/blob/master/README.md Luettu: 2024-11-24
 
 Karvinen, T. 2024. Tunkeutumistestaus. H5 Täysin Laillinen Sertifikaatti. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/#h5-taysin-laillinen-sertifikaatti Luettu: 2024-11-23
 
