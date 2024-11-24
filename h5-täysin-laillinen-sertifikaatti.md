@@ -302,6 +302,23 @@ Tehdään vielä uusi pyyntö: `stockApi=http://localhost/admin/delete?username=
 ![image](https://github.com/user-attachments/assets/ac9e4e16-b518-4048-bdba-0f5a88a9475b)
 > Kuva 30. Solved!
 
+Haavoittuvuus johtuu siitä, että `stockApi` arvoja ei ole rajattu, ainakaan riittävästi. Whitelistaamalla, eli listaamalla ainoat hyväksytyt osoitteet, voitaisiin suojautua kyseiseltä hyökkäykseltä.
+
+## i) [Reflected XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded)
+
+Tarkoituksena tässä haasteessa on saada varoitusikkuna auki, syöttämällä hakukenttään tekstiä.
+
+Laittamalla `<script>alert()</script>` syötteeseen avautuu varoitusikkuna. Tarkistin komennon OWASPin sivuilta. (OWASP 2024).
+
+![image](https://github.com/user-attachments/assets/9b7be90e-a88c-4523-9311-b684d894e205)
+> Kuva 31. Solved!
+
+Haavoittuvuus johtuu siitä, että käyttäjän syötettä ei käsitellä puhtaana merkkijonona eli string literaalina. `<script>alert()</script>` on validia html:ää, jonka haavoittuva sovellus sijoittaa DOM-puuhun. Skripti-tägeihin kääritty koodi tulkitaan JavaScript-koodina.
+
+## j) [Stored XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/stored/lab-html-context-nothing-encoded)
+
+
+
 ## Lähteet
 
 Javatpoint 2024. What is JRE? Luettavissa: https://www.javatpoint.com/java-jre Luettu: 2024-11-23
@@ -309,5 +326,7 @@ Javatpoint 2024. What is JRE? Luettavissa: https://www.javatpoint.com/java-jre L
 Karvinen, T. 2024. Tunkeutumistestaus. H5 Täysin Laillinen Sertifikaatti. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/#h5-taysin-laillinen-sertifikaatti Luettu: 2024-11-23
 
 OWASP 2021. OWASP Top 10:2021 . Luettavissa: https://owasp.org/Top10/ Luettu: 2024-11-23
+
+OWASP 2024. WSTF - Latest. Testing for Reflected Cross Site Scripting. Luettavissa: https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/01-Testing_for_Reflected_Cross_Site_Scripting Luettu: 2024-11-24
 
 PortSwigger 2024. Luettavissa: https://portswigger.net/web-security/all-topics Luettu: 2024-11-23
