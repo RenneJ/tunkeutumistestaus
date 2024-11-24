@@ -335,6 +335,20 @@ Asentaminen käy komennolla: `go install github.com/ffuf/pencode/cmd/pencode@lat
 
     sudo apt update
     sudo apt install golang-go  # veikkasin, että tämä on oikea paketti asentaa Go ohjelmointikieli
+    go install github.com/ffuf/pencode/cmd/pencode@latest
+
+![image](https://github.com/user-attachments/assets/634a4399-e3ea-4654-81b4-95d9517274a8)
+> Kuva 34. `history`.
+
+Kotihakemistooni ilmestyi `go` ja navigoin sen binääreihin, jonne `pencode` on nyt asennettu.
+
+![image](https://github.com/user-attachments/assets/8c01ec26-174c-45c4-bc2b-40bd6157e6f9)
+> Kuva 35. Pencoden help.
+
+Ohjeissa sanotaan, että pencode lukee stdin oletuksena. Joten kokeillaan echottaa jotain ja putkitetaan se pencodeen.
+
+![image](https://github.com/user-attachments/assets/37fc677f-2ebb-44a0-bec7-5bafe9e154de)
+> Kuva 36. Enkoodattu!
 
 ## Lähteet
 
