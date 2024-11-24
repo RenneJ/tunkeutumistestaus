@@ -243,6 +243,15 @@ Haavoittuvuus johtuu siitä, että käyttäjän syöte url-kenttään määritt�
 
 ## g) [Server-side template injection with information disclosure via user-supplied objects](https://portswigger.net/web-security/server-side-template-injection/exploiting/lab-server-side-template-injection-with-information-disclosure-via-user-supplied-objects)
 
+Lähdin aivan hakoteille kirjauduttuani sisään tehtävänannon tunnuksilla. Luulin, että haavoittuvuus olisi ollut sivulla, johon kirjautumisen jälkeen ohjattiin ja yritin manipuloida url-kenttää ja sähköpostin vaihtamiseen tarjottua lomaketta.
+
+Jouduin katsomaan läpikävelyohjeita. Haavoittuvuus olikin tuotteen muokkauslomakkeella.
+
+Laitoin aaltosulkujen sisään tuotteen muokkauslomakkeella matemaattisen operaation, joka nosti ruudulle virheilmoituksen. Ilmoituksesta selvisi, että kyseessä on Pythonin Django-framework ja sen muottikieli.
+
+![image](https://github.com/user-attachments/assets/2328c97f-b280-4366-8c54-b5fc1385e637)
+> Kuva 24. Virheilmoitus saatu näkyviin.
+
 
 
 ## Lähteet
