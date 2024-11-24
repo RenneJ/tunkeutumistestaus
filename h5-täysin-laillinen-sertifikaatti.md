@@ -204,10 +204,10 @@ Tutkaillaan pyyntö ZAPissa. Oikean pyynnön etsiminen helpottui, kun poistin ur
 Kesti hetken aikaa tajuta, että vastaus (response) sisälsi kuvan lisäksi myös tekstiä.
 
 ![image](https://github.com/user-attachments/assets/c0e3ab4d-eb84-4a8f-b716-bc3d92ac52db)
-
+> Kuva 18. Vastaus sisältää muutakin kuin kuvan.
 
 ![image](https://github.com/user-attachments/assets/2cf7c4b1-8635-4466-b091-ca8d10f9bef5)
-> Kuva XX. Solved!
+> Kuva 19. Solved!
 
 ## Lähteet
 
