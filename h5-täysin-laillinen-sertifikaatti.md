@@ -163,6 +163,23 @@ Painamalla Save lisätään sääntö.
 
 ## c) Insecure Direct Object Reference (IDOR)
 
+Tämä PortSwigger haaste onnistui helposti. Tehtäväannossa sanottiin, että chat-lokit ovat turvattomasti haettavissa tiedostojärjestelmästä. Siispä lähetin chattiin viestin, sain vastauksen ja latasin lokitiedoston käyttöliittymästä. Lähetin viestin siksi, että saisin tarkan urlin, jota muokata. Right-klikkaamalla ladattua tiedostoa selaimen "Downloads" listauksessa saa näppärästi kopioitua urlin. Yksi vaihtoehto on etsiä url ZAPista (kuva 13).
+
+![image](https://github.com/user-attachments/assets/4388c16e-e30c-4049-9393-1f9798724e5e)
+> Kuva 12. Urli talteen.
+
+![image](https://github.com/user-attachments/assets/be65b0e4-4ccf-46fc-92dc-5793aaf72d7d)
+> Kuva 13. GET-pyyntö ZAPissa. Ks. pyynnön url, eka rivi.
+
+Hmm.... tiedoston nimi on 2.txt. Kokeillaan muuttaa urliin sen tilalle 1.txt.
+
+Näin sain toisen käyttäjän keskustelun itselleni ja keskustelusta löytyi käyttäjän salasana selkokielisenä. Käyttäjänimi olikin annettu tehtävänannossa.
+
+![image](https://github.com/user-attachments/assets/e8dba883-f639-4d34-b7a6-7b1d05e3aa0a)
+> Kuva 14. Solved!
+
+
+
 ## Lähteet
 
 Javatpoint 2024. What is JRE? Luettavissa: https://www.javatpoint.com/java-jre Luettu: 2024-11-23
