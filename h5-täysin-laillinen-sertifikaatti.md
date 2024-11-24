@@ -178,6 +178,8 @@ Näin sain toisen käyttäjän keskustelun itselleni ja keskustelusta löytyi k�
 ![image](https://github.com/user-attachments/assets/e8dba883-f639-4d34-b7a6-7b1d05e3aa0a)
 > Kuva 14. Solved!
 
+Haavoittuvuus johtuu siitä, että kuka tahansa asiakas pääsee käsiksi palvelimen tiedostojärjestelmään, muokkaamalla  `/download-transcript/` jälkeistä osaa selaimen url-kentässä. 
+
 
 
 ## Lähteet
