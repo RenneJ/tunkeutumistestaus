@@ -324,7 +324,17 @@ Hyökkäyksen kulku menee samalla tavalla tässä osakohdassa kuin edellisessä.
 Skripti on tällä kertaa tallennettu palvelimelle, se noudetaan ja suoritetaan jokaisella käyttäjällä, joka noutaa resurssin selaimessaan (KirstenS 2024).
 
 ![image](https://github.com/user-attachments/assets/64b70055-f404-4389-9715-f9b32e6d7e91)
-> Kuva XX. Alert ilmestyy.
+> Kuva 32. Alert ilmestyy. Solved!
+
+## k) Asenna pencode ja muunna sillä jokin merkkijono
+
+Asentaminen käy komennolla: `go install github.com/ffuf/pencode/cmd/pencode@latest`. Mutta koneessani ei ole Go:ta asennettu.
+
+![image](https://github.com/user-attachments/assets/219bca23-2e93-48c4-80e7-0511c38ced14)
+> Kuva 33. No Go.
+
+    sudo apt update
+    sudo apt install golang-go  # veikkasin, että tämä on oikea paketti asentaa Go ohjelmointikieli
 
 ## Lähteet
 
