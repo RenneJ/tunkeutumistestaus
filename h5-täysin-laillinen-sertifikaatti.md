@@ -161,9 +161,7 @@ Painamalla Save lisätään sääntö.
 
 ## PortSwigger Labs. Ratkaise tehtävät. Selitä ratkaisusi: mitä palvelimella tapahtuu, mitä eri osat tekevät, miten hyökkäys löytyi, mistä vika johtuu. Kannattaa käyttää ZAPia, vaikka malliratkaisut käyttävät harjoitusten tekijän maksullista ohjelmaa. Malliratkaisun kopioiminen ZAP:n tai selaimeen ei ole vastaus tehtävään, vaan ratkaisu ja haavoittuvuuden etsiminen on selitettävä ja perusteltava.
 
-## c) Insecure Direct Object Reference (IDOR)
-
-[Linkki tehtävänantoon.](https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references)
+## c) [Insecure Direct Object Reference (IDOR)](https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references)
 
 Tämä PortSwigger haaste onnistui helposti. Tehtäväannossa sanottiin, että chat-lokit ovat turvattomasti haettavissa tiedostojärjestelmästä. Siispä lähetin chattiin viestin, sain vastauksen ja latasin lokitiedoston käyttöliittymästä. Lähetin viestin siksi, että saisin tarkan urlin, jota muokata. Right-klikkaamalla ladattua tiedostoa selaimen "Downloads" listauksessa saa näppärästi kopioitua urlin. Yksi vaihtoehto on etsiä url ZAPista (kuva 13).
 
