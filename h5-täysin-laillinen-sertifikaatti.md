@@ -180,7 +180,25 @@ Näin sain toisen käyttäjän keskustelun itselleni ja keskustelusta löytyi k�
 
 Haavoittuvuus johtuu siitä, että kuka tahansa asiakas pääsee käsiksi palvelimen tiedostojärjestelmään, muokkaamalla  `/download-transcript/` jälkeistä osaa selaimen url-kentässä. 
 
-## d) File path traversal, simple case
+## d) [File path traversal, simple case](https://portswigger.net/web-security/file-path-traversal/lab-simple)
+
+Tehtävänannossa sanottiin, että tuotteiden kuvien näyttämisessä on haavoittuvuus. Joten ensimmäiseksi avasin tuotekuvan linkin navigoimalla tuotesivulle ja right-klikkaamalla kuvaa ja "Open Image in New Tab".
+
+![image](https://github.com/user-attachments/assets/82f2b47a-5b03-4715-b8b4-7db62b344e2e)
+> Kuva 15. Tuotekuvan url.
+
+Eka yritys hyväksikäyttää haavoittuvuutta.
+
+![image](https://github.com/user-attachments/assets/5cc5270a-087f-47ec-a686-b593c653c8b1)
+> Kuva 16. Absoluuttinen polku ei toimi.
+
+Kokeilin seuraavaksi lisäillä `/etc/passwd` eteen `../` eli käyttää suhteellista polkua. Lisäilin niitä yhden kerrallaan ja sain kuvan 16 mukaisen vastauksen, kunnes...
+
+![image](https://github.com/user-attachments/assets/0eef2308-e31e-4a48-8615-5e73b2054525)
+> Kuva 17. Vastaus sisältää errorin.
+
+![image](https://github.com/user-attachments/assets/2cf7c4b1-8635-4466-b091-ca8d10f9bef5)
+> Kuva XX. Solved!
 
 ## Lähteet
 
