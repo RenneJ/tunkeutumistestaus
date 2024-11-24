@@ -209,6 +209,15 @@ Kesti hetken aikaa tajuta, että vastaus (response) sisälsi kuvan lisäksi myö
 ![image](https://github.com/user-attachments/assets/2cf7c4b1-8635-4466-b091-ca8d10f9bef5)
 > Kuva 19. Solved!
 
+Haavoittuvuus johtuu siitä, että käyttäjän syöte määrittää hakemistopolun.
+
+## e) [File path traversal, traversal sequences blocked with absolute path bypass](https://portswigger.net/web-security/file-path-traversal/lab-absolute-path-bypass)
+
+Tämä kohta on mielestäni helpompi kuin edellinen. Tässä kohtaa puolustaja on estänyt liikkumisen hakemistojen välillä (`../`) tehden absoluuttisen polun käyttämisen mahdolliseksi. Kokeilin käyttää absoluuttista polkua edellisessä kohdassa aivan ensin, koska se oli minusta yksinkertaisin tapa päästä käsikis kohdetiedostoon. Tässä kohtaa ei tarvitse edes vaivautua selvittämään verkkopalvelimen hakemistorakennetta `/var/www/foo`.
+
+![image](https://github.com/user-attachments/assets/a785b3e7-709c-49ec-9e1d-601ff8476b62)
+> Kuva 20. Absoluuttinen polku toimii.
+
 ## Lähteet
 
 Javatpoint 2024. What is JRE? Luettavissa: https://www.javatpoint.com/java-jre Luettu: 2024-11-23
