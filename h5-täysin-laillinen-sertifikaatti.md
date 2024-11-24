@@ -317,13 +317,22 @@ Haavoittuvuus johtuu siitä, että käyttäjän syötettä ei käsitellä puhtaa
 
 ## j) [Stored XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/stored/lab-html-context-nothing-encoded)
 
+Tarkoitus on tässä haasteessa sama kuin edellisessä, saada varoitusikkuna auki.
 
+Hyökkäyksen kulku menee samalla tavalla tässä osakohdassa kuin edellisessä. Weblomakkeeseen syötetään `<script>alert()</script>` tekstikenttään.
+
+Skripti on tällä kertaa tallennettu palvelimelle, se noudetaan ja suoritetaan jokaisella käyttäjällä, joka noutaa resurssin selaimessaan (KirstenS 2024).
+
+![image](https://github.com/user-attachments/assets/64b70055-f404-4389-9715-f9b32e6d7e91)
+> Kuva XX. Alert ilmestyy.
 
 ## Lähteet
 
 Javatpoint 2024. What is JRE? Luettavissa: https://www.javatpoint.com/java-jre Luettu: 2024-11-23
 
 Karvinen, T. 2024. Tunkeutumistestaus. H5 Täysin Laillinen Sertifikaatti. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/#h5-taysin-laillinen-sertifikaatti Luettu: 2024-11-23
+
+KirstenS 2024. Cross Site Scripting (XSS). Stored XSS Attacks. Luettavissa: https://owasp.org/www-community/attacks/xss/ Luettu: 2024-11-24
 
 OWASP 2021. OWASP Top 10:2021 . Luettavissa: https://owasp.org/Top10/ Luettu: 2024-11-23
 
