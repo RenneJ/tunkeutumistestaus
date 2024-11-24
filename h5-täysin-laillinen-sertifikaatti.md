@@ -213,7 +213,7 @@ Haavoittuvuus johtuu siitä, että käyttäjän syöte määrittää hakemistopo
 
 ## e) [File path traversal, traversal sequences blocked with absolute path bypass](https://portswigger.net/web-security/file-path-traversal/lab-absolute-path-bypass)
 
-Tämä kohta on mielestäni helpompi kuin edellinen. Tässä kohtaa puolustaja on estänyt liikkumisen hakemistojen välillä (`../`) tehden absoluuttisen polun käyttämisen mahdolliseksi. Kokeilin käyttää absoluuttista polkua edellisessä kohdassa aivan ensin, koska se oli minusta yksinkertaisin tapa päästä käsikis kohdetiedostoon. Tässä kohtaa ei tarvitse edes vaivautua selvittämään verkkopalvelimen hakemistorakennetta `/var/www/foo`.
+Tämä kohta on mielestäni helpompi kuin edellinen. Tässä kohtaa puolustaja on estänyt liikkumisen hakemistojen välillä (`../`) tehden absoluuttisen polun käyttämisen mahdolliseksi. Kokeilin käyttää absoluuttista polkua edellisessä kohdassa aivan ensin, koska se oli minusta yksinkertaisin tapa päästä käsiksi kohdetiedostoon. Tässä kohtaa ei tarvitse edes vaivautua selvittämään verkkopalvelimen hakemistorakennetta `/var/www/foo`.
 
 ![image](https://github.com/user-attachments/assets/a785b3e7-709c-49ec-9e1d-601ff8476b62)
 > Kuva 20. Absoluuttinen polku toimii.
