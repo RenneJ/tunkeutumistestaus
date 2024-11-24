@@ -209,7 +209,7 @@ Kesti hetken aikaa tajuta, että vastaus (response) sisälsi kuvan lisäksi myö
 ![image](https://github.com/user-attachments/assets/2cf7c4b1-8635-4466-b091-ca8d10f9bef5)
 > Kuva 19. Solved!
 
-Haavoittuvuus johtuu siitä, että käyttäjän syöte määrittää hakemistopolun tai sen osan.
+Haavoittuvuus johtuu siitä, että käyttäjän syöte url-kenttään määrittää hakemistopolun tai sen osan.
 
 ## e) [File path traversal, traversal sequences blocked with absolute path bypass](https://portswigger.net/web-security/file-path-traversal/lab-absolute-path-bypass)
 
@@ -220,7 +220,7 @@ Tämä kohta on mielestäni helpompi kuin edellinen. Tässä kohtaa puolustaja o
 
 Puolustajan tapa ei ole mielestäni vaikeuttanut hyökkääjän toimia. Päinvastoin, se on jopa helpompaa.
 
-Haavoittuvuus johtuu siitä, että käyttäjän syöte määrittää hakemistopolun tai sen osan.
+Haavoittuvuus johtuu siitä, että käyttäjän syöte url-kenttään määrittää hakemistopolun tai sen osan.
 
 ## f) [File path traversal, traversal sequences stripped non-recursively](https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively)
 
@@ -231,7 +231,17 @@ Aloitin analysoimalla mitä tarkoittaa "traversal sequences stripped non-recursi
 
 Käyttämissäni ohjelmointikielissä merkkijonoille löytyy `strip()` (tai jokin vastaava) metodi, joka poistaa merkkijonosta halutun merkkijonon osan (substringin tai regex).
 
-Tässä haasteessa path traversal -haavoittuvuutta on pyritty estämään (olettamani mukaan) poistamalla käyttäjän syötteestä `../` merkkijono. Jos kokeilee kohdan d) mukaista syötettä `../../../etc/passwd`, palvelinpäässä riisuttaisiin siitä jokainen `../` substring. PortSwiggerin [materiaalissa](https://portswigger.net/web-security/file-path-traversal#reading-arbitrary-files-via-path-traversal) neuvotaan kokeilemaan `....//`. Tällöin epäkelpo `strip()` poistaisi kyseisestä merkkijonosta merkit 3-5 jättäen jäljelle tismalleen saman merkkijonon. Jos tätä metodia ei kutsuta rekursiivisesti, eli ei ohjelmallisesti varmisteta, että   
+Tässä haasteessa path traversal -haavoittuvuutta on pyritty estämään (olettamani mukaan) poistamalla käyttäjän syötteestä `../` merkkijono. Jos kokeilee kohdan d) mukaista syötettä `../../../etc/passwd`, palvelinpäässä riisuttaisiin siitä jokainen `../` substring. PortSwiggerin [materiaalissa](https://portswigger.net/web-security/file-path-traversal#reading-arbitrary-files-via-path-traversal) neuvotaan kokeilemaan `....//`. Tällöin `strip()` poistaisi kyseisestä merkkijonosta merkit 3-5 jättäen jäljelle tismalleen saman merkkijonon. Eli, jos tätä metodia ei kutsuta rekursiivisesti, `....//` muutetaan `../`.
+
+![image](https://github.com/user-attachments/assets/5a72a0c0-e032-47f9-8715-7cb0e1c933ba)
+> Kuva 22. Pyyntö ja palvelimen vastaus ZAPissa.
+
+![image](https://github.com/user-attachments/assets/026118e3-f30f-4ad1-b559-aad404cd7c6f)
+> Kuva 23. Solved!
+
+Haavoittuvuus johtuu siitä, että käyttäjän syöte url-kenttään määrittää hakemistopolun tai sen osan.
+
+
 
 ## Lähteet
 
