@@ -197,6 +197,15 @@ Kokeilin seuraavaksi lisäillä `/etc/passwd` eteen `../` eli käyttää suhteel
 ![image](https://github.com/user-attachments/assets/0eef2308-e31e-4a48-8615-5e73b2054525)
 > Kuva 17. Vastaus sisältää errorin.
 
+Jotain tapahtui. Mutta selaimeen ei tulostunut `/etc/passwd` sisältöä.
+
+Tutkaillaan pyyntö ZAPissa. Oikean pyynnön etsiminen helpottui, kun poistin url-kentän History-näkymästä ja laitoin sen tilalle "Path and Query".
+
+Kesti hetken aikaa tajuta, että vastaus (response) sisälsi kuvan lisäksi myös tekstiä.
+
+![image](https://github.com/user-attachments/assets/c0e3ab4d-eb84-4a8f-b716-bc3d92ac52db)
+
+
 ![image](https://github.com/user-attachments/assets/2cf7c4b1-8635-4466-b091-ca8d10f9bef5)
 > Kuva XX. Solved!
 
