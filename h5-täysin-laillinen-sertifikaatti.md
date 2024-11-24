@@ -163,6 +163,8 @@ Painamalla Save lisätään sääntö.
 
 ## c) Insecure Direct Object Reference (IDOR)
 
+[Linkki tehtävänantoon.](https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references)
+
 Tämä PortSwigger haaste onnistui helposti. Tehtäväannossa sanottiin, että chat-lokit ovat turvattomasti haettavissa tiedostojärjestelmästä. Siispä lähetin chattiin viestin, sain vastauksen ja latasin lokitiedoston käyttöliittymästä. Lähetin viestin siksi, että saisin tarkan urlin, jota muokata. Right-klikkaamalla ladattua tiedostoa selaimen "Downloads" listauksessa saa näppärästi kopioitua urlin. Yksi vaihtoehto on etsiä url ZAPista (kuva 13).
 
 ![image](https://github.com/user-attachments/assets/4388c16e-e30c-4049-9393-1f9798724e5e)
@@ -180,7 +182,7 @@ Näin sain toisen käyttäjän keskustelun itselleni ja keskustelusta löytyi k�
 
 Haavoittuvuus johtuu siitä, että kuka tahansa asiakas pääsee käsiksi palvelimen tiedostojärjestelmään, muokkaamalla  `/download-transcript/` jälkeistä osaa selaimen url-kentässä. 
 
-
+## d) File path traversal, simple case
 
 ## Lähteet
 
