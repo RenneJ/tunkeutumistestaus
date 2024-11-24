@@ -264,7 +264,7 @@ Debug-tila on jätetty päälle, vaikka kyseessä on tuotantopalvelin. Näin ei 
 ![image](https://github.com/user-attachments/assets/a098842a-9943-4813-bb80-e767288ac29f)
 > Kuva 26. Eksplisiittinen kielto. Kuvakaappauksen lähde: https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
-Settings-oliolla on attribuutti SECRET_KEY (taas läpikävelyohjeet). Joten laitetaan tuotteen muokkaamisen tekstikenttään `{setting.SECRET_KEY}`.
+Settings-oliolla on attribuutti SECRET_KEY (taas läpikävelyohjeet). Joten laitetaan tuotteen muokkaamisen tekstikenttään `{settings.SECRET_KEY}`.
 
 Ei toimi... Läpikävelyohjeisiin ja oikea komento on `{{settings.SECRET_KEY}}`. Painamalla preview saadaan salainen avain näkyviin. Mutta se pitikin tallentaa ja vasta sen jälkeen syöttää sivun yläreunasta avautuvaan palautukseen "Submit solution".
 
@@ -277,7 +277,30 @@ Yhtä en ymmärrä: miksi debug-tilassa settingsin arvo on tyhjä tulosteessa?
 
 ## h) [Basic SSRF against the local server](https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost)
 
+Luetaan tarkasti haaste. Tarkoituksena on lähettää pyyntö palvelimelle siltä itseltään ja saada käyttöön admin-paneeli ja poistaa käyttäjä `carlos`. Haasteessa on vielä kerrottu missä haavoittuvuus on, tuotteen varastomäärähaussa.
 
+Lähetetään ensin tavanomainen pyyntö verkkosivulla. Tuotteen tarkastelusivulla on painike, joka tarkastaa kyseisen tuotteen saatavuuden.
+
+**Click**
+
+Katsotaan ZAPissa lähetettyä pyyntöä ja vastausta.
+
+![image](https://github.com/user-attachments/assets/cd7850e3-bd83-49f8-a104-674d87c5388a)
+> Kuva 28. Kiltti, tarkoituksenmukainen pyyntö ja kohtelias vastaus.
+
+Kuvassa näkyy vasemmalla `stockApi`, joka saa arvokseen urlin. Oikealla vastaus, response body: 318. Kyseistä tuotetta on 318 kpl.
+
+Manipuloidaan `stockApi=http://localhost/admin` ja katsotaan kuinka käy.
+
+![image](https://github.com/user-attachments/assets/1646dbf6-ece0-45e6-8afe-b3b6422e87a0)
+> Kuva 29. Palvelinta jallitettu!
+
+Palvelin vastaa `localhost` pyyntöön luottaen. Admin-kontrollit käytössä.
+
+Tehdään vielä uusi pyyntö: `stockApi=http://localhost/admin/delete?username=carlos`. Kopioin loppuosan aiemmasta response bodysta.
+
+![image](https://github.com/user-attachments/assets/ac9e4e16-b518-4048-bdba-0f5a88a9475b)
+> Kuva 30. Solved!
 
 ## Lähteet
 
