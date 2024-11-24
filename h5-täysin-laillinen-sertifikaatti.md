@@ -209,14 +209,29 @@ Kesti hetken aikaa tajuta, että vastaus (response) sisälsi kuvan lisäksi myö
 ![image](https://github.com/user-attachments/assets/2cf7c4b1-8635-4466-b091-ca8d10f9bef5)
 > Kuva 19. Solved!
 
-Haavoittuvuus johtuu siitä, että käyttäjän syöte määrittää hakemistopolun.
+Haavoittuvuus johtuu siitä, että käyttäjän syöte määrittää hakemistopolun tai sen osan.
 
 ## e) [File path traversal, traversal sequences blocked with absolute path bypass](https://portswigger.net/web-security/file-path-traversal/lab-absolute-path-bypass)
 
-Tämä kohta on mielestäni helpompi kuin edellinen. Tässä kohtaa puolustaja on estänyt liikkumisen hakemistojen välillä (`../`) tehden absoluuttisen polun käyttämisen mahdolliseksi. Kokeilin käyttää absoluuttista polkua edellisessä kohdassa aivan ensin, koska se oli minusta yksinkertaisin tapa päästä käsiksi kohdetiedostoon. Tässä kohtaa ei tarvitse edes vaivautua selvittämään verkkopalvelimen hakemistorakennetta `/var/www/foo`.
+Tämä kohta on mielestäni helpompi kuin edellinen. Tässä kohtaa puolustaja on estänyt liikkumisen hakemistojen välillä (`../`) tehden absoluuttisen polun käyttämisen mahdolliseksi. Kokeilin käyttää absoluuttista polkua edellisessä kohdassa aivan ensin, koska se olisi ollut minusta yksinkertaisin tapa päästä käsiksi kohdetiedostoon. Tässä kohtaa ei tarvitse edes vaivautua selvittämään verkkopalvelimen hakemistorakennetta, tyyliin `/var/www/foo/bar`.
 
 ![image](https://github.com/user-attachments/assets/a785b3e7-709c-49ec-9e1d-601ff8476b62)
 > Kuva 20. Absoluuttinen polku toimii.
+
+Puolustajan tapa ei ole mielestäni vaikeuttanut hyökkääjän toimia. Päinvastoin, se on jopa helpompaa.
+
+Haavoittuvuus johtuu siitä, että käyttäjän syöte määrittää hakemistopolun tai sen osan.
+
+## f) [File path traversal, traversal sequences stripped non-recursively](https://portswigger.net/web-security/file-path-traversal/lab-sequences-stripped-non-recursively)
+
+Aloitin analysoimalla mitä tarkoittaa "traversal sequences stripped non-recursively".
+
+![image](https://github.com/user-attachments/assets/cf4df423-1c43-480e-a229-e378d801fd4f)
+> Kuva 21. Kuvakaappauksen lähde: https://portswigger.net/web-security/file-path-traversal#reading-arbitrary-files-via-path-traversal
+
+Käyttämissäni ohjelmointikielissä merkkijonoille löytyy `strip()` (tai jokin vastaava) metodi, joka poistaa merkkijonosta halutun merkkijonon osan (substringin tai regex).
+
+Tässä haasteessa path traversal -haavoittuvuutta on pyritty estämään (olettamani mukaan) poistamalla käyttäjän syötteestä `../` merkkijono. Jos kokeilee kohdan d) mukaista syötettä `../../../etc/passwd`, palvelinpäässä riisuttaisiin siitä jokainen `../` substring. PortSwiggerin [materiaalissa](https://portswigger.net/web-security/file-path-traversal#reading-arbitrary-files-via-path-traversal) neuvotaan kokeilemaan `....//`. Tällöin epäkelpo `strip()` poistaisi kyseisestä merkkijonosta merkit 3-5 jättäen jäljelle tismalleen saman merkkijonon. Jos tätä metodia ei kutsuta rekursiivisesti, eli ei ohjelmallisesti varmisteta, että   
 
 ## Lähteet
 
