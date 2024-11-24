@@ -231,7 +231,7 @@ Aloitin analysoimalla mitä tarkoittaa "traversal sequences stripped non-recursi
 
 Käyttämissäni ohjelmointikielissä merkkijonoille löytyy `strip()` (tai jokin vastaava) metodi, joka poistaa merkkijonosta halutun merkkijonon osan (substringin tai regex).
 
-Tässä haasteessa path traversal -haavoittuvuutta on pyritty estämään (olettamani mukaan) poistamalla käyttäjän syötteestä `../` merkkijono. Jos kokeilee kohdan d) mukaista syötettä `../../../etc/passwd`, palvelinpäässä riisuttaisiin siitä jokainen `../` substring. PortSwiggerin [materiaalissa](https://portswigger.net/web-security/file-path-traversal#reading-arbitrary-files-via-path-traversal) neuvotaan kokeilemaan `....//`. Tällöin `strip()` poistaisi kyseisestä merkkijonosta merkit 3-5 jättäen jäljelle tismalleen saman merkkijonon. Eli, jos tätä metodia ei kutsuta rekursiivisesti, `....//` muutetaan `../`.
+Tässä haasteessa path traversal -haavoittuvuutta on pyritty estämään (olettamani mukaan) poistamalla käyttäjän syötteestä `../` merkkijono. Jos kokeilee kohdan d) mukaista syötettä `../../../etc/passwd`, palvelinpäässä riisuttaisiin siitä jokainen `../` substring. PortSwiggerin materiaalissa (ks. kuva 21) neuvotaan kokeilemaan `....//`. Tällöin `strip()` poistaisi kyseisestä merkkijonosta merkit 3-5 jättäen jäljelle tismalleen saman merkkijonon. Eli, jos tätä metodia ei kutsuta rekursiivisesti, `....//` muutetaan `../`.
 
 ![image](https://github.com/user-attachments/assets/5a72a0c0-e032-47f9-8715-7cb0e1c933ba)
 > Kuva 22. Pyyntö ja palvelimen vastaus ZAPissa.
@@ -240,6 +240,8 @@ Tässä haasteessa path traversal -haavoittuvuutta on pyritty estämään (olett
 > Kuva 23. Solved!
 
 Haavoittuvuus johtuu siitä, että käyttäjän syöte url-kenttään määrittää hakemistopolun tai sen osan.
+
+## g) [Server-side template injection with information disclosure via user-supplied objects](https://portswigger.net/web-security/server-side-template-injection/exploiting/lab-server-side-template-injection-with-information-disclosure-via-user-supplied-objects)
 
 
 
