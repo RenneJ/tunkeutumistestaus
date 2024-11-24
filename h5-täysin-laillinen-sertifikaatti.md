@@ -252,6 +252,31 @@ Laitoin aaltosulkujen sisään tuotteen muokkauslomakkeella matemaattisen operaa
 ![image](https://github.com/user-attachments/assets/2328c97f-b280-4366-8c54-b5fc1385e637)
 > Kuva 24. Virheilmoitus saatu näkyviin.
 
+Vaikka Django on jokseenkin tuttu entuudestaan, en olisi ilman läpikävelyohjeita tajunnut syöttää `{%debug%}` tekstikenttään. Jotain apua ennakkotiedoistani oli ja käärin debuggerin `<pre>` tagiin. Ainakin vähän helpompi lukea tulostetta.
+
+![image](https://github.com/user-attachments/assets/b69d629a-8efd-47e1-8962-6b5c1241e53d)
+> Kuva 25. Prettier debug.
+
+Oleellinen kohta on kuvan 25 `'settings': `. Tämäkin läpikävelyohjeista. 
+
+Debug-tila on jätetty päälle, vaikka kyseessä on tuotantopalvelin. Näin ei saa toimia. Debug-tila on tarkoitettu ainoastaan käytettävksi kehityspalvelimella. 
+
+![image](https://github.com/user-attachments/assets/a098842a-9943-4813-bb80-e767288ac29f)
+> Kuva 26. Eksplisiittinen kielto. Kuvakaappauksen lähde: https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
+
+Settings-oliolla on attribuutti SECRET_KEY (taas läpikävelyohjeet). Joten laitetaan tuotteen muokkaamisen tekstikenttään `{setting.SECRET_KEY}`.
+
+Ei toimi... Läpikävelyohjeisiin ja oikea komento on `{{settings.SECRET_KEY}}`. Painamalla preview saadaan salainen avain näkyviin. Mutta se pitikin tallentaa ja vasta sen jälkeen syöttää sivun yläreunasta avautuvaan palautukseen "Submit solution".
+
+![image](https://github.com/user-attachments/assets/f06af9ec-641b-4240-82a7-e73103e45371)
+> Kuva 27. Solved.
+
+Oletettavasti tässä haasteessa simuloitiin tilannetta, jossa tietyllä käyttäjällä on liiketoimintalogiikan mukaan olla oikeus muokata tuotekuvauksia syöttämällä validia html:ää ja Django templating languagen mukaista koodia. Haavoittuvuus johtui siis väärin konfiguroidusta tuotantojulkaisusta. Projektin `settings.py` tiedostosta tulisi asettaa `DEBUG = False`. Tarkastuksenalaiseksi tulisi myös asettaa liiketoimintalogiikka. Voisiko content-managerin oikeuksia jotenkin paremmin rajata?
+
+Yhtä en ymmärrä: miksi debug-tilassa settingsin arvo on tyhjä tulosteessa?
+
+## h) [Basic SSRF against the local server](https://portswigger.net/web-security/ssrf/lab-basic-ssrf-against-localhost)
+
 
 
 ## Lähteet
