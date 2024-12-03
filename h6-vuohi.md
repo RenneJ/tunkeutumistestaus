@@ -55,21 +55,55 @@ Avattuani tämän haasteen ja luettuani tehtävänannon, nappaa toisen käyttäj
 
 Katseeni kohdistui kuvassa näkyvään hijack-keksiin, jonka loppusosa alkaa 1733. Epäilen kyseessä olevan unix timestamp eli millisekunnit 1970-01-01 (UTC) alkaen (UnixTime.org 2024).
 
-Tähän tyssäsi oma osaamiseni katsoin vinkit, joissa sanottiin hijack_cookien alkuosan olevan juokseva numero. Tämäkään ei auttanut minua eteenpäin. Turvauduin läpikvelyohjeisiin.
+Tähän tyssäsi oma osaamiseni katsoin vinkit, joissa sanottiin hijack_cookien alkuosan olevan juokseva numero. Tämäkään ei auttanut minua eteenpäin. Turvauduin läpikvelyohjeisiin (Blázquez 2023).
 
-Olin missannut ZAPissa responsesta merkittävän osan, käyttöliittymässä oli oletuksena peittyneenä näkymä, jossa näytettiin palautettu cookie.
+Ohjeita luettuani tajusin, että olin missannut ZAPissa responsesta merkittävän osan. Käyttöliittymässä oli oletuksena peittyneenä näkymä, jossa näytettiin palautettu cookie.
 
 ![image](https://github.com/user-attachments/assets/60e80bda-cdf8-4a6e-9af3-6267148986be) ![image](https://github.com/user-attachments/assets/943eda3b-ff64-494c-b345-9f567e8eed19)
 > Kuvat 7 & 8. Set-Cookie.
 
+Luin lisää Blázquezin (2023) ohjeita ja kokeilin käyttää hänen skriptiään.
 
+En saanut kuvan skriptiä toimimaan. Muokkasin sen alla olevan kuvan mukaiseksi ja sain vastaukseksi `400 Bad Request`.
 
+![image](https://github.com/user-attachments/assets/f1867f16-4085-4d98-808b-5b3c71c46fad)
+> Kuva 9. Shell-skripti keksien saamiseksi.
+
+Avasin ZAPissa pyynnön joka sai vastausviestissä Set-Cookie avain-arvoparin ja klikkailin menemään ja manuaalisesti katsoin keksejä läpi yksi kerrallaan kunnes havaitsin poikkeaman juoksevassa osassa hijack-keksiä. Otin ylös keksien arvot.
+
+![image](https://github.com/user-attachments/assets/87182594-091b-4251-8381-1388481cc88c)
+> Kuva 10. Nappaamani hijack-keksit.
+
+Sovelsin [tästä](https://www.youtube.com/watch?v=R5YPRhM5GyE) videosta (Security in mind 2023) tavan fuzzata timestampin loppuosa ZAPissa.
+
+![image](https://github.com/user-attachments/assets/8a34ba52-7d0d-4a01-9bc8-7897eac72a5b)
+> Kuva 11. Tools -> Fuzz 
+
+Editoin pyyntöön hijack_cookien.
+
+![image](https://github.com/user-attachments/assets/19509066-c1c7-48f0-a128-81e0fdca8b85)
+> Kuva 12. Edit message.
+
+Maalasin unix timestampin loppuosan ja painoin Add. Klikkailin valikoista Numberzzzz. Aloitusarvoksi pienempi timestamp ja lopetusarvoksi isompi timestamp. Käytössä oleva keksi on oltava niiden arvojen välissä.
+
+Mutta...
+
+![image](https://github.com/user-attachments/assets/b7fda99b-baa7-4db9-ad73-218422937747)
+> Kuva 13. Unexpected 500.
+
+Noin puolet vastauksista olivat 500 internal server error. Vastaavaa virhetilannetta en löytänyt mistään ohjeista.
+
+Tämä tehtävä jäänee kesken.
 
 
 ## Lähteet
 
+Blázquez, A.O. 2023. Session Hijacking in OWASP WebGoat . Luettavissa: https://olleb.com/OWASP-WebGoat-hijack-session/ Luettu: 2024-12-03
+
 Karvinen, T. 2023. Try Web Hacking on New Webgoat 2023.4. Luettavissa: https://terokarvinen.com/2023/webgoat-2023-4-ethical-web-hacking/ Luettu: 2024-12-03
 
 Karvinen, T. 2024. Tunkeutumistestaus. H6 Vuohi. Luettavissa: https://terokarvinen.com/tunkeutumistestaus/#h6-vuohi Luettu: 2024-12-03
+
+Security in mind 2023. WebGoat Session Hijacking Tutorial: An In-Depth Guide. Katsottavissa: https://www.youtube.com/watch?v=R5YPRhM5GyE Katsottu: 2024-12-03
 
 UnixTime.org 2024. What is the unix Timestamp? Luettavissa: https://unixtime.org/ Luettu: 2024-12-03
