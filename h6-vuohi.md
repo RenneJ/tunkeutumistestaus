@@ -91,7 +91,9 @@ Mutta...
 ![image](https://github.com/user-attachments/assets/b7fda99b-baa7-4db9-ad73-218422937747)
 > Kuva 13. Unexpected 500.
 
-Noin puolet vastauksista olivat 500 internal server error. Vastaavaa virhetilannetta en löytänyt mistään ohjeista.
+Noin puolet vastauksista olivat 500 internal server error. Vastaavaa virhetilannetta en löytänyt mistään ohjeista. Kyseessä on palvelinpään virhe.
+
+Harmikseni aika on rajallista ja palautukseen on 15h. Sinä aikana pitäisi nukkua ja tehdä muut tämän viikon tehtävät. Nyt epäilen, että Java kannattaisi downgradeta versioon 17...
 
 Tämä tehtävä jäänee kesken.
 
