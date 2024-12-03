@@ -37,8 +37,8 @@ Hieman back end ohjelmointia tehneenä voin sanoa, ettei käyttöoikeuksien mä�
   - suorittaa `getfile` endpointtia vastaavan metodin
   - metodin parametri `filename` saa arvokseen tiedostopolun
   - `../../../etc/passwd` on suhteellinen polku, joka nousee tiedostohakemistossa kolme kohtaa ylöspäin juureen ja yhden alaspäin `etc` hakemistoon ja noutaa tiedoston `passwd`
-[
-**Server-side template injection**](https://portswigger.net/web-security/server-side-template-injection)
+
+[**Server-side template injection**](https://portswigger.net/web-security/server-side-template-injection)
 
 - käyttäjän syöte käsitellään palvelimella, mikä vaikuttaa template-prosessoijaan ja sitä kautta näytettävään html-tiedostoon
 - jos template-kielien yleisesti käytetyt merkit `${{<%[%'"}}%\` nostavat virheilmoituksen käyttäjän syötteestä saattaa kohde olla haavoittuvainen
