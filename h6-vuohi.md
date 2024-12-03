@@ -32,6 +32,12 @@ Suoritettuani yllä olevan komennon avasin verkkoselaimessa `127.0.0.1:8888`, jo
 ![image](https://github.com/user-attachments/assets/3125f985-c7c2-462a-9771-286da73b9eb0)
 > Kuva 3. Vuohi hereillä.
 
+## Ratkaise WebGoat 2023.4
+
+### b) (A1) Broken Access Control
+
+
+
 ## Lähteet
 
 Karvinen, T. 2023. Try Web Hacking on New Webgoat 2023.4. Luettavissa: https://terokarvinen.com/2023/webgoat-2023-4-ethical-web-hacking/ Luettu: 2024-12-03
