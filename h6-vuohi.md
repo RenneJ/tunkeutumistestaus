@@ -55,7 +55,7 @@ Avattuani tämän haasteen ja luettuani tehtävänannon, nappaa toisen käyttäj
 
 Katseeni kohdistui kuvassa näkyvään hijack-keksiin, jonka loppusosa alkaa 1733. Epäilen kyseessä olevan unix timestamp eli millisekunnit 1970-01-01 (UTC) alkaen (UnixTime.org 2024).
 
-Huom! Vaikka tehtävässä on kyseessä harjoituspalvelin, enkä ole yhteydessä ulkoverkkoon Kali-koneellani, pidän silti tärkeänä periaatetta, että en julkaise sessiotunnisteita. Kannattaa harjoitellessaankin toimia hyvien käytänteiden mukaan. Siksi olen kuvasta piilottanut keksit.
+**Huom!** Vaikka tehtävässä on kyseessä harjoituspalvelin, enkä ole yhteydessä ulkoverkkoon Kali-koneellani, pidän silti tärkeänä periaatetta, että en julkaise sessiotunnisteita. Kannattaa harjoitellessaankin toimia hyvien käytänteiden mukaan. Siksi olen kuvasta piilottanut keksit.
 
 
 
