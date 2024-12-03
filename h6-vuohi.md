@@ -50,12 +50,19 @@ ZAP toimii oletetusti.
 
 Avattuani tämän haasteen ja luettuani tehtävänannon, nappaa toisen käyttäjän sessio, avasin selaimen dev toolsin ja katsoin storage-välilehdeltä omat keksini.
 
-![h6bhijack01](https://github.com/user-attachments/assets/f43d1f63-d388-4bc0-9add-9443c1610d8f)
+![image](https://github.com/user-attachments/assets/3c19e49b-8275-48ab-b154-c6147cfee720)
 > Kuva 6. Keksissä unix-time?
 
 Katseeni kohdistui kuvassa näkyvään hijack-keksiin, jonka loppusosa alkaa 1733. Epäilen kyseessä olevan unix timestamp eli millisekunnit 1970-01-01 (UTC) alkaen (UnixTime.org 2024).
 
-**Huom!** Vaikka tehtävässä on kyseessä harjoituspalvelin, enkä ole yhteydessä ulkoverkkoon Kali-koneellani, pidän silti tärkeänä periaatetta, että en julkaise sessiotunnisteita. Kannattaa harjoitellessaankin toimia hyvien käytänteiden mukaan. Siksi olen kuvasta piilottanut keksit.
+Tähän tyssäsi oma osaamiseni katsoin vinkit, joissa sanottiin hijack_cookien alkuosan olevan juokseva numero. Tämäkään ei auttanut minua eteenpäin. Turvauduin läpikvelyohjeisiin.
+
+Olin missannut ZAPissa responsesta merkittävän osan, käyttöliittymässä oli oletuksena peittyneenä näkymä, jossa näytettiin palautettu cookie.
+
+![image](https://github.com/user-attachments/assets/60e80bda-cdf8-4a6e-9af3-6267148986be) ![image](https://github.com/user-attachments/assets/943eda3b-ff64-494c-b345-9f567e8eed19)
+> Kuvat 7 & 8. Set-Cookie.
+
+
 
 
 
