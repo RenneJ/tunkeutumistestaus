@@ -159,6 +159,18 @@ Olin aivan varma, että olin kokeillut tätä. Selasin ZAPissa tekemäni pyynnö
 
 #### Insecure Login
 
+Tässä kohdassa kirjautumistiedot siirretään verkossa selkokielisenä. Haasteen login-painike ymmärtääkseni simuloi toista käyttäjää samassa verkossa. Nythän pyyntö tietenkin tulee omalta laitteeltani ja näkyy proxyssani. Mutta todellisessa tilanteessa, jossa kirjautumistiedot siirrettäisiin selkokielisinä, kuka tahansa, joka on samassa verkossa, voisi napata ne esim. wiresharkilla.
+
+Login **click**.
+
+![image](https://github.com/user-attachments/assets/8c35c85c-7565-4672-bce3-e564214e9c59)
+> Kuva 20. I'm sorry Jack.
+
+![image](https://github.com/user-attachments/assets/37f9af49-c3df-4796-bc2a-66082c3aa6a9)
+> Kuva 21. Suoritettu.
+
+
+
 ## Lähteet
 
 Blázquez, A.O. 2023. Session Hijacking in OWASP WebGoat . Luettavissa: https://olleb.com/OWASP-WebGoat-hijack-session/ Luettu: 2024-12-03
