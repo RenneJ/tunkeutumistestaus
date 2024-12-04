@@ -194,7 +194,13 @@ Sama lähestymistapa kuin edellisessä. Url-parametriä muokkaamalla ohjeessa an
 
 #### Bypass front-end restrictions
 
+![image](https://github.com/user-attachments/assets/2962729c-970b-4f4c-bc2c-1f2e956db670)
+> Kuva 25. Nämä rajoitteet kierrettävä.
 
+Ymmärtääkseni tässä tehtävässä on tarkoitus lähettää pyyntö, jossa lähetetään molemmat arvot select- ja radio-valikoista, checkbox on ja off, text inputissa yli 5 merkkiä pitkä merkkijono ja readonly-kentässä jokin muu merkkijono kuin "change".
+
+![image](https://github.com/user-attachments/assets/c1bdf152-696b-4eb2-b10c-940fd8b59002)
+> Kuva 26. Arvot eroteltu pyynnössä pilkulla.
 
 ## Lähteet
 
