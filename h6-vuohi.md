@@ -101,7 +101,24 @@ Tämä tehtävä jäänee kesken.
 
 #### Insecure Direct Object References
 
-TODO
+![image](https://github.com/user-attachments/assets/1203d27b-82df-4aa0-a386-67f495f887e2)
+> Kuva 14. Lue ohjeet ja kirjaudu.
+
+Seuraavaksi verrataan mitä asiakas näyttää ja mitä palvelin lähettää.
+
+![image](https://github.com/user-attachments/assets/18421d8f-deb2-4c7b-9184-ba710703eb44)
+> Kuva 15. Koko vastaus ZAPissa.
+
+Asiakkaalle näytetään selaimessa ainoastaan name, color ja size. Mutta vastauksessa on myös user id ja role.
+
+Kyseisett attribuutit lisättyäni ja lähetettyäni lomakkeella etenin seuraavaan kohtaan.
+
+Nyt tarkoituksena on päästä käsiksi omaan profiiliin vaihtoehtoisesta urlista. Tarkistin osoitteen ZAPisaa lähettämällä edellisen kohdan GET pyynnön uusiksi endpoint oli `WebGoat/IDOR/profile`. Lisäsin siihen nappaamani userId:n.
+
+![image](https://github.com/user-attachments/assets/6af9179e-fa76-48d2-b7fd-76bb0dffc5e6)
+> Kuva 16. Solved!
+
+
 
 #### Missing Function Level Access Control (ei kohtaa 4)
 
