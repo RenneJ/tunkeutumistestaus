@@ -169,6 +169,31 @@ Login **click**.
 ![image](https://github.com/user-attachments/assets/37f9af49-c3df-4796-bc2a-66082c3aa6a9)
 > Kuva 21. Suoritettu.
 
+### d) (A10) Server-side Request Forgery (WebGoat 2023.4)
+
+#### Server-Side Request Forgery
+
+**Find and modify the request to display Jerry**
+
+Tässä tehtävässä pitää saada Jerryn kuva esiin. Sivun painiketta klikkaamalla kuvalle ilmestyy Tom.
+
+![image](https://github.com/user-attachments/assets/6ba770af-4d62-4439-a6a7-05c9c36f3826)
+> Kuva 22. Painiketta painamalla lähetetty pyyntö ja vastaus.
+
+![image](https://github.com/user-attachments/assets/70c54d00-0af1-49cd-8ed5-37b9dc699117)
+> Kuva 23. ZAPissa muokattu url-parametriä.
+
+**Change the request, so the server gets information from http://ifconfig.pro**
+
+Sama lähestymistapa kuin edellisessä. Url-parametriä muokkaamalla ohjeessa annettuun urliin `http://ifconfig.pro` tehtävän suoritus onnistuu.
+
+![image](https://github.com/user-attachments/assets/1495676e-0006-4b4d-8a3a-74c0a7a820ea)
+> Kuva 24. Muokattu ja lähetetty pyyntö ja vastaus ZAPissa.
+
+### e) Client side (WebGoat 2023.4)
+
+#### Bypass front-end restrictions
+
 
 
 ## Lähteet
