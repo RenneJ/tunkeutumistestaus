@@ -118,7 +118,7 @@ Nyt tarkoituksena on päästä käsiksi omaan profiiliin vaihtoehtoisesta urlist
 ![image](https://github.com/user-attachments/assets/6af9179e-fa76-48d2-b7fd-76bb0dffc5e6)
 > Kuva 16. Solved!
 
-
+Seuraavaksi kokeillaan saada jonkun toisen profiili. Kokeilin tuloksetta `WebGoat/IDOR/profile/1`, `WebGoat/IDOR/profile/2342383` ja `WebGoat/IDOR/profile/2342383`.
 
 #### Missing Function Level Access Control (ei kohtaa 4)
 
