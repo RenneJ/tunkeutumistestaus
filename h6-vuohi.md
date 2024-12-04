@@ -118,7 +118,9 @@ Nyt tarkoituksena on päästä käsiksi omaan profiiliin vaihtoehtoisesta urlist
 ![image](https://github.com/user-attachments/assets/6af9179e-fa76-48d2-b7fd-76bb0dffc5e6)
 > Kuva 16. Solved!
 
-Seuraavaksi kokeillaan saada jonkun toisen profiili. Kokeilin tuloksetta `WebGoat/IDOR/profile/1`, `WebGoat/IDOR/profile/2342383` ja `WebGoat/IDOR/profile/2342383`.
+Seuraavaksi kokeillaan saada jonkun toisen profiili. Kokeilin tuloksetta `WebGoat/IDOR/profile/1`, `WebGoat/IDOR/profile/2342383` ja `WebGoat/IDOR/profile/2342385`.
+
+Ei ollut yksi suurempi tai pienempi. Käynnistin fuzzerin 2000000 - 3000000. Siinä kestää kuitenkin kauan (deadline eta 3min). Vinkit auki ja oikea endpoint `2342388`. Olisin päässyt tähän tulokseen, jos aikaa olisi ollut hieman enemmän. Fuzzeri pyärii nytkin.
 
 #### Missing Function Level Access Control (ei kohtaa 4)
 
@@ -129,10 +131,10 @@ Tehtävänannosta WebGoatissa päättelin, että tämä selvitetään selaimen d
 Tämän jälkeen right-klikkasin lomaketta, jossa haavoittuvuus on (ks. kuva 14).
 
 ![image](https://github.com/user-attachments/assets/821c8026-8f2a-4e5c-8d90-f1f9b571ebf0)
-> Kuva 14. Inspect ohjaa klikattuun elementtiin DOMissa.
+> Kuva 17. Inspect ohjaa klikattuun elementtiin DOMissa.
 
 ![image](https://github.com/user-attachments/assets/daee9a6c-f466-47f9-ab2a-7cfae5dc64a4)
-> Kuva 15. Piilo ei ollutkaan hyvä.
+> Kuva 18. Piilo ei ollutkaan hyvä.
 
 Lähetin lomakkeessa "Users" ja "Config". Tehtävä suoritettu!
 
@@ -141,16 +143,16 @@ Lähetin lomakkeessa "Users" ja "Config". Tehtävä suoritettu!
 Seuraavaksi tarkoituksena on saada käyttäjän Jerry tiiviste esille hyödyntäen aiemman osan tietoja. Edellisessä osiossa piilotettu valinta Users ohjaisi endpointiin `/access-control/users`. Lisäsin sen urliin.
 
 ![image](https://github.com/user-attachments/assets/41838596-85e4-424c-a785-a6f1f94a3b82)
-> Kuva 16. Jotain meni taas rikki.
+> Kuva 19. Jotain meni taas rikki.
 
-Kuvassa 16 on http-vastaus 500 palvelimelta. Vastausdatan lopussa sanotaan, että resurssi ei ole olemassa.
+Kuvassa 19 on http-vastaus 500 palvelimelta. Vastausdatan lopussa sanotaan, että resurssi ei ole olemassa.
 
 Onko tämä tehtävänannossa mainittua "leaked data"?
 
 Tähän taas omat taidot tyssäsi. Avasin vihjeet ja klikkailin loppuun. Muokkasin ZAPissa pyyntöä, jolla sain kuvan 16 vastauksen. Lisäsin pyyntöön `Content-Type: application/json`.
 
 ![image](https://github.com/user-attachments/assets/e4e03e05-d388-432c-8f20-844c152e1460)
-> Kuva 17. Käyttäjätiedot selvillä.
+> Kuva 20. Käyttäjätiedot selvillä.
 
 Lisäsin Jerryn tiivisteen WebGoatin lomakkeelle ja tehtävä on (epätyydyttävästi) suoritettu.
 
@@ -167,12 +169,12 @@ Ei auennut. Klikkailin läpi vinkit ja totisesti olin oikeilla jäljillä. Hiema
 Oho, nyt se toimi...
 
 ![image](https://github.com/user-attachments/assets/4cdf8ba7-a8be-4baf-bcd0-1fe3763bd24d)
-> Kuva 18. Autentikointi kierretty.
+> Kuva 21. Autentikointi kierretty.
 
 Olin aivan varma, että olin kokeillut tätä. Selasin ZAPissa tekemäni pyynnöt (filter POST) näppärästi nuolinäppäimellä alas alkaen ensimmäisestä pyynnöstä ja huomasin virheeni.
 
 ![image](https://github.com/user-attachments/assets/87d8e47d-4cdb-46ed-82b9-aa7d5e2b4ebe)
-> Kuva 19. Huolimattomuusvirhe.
+> Kuva 22. Huolimattomuusvirhe.
 
 #### Insecure Login
 
@@ -181,10 +183,10 @@ Tässä kohdassa kirjautumistiedot siirretään verkossa selkokielisenä. Haaste
 Login **click**.
 
 ![image](https://github.com/user-attachments/assets/8c35c85c-7565-4672-bce3-e564214e9c59)
-> Kuva 20. I'm sorry Jack.
+> Kuva 23. I'm sorry Jack.
 
 ![image](https://github.com/user-attachments/assets/37f9af49-c3df-4796-bc2a-66082c3aa6a9)
-> Kuva 21. Suoritettu.
+> Kuva 24. Suoritettu.
 
 ### d) (A10) Server-side Request Forgery (WebGoat 2023.4)
 
@@ -195,29 +197,29 @@ Login **click**.
 Tässä tehtävässä pitää saada Jerryn kuva esiin. Sivun painiketta klikkaamalla kuvalle ilmestyy Tom.
 
 ![image](https://github.com/user-attachments/assets/6ba770af-4d62-4439-a6a7-05c9c36f3826)
-> Kuva 22. Painiketta painamalla lähetetty pyyntö ja vastaus.
+> Kuva 25. Painiketta painamalla lähetetty pyyntö ja vastaus.
 
 ![image](https://github.com/user-attachments/assets/70c54d00-0af1-49cd-8ed5-37b9dc699117)
-> Kuva 23. ZAPissa muokattu url-parametriä.
+> Kuva 26. ZAPissa muokattu url-parametriä.
 
 **Change the request, so the server gets information from http://ifconfig.pro**
 
 Sama lähestymistapa kuin edellisessä. Url-parametriä muokkaamalla ohjeessa annettuun urliin `http://ifconfig.pro` tehtävän suoritus onnistuu.
 
 ![image](https://github.com/user-attachments/assets/1495676e-0006-4b4d-8a3a-74c0a7a820ea)
-> Kuva 24. Muokattu ja lähetetty pyyntö ja vastaus ZAPissa.
+> Kuva 27. Muokattu ja lähetetty pyyntö ja vastaus ZAPissa.
 
 ### e) Client side (WebGoat 2023.4)
 
 #### Bypass front-end restrictions
 
 ![image](https://github.com/user-attachments/assets/2962729c-970b-4f4c-bc2c-1f2e956db670)
-> Kuva 25. Nämä rajoitteet kierrettävä.
+> Kuva 28. Nämä rajoitteet kierrettävä.
 
 Ymmärtääkseni tässä tehtävässä on tarkoitus lähettää pyyntö, jossa lähetetään molemmat arvot select- ja radio-valikoista, checkbox on ja off, text inputissa yli 5 merkkiä pitkä merkkijono ja readonly-kentässä jokin muu merkkijono kuin "change".
 
 ![image](https://github.com/user-attachments/assets/c1bdf152-696b-4eb2-b10c-940fd8b59002)
-> Kuva 26. Arvot eroteltu pyynnössä pilkulla.
+> Kuva 29. Arvot eroteltu pyynnössä pilkulla.
 
 ## f) Editmenu. Lisää uusi oma komento micro:n palettero-lisäkkeellä käytettäväksi.
 
@@ -235,25 +237,25 @@ Minun piti vähän aikaa kikkailla ymmärtääkseni miten homma toimii.
 Tajusin toimintalogiikan, microssa CTRL + e ja kirjoitin kenttään grep "jotain" ja virheilmoitus `unknown command`. Kokeilin CTRL + e ja kenttään textfilter [sana] ja virheilmoitus oli `executable file not found`. Eli tarvitaan molemmat textfilter grep "jotain". Nyt virheenä `exit status 1`.
 
 ![image](https://github.com/user-attachments/assets/5f3717be-536d-4a43-b244-c067b3680e20)
-> Kuva 27. Komento: textfilter grep "jotain".
+> Kuva 30. Komento: textfilter grep "jotain".
 
 Olin kyllä testannut paletteroa edellisellä tunnilla ja yritin muistella miten sain sen toimimaan. Rivit täytyy valita ensin ja sitten ajaa komento. Nyt komento: textfilter grep "jotain" jättää editoriin jäljelle ainoastaan "jotain".
 
 Kokeillaan tehdä oma komento. Eli CTRL + space avaa palettetero-näkymän ja nuolinäppäimillä valitaan haluttu komento, valitaan editmenu.
 
 ![image](https://github.com/user-attachments/assets/d5b10287-df70-4824-85ce-4643496543e5)
-> Kuva 28. Kirjoittamani komennot.
+> Kuva 31. Kirjoittamani komennot.
 
 ![image](https://github.com/user-attachments/assets/537baf9a-0c09-4283-a713-649791da7796)
-> Kuva 29. Näkyvät nyt valikossa (CTRL + space).
+> Kuva 32. Näkyvät nyt valikossa (CTRL + space).
 
 Testataan omia komentoja.
 
 ![image](https://github.com/user-attachments/assets/f040463c-69fa-44d1-8a20-84f8f974c002)
-> Kuva 30. Sort.
+> Kuva 33. Sort.
 
 ![image](https://github.com/user-attachments/assets/6c7dfe7b-e4d6-4f8a-a976-151edbdbba8f)
-> Kuva 31. Sort reverse.
+> Kuva 34. Sort reverse.
 
 ## Lähteet
 
