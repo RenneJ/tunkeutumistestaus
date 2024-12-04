@@ -46,7 +46,9 @@ ZAP toimii oletetusti.
 ![image](https://github.com/user-attachments/assets/f451e4f2-3588-48f2-90a8-b302b4654e83)
 > Kuva 5. ZAPping.
 
-### b) (A1) Broken Access Control
+### b) (A1) Broken Access Control (WebGoat 2023.4)
+
+#### Hijack a session
 
 Avattuani tämän haasteen ja luettuani tehtävänannon, nappaa toisen käyttäjän sessio, avasin selaimen dev toolsin ja katsoin storage-välilehdeltä omat keksini.
 
@@ -69,7 +71,7 @@ En saanut kuvan skriptiä toimimaan. Muokkasin sen alla olevan kuvan mukaiseksi 
 ![image](https://github.com/user-attachments/assets/f1867f16-4085-4d98-808b-5b3c71c46fad)
 > Kuva 9. Shell-skripti keksien saamiseksi.
 
-Avasin ZAPissa pyynnön joka sai vastausviestissä Set-Cookie avain-arvoparin ja klikkailin menemään ja manuaalisesti katsoin keksejä läpi yksi kerrallaan kunnes havaitsin poikkeaman juoksevassa osassa hijack-keksiä. Otin ylös keksien arvot.
+Avasin ZAPissa pyynnön joka sai vastausviestissä Set-Cookie avain-arvoparin ja lähetin uudelleen useamman pyynnön ja manuaalisesti katsoin keksejä läpi yksi kerrallaan kunnes havaitsin poikkeaman juoksevassa osassa hijack-keksiä. Otin ylös keksien arvot.
 
 ![image](https://github.com/user-attachments/assets/87182594-091b-4251-8381-1388481cc88c)
 > Kuva 10. Nappaamani hijack-keksit.
@@ -97,6 +99,65 @@ Harmikseni aika on rajallista ja palautukseen on 15h. Sinä aikana pitäisi nukk
 
 Tämä tehtävä jäänee kesken.
 
+#### Insecure Direct Object References
+
+TODO
+
+#### Missing Function Level Access Control (ei kohtaa 4)
+
+**Relying on obscurity**
+
+Tehtävänannosta WebGoatissa päättelin, että tämä selvitetään selaimen dev toolseilla (F12 Firefoxissa). Klikkailin auki Inspectorissa kaikki elementit auki mutta en löytänyt vastausta.
+
+Tämän jälkeen right-klikkasin lomaketta, jossa haavoittuvuus on (ks. kuva 14).
+
+![image](https://github.com/user-attachments/assets/821c8026-8f2a-4e5c-8d90-f1f9b571ebf0)
+> Kuva 14. Inspect ohjaa klikattuun elementtiin DOMissa.
+
+![image](https://github.com/user-attachments/assets/daee9a6c-f466-47f9-ab2a-7cfae5dc64a4)
+> Kuva 15. Piilo ei ollutkaan hyvä.
+
+Lähetin lomakkeessa "Users" ja "Config". Tehtävä suoritettu!
+
+**Gathering User Info**
+
+Seuraavaksi tarkoituksena on saada käyttäjän Jerry tiiviste esille hyödyntäen aiemman osan tietoja. Edellisessä osiossa piilotettu valinta Users ohjaisi endpointiin `/access-control/users`. Lisäsin sen urliin.
+
+![image](https://github.com/user-attachments/assets/41838596-85e4-424c-a785-a6f1f94a3b82)
+> Kuva 16. Jotain meni taas rikki.
+
+Kuvassa 16 on http-vastaus 500 palvelimelta. Vastausdatan lopussa sanotaan, että resurssi ei ole olemassa.
+
+Onko tämä tehtävänannossa mainittua "leaked data"?
+
+Tähän taas omat taidot tyssäsi. Avasin vihjeet ja klikkailin loppuun. Muokkasin ZAPissa pyyntöä, jolla sain kuvan 16 vastauksen. Lisäsin pyyntöön `Content-Type: application/json`.
+
+![image](https://github.com/user-attachments/assets/e4e03e05-d388-432c-8f20-844c152e1460)
+> Kuva 17. Käyttäjätiedot selvillä.
+
+Lisäsin Jerryn tiivisteen WebGoatin lomakkeelle ja tehtävä on (epätyydyttävästi) suoritettu.
+
+### c) (A7) Identity & Auth Failure (WebGoat 2023.4)
+
+#### Authentication Bypasses
+
+Tarkoituksena kiertää 2FA turvakysymykset. Ohjeiden esimerkissä oli keissi, jossa turvakysymysparametrit poistettiin pyynnöstä, jolloin autentikointi kierrettiin.
+
+Kokeilin sitä tietenkin itse ensimmäisenä, ei ollut näin helppoa. Poistelin pyynnöstä parametri kerrallaan ja sain saman vastauksen epäonnistuneesta yrityksestä. Kokeilin myös nimetä parametrit uusiksi secQuestion0 -> secAnswer0 ja secQuestion1 -> secQuestion2, vaihdoin argumentin ja arvon paikkoja sekä vastaavia yhdistelmiä ja tyhjiä arvoja.
+
+Ei auennut. Klikkailin läpi vinkit ja totisesti olin oikeilla jäljillä. Hieman turhautuneena kokeilin uudestaan nimetä secQuestion0 -> secQuestion2 ja secQuestion1 -> secQuestion3.
+
+Oho, nyt se toimi...
+
+![image](https://github.com/user-attachments/assets/4cdf8ba7-a8be-4baf-bcd0-1fe3763bd24d)
+> Kuva 18. Autentikointi kierretty.
+
+Olin aivan varma, että olin kokeillut tätä. Selasin ZAPissa tekemäni pyynnöt (filter POST) näppärästi nuolinäppäimellä alas alkaen ensimmäisestä pyynnöstä ja huomasin virheeni.
+
+![image](https://github.com/user-attachments/assets/87d8e47d-4cdb-46ed-82b9-aa7d5e2b4ebe)
+> Kuva 19. Huolimattomuusvirhe.
+
+#### Insecure Login
 
 ## Lähteet
 
