@@ -221,6 +221,15 @@ Ymmärtääkseni tässä tehtävässä on tarkoitus lähettää pyyntö, jossa l
 ![image](https://github.com/user-attachments/assets/c1bdf152-696b-4eb2-b10c-940fd8b59002)
 > Kuva 29. Arvot eroteltu pyynnössä pilkulla.
 
+[EDIT 2024-12-05]
+
+En ollut huomannut, että tässäkin kohdassa oli kaksi osaa.
+
+Asiakaspäässä tehdyt regular expression -validointi auttaa käyytäjää syöttämään oikeita arvoja. Sitä ei tule ajatella tietoturvakäytänteenä. Käyttäjän syöte tulee myös validoida palvelinpäässä. Ao. kuvassa ZAPissa on muokattu lähetettävää pyyntöä ja täten kierretty asiakaspään validointi.
+
+![image](https://github.com/user-attachments/assets/cd9db071-8c42-4dd6-9d5b-a844be03c6bf)
+> Kuva 30. Regexien kiertäminen.
+
 ## f) Editmenu. Lisää uusi oma komento micro:n palettero-lisäkkeellä käytettäväksi.
 
 Asensin edellisellä tunnilla (2024-11-29) koneelleni (Ubuntu 22.04) paletteron. Asennan sen nyt myös VM Kalille.
@@ -237,25 +246,25 @@ Minun piti vähän aikaa kikkailla ymmärtääkseni miten homma toimii.
 Tajusin toimintalogiikan, microssa CTRL + e ja kirjoitin kenttään grep "jotain" ja virheilmoitus `unknown command`. Kokeilin CTRL + e ja kenttään textfilter [sana] ja virheilmoitus oli `executable file not found`. Eli tarvitaan molemmat textfilter grep "jotain". Nyt virheenä `exit status 1`.
 
 ![image](https://github.com/user-attachments/assets/5f3717be-536d-4a43-b244-c067b3680e20)
-> Kuva 30. Komento: textfilter grep "jotain".
+> Kuva 31. Komento: textfilter grep "jotain".
 
 Olin kyllä testannut paletteroa edellisellä tunnilla ja yritin muistella miten sain sen toimimaan. Rivit täytyy valita ensin ja sitten ajaa komento. Nyt komento: textfilter grep "jotain" jättää editoriin jäljelle ainoastaan "jotain".
 
 Kokeillaan tehdä oma komento. Eli CTRL + space avaa palettetero-näkymän ja nuolinäppäimillä valitaan haluttu komento, valitaan editmenu.
 
 ![image](https://github.com/user-attachments/assets/d5b10287-df70-4824-85ce-4643496543e5)
-> Kuva 31. Kirjoittamani komennot.
+> Kuva 32. Kirjoittamani komennot.
 
 ![image](https://github.com/user-attachments/assets/537baf9a-0c09-4283-a713-649791da7796)
-> Kuva 32. Näkyvät nyt valikossa (CTRL + space).
+> Kuva 33. Näkyvät nyt valikossa (CTRL + space).
 
 Testataan omia komentoja.
 
 ![image](https://github.com/user-attachments/assets/f040463c-69fa-44d1-8a20-84f8f974c002)
-> Kuva 33. Sort.
+> Kuva 34. Sort.
 
 ![image](https://github.com/user-attachments/assets/6c7dfe7b-e4d6-4f8a-a976-151edbdbba8f)
-> Kuva 34. Sort reverse.
+> Kuva 35. Sort reverse.
 
 ## Lähteet
 
