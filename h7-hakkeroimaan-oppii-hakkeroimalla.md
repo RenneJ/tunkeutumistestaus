@@ -4,7 +4,13 @@
 
 ### A Systematic Literature Review on the Characteristics and Effectiveness of Web Application Vulnerability Scanners (Alazmi & De Leon 2022)
 
-
+- Alazmi ja De Leon arvioivat artikkelissaan WVS:ien (Web Application Vulnerability Scanner) laatua ja tehokkuutta
+  - WVS:iä käytetään web-sovellusten haavoittuvuuksien etsimiseen
+  - artikkelissa tekijöiden havainnot 90:stä tieteellisestä julkaisusta
+  - julkaisuissa 30 eri WVS:ää
+    - näistä vain 12 oli arvioitu ("original evaluation", lienee viittaavan tieteelliseen arviointiin ko. työkalusta)
+    - testasivat OWASP TOP10 listalta kahta haavoittuvuutta (injection ja XSS)
+    - arvioitujen WVS:ien välillä myös suuria eroja haavoittuvuuksien havaitsemisessa
 
 ## Lähteet
 
