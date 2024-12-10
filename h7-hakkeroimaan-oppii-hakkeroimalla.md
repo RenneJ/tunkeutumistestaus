@@ -4,6 +4,9 @@
 
 ### A Systematic Literature Review on the Characteristics and Effectiveness of Web Application Vulnerability Scanners (Alazmi & De Leon 2022)
 
+![image](https://github.com/user-attachments/assets/5ad65f7f-3ed2-4be2-b299-912c1090c92f)
+> Kuva 1. Jufo-info, IEEE Access. Lähde: https://jfp.csc.fi/jufoportaali?Jufo_ID=78297
+
 - Alazmi ja De Leon arvioivat artikkelissaan WVS:ien (Web Vulnerability Scanner) laatua ja tehokkuutta
   - WVS:iä käytetään web-sovellusten haavoittuvuuksien etsimiseen
   - artikkelissa tekijöiden havainnot 90:stä tieteellisestä julkaisusta
